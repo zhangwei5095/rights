@@ -94,3 +94,5 @@ E:\github\rights\Rights\DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\github\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\github\rights\Rights\DAL\obj\Debug\DAL.dll
 E:\github\rights\Rights\DAL\obj\Debug\DAL.pdb
+F:\newCode\git2\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\newCode\git2\rights\Rights\DAL\obj\Debug\DAL.pdb

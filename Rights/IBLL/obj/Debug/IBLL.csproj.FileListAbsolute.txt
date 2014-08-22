@@ -83,3 +83,5 @@ E:\github\rights\Rights\IBLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\github\rights\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
 E:\github\rights\Rights\IBLL\obj\Debug\IBLL.dll
 E:\github\rights\Rights\IBLL\obj\Debug\IBLL.pdb
+F:\newCode\git2\rights\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
+F:\newCode\git2\rights\Rights\IBLL\obj\Debug\IBLL.pdb
