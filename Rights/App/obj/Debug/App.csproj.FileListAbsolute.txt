@@ -141,3 +141,5 @@ E:\github\rights\Rights\App\bin\zh-Hans\EntityFramework.resources.dll
 E:\github\rights\Rights\App\obj\Debug\App.csprojResolveAssemblyReference.cache
 E:\github\rights\Rights\App\obj\Debug\App.dll
 E:\github\rights\Rights\App\obj\Debug\App.pdb
+F:\newCode\git2\rights\Rights\App\obj\Debug\App.csprojResolveAssemblyReference.cache
+F:\newCode\git2\rights\Rights\App\obj\Debug\App.pdb

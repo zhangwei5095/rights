@@ -94,3 +94,5 @@ E:\github\rights\Rights\BLL\bin\Debug\IBLL.pdb
 E:\github\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 E:\github\rights\Rights\BLL\obj\Debug\BLL.dll
 E:\github\rights\Rights\BLL\obj\Debug\BLL.pdb
+F:\newCode\git2\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\newCode\git2\rights\Rights\BLL\obj\Debug\BLL.pdb
