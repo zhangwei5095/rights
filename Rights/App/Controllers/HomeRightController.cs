@@ -17,6 +17,8 @@ namespace Langben.App.Controllers
 
         public ActionResult Index()
         {
+
+ 
             //var person = Utils.ReadCookieAsObj("SysPerson");
             //if (person == null)
             //{

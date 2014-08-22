@@ -125,7 +125,7 @@ namespace Models
             //记录日志
 
         }
-        public string ReadExcle(string path = @"~/up/a.xls", int from = 1)
+        public string ReadExcle(string path = @"~/up/b.xls", int from = 1)
         {
             HSSFWorkbook _book = new HSSFWorkbook();
             string xlsPath = System.Web.HttpContext.Current.Server.MapPath(path);
@@ -136,7 +136,7 @@ namespace Models
             string guid = Guid.NewGuid().ToString();
             string saveFileName = xlsPath.Path(guid);
 
-            StringBuilder sb = new StringBuilder();
+            
             StringBuilder sb2 = new StringBuilder();
 
             string courty = "";
@@ -152,137 +152,33 @@ namespace Models
             //{
 
             //}
-
-            //overseaSchoolItemID[0] = new Array("38001", "38002", "38003", "38004", "38005", "38006", "38007", "38008", "38009", "38010", "380");
+ 
             //最后一列的标号  即总的行数
             int rowCount = sheet.LastRowNum;
-            sb.Append(",");
-            int f = 1;
-            int guojia = 3;
-            for (int i = (sheet.FirstRowNum); i < sheet.LastRowNum; i++)
+            
+            for (int i =0; i <= sheet.LastRowNum; i++)
             {
 
                 var row = sheet.GetRow(i);
 
-                if (!string.IsNullOrWhiteSpace(courty) && courty.Trim() != row.GetCell(0).ToString().Trim())
+                if (row!=null)
                 {
-                    sb.Append(string.Format(temp, sb2.ToString(), guojia));
-                    sb2.Clear();
-                    f = 1;
-                    guojia++;
-                }
-
-                if (f != 1)
+                        courty = row.GetCell(0).ToString();
+                if (!string.IsNullOrWhiteSpace(courty))
                 {
-                    sb2.Append(",");
+                    courty = courty.Split(' ')[0];
+                    sb2.Append(string.Format("'{0}',", courty));
 
+                    
                 }
-                f++;
-                courty = row.GetCell(0).ToString();
-                sb2.Append(string.Format("\"{0}\",\"{1}\"", row.GetCell(1).ToString(), row.GetCell(0).ToString()));
-
+                }
+            
+               
 
 
             }
-            var da = sb.ToString();
-
-
-
-            //string courty = "";
-
-            //string temp = "overseaSchoolItemValue[{1}] = new Array({0});\n\r";
-            ////获取sheet的首行
-            //var headerRow = sheet.GetRow(0);
-
-            ////一行最后一个方格的编号 即总的列数
-            //int cellCount = headerRow.LastCellNum;
-
-            ////for (int i = headerRow.FirstCellNum; i < cellCount; i++)
-            ////{
-
-            ////}
-
-            ////overseaSchoolItemID[0] = new Array("38001", "38002", "38003", "38004", "38005", "38006", "38007", "38008", "38009", "38010", "380");
-            ////最后一列的标号  即总的行数
-            //int rowCount = sheet.LastRowNum;
-            //sb.Append(",");
-            //int f = 1;
-            //int guojia = 3;
-            //for (int i = (sheet.FirstRowNum); i < sheet.LastRowNum; i++)
-            //{
-
-            //    var row = sheet.GetRow(i);
-
-            //    if (!string.IsNullOrWhiteSpace(courty) && courty.Trim() != row.GetCell(1).ToString().Trim())
-            //    {
-            //        sb.Append(string.Format(temp, sb2.ToString(), guojia));
-            //        sb2.Clear();
-            //        f = 1;
-            //        guojia++;
-            //    }
-
-            //    if (f != 1)
-            //    {
-            //        sb2.Append(",");
-
-            //    }
-            //    f++;
-            //    courty = row.GetCell(1).ToString();
-            //    sb2.Append(string.Format("\"{0}\"", row.GetCell(2).ToString()));
-
-
-
-            //}
-            //var da = sb.ToString();
-
-
-
-            //string courty = "";
-
-            //string temp = "overseaSchoolItemID[{1}] = new Array({0});\n\r";
-            ////获取sheet的首行
-            //var headerRow = sheet.GetRow(0);
-
-            ////一行最后一个方格的编号 即总的列数
-            //int cellCount = headerRow.LastCellNum;
-
-            ////for (int i = headerRow.FirstCellNum; i < cellCount; i++)
-            ////{
-
-            ////}
-
-            ////overseaSchoolItemID[0] = new Array("38001", "38002", "38003", "38004", "38005", "38006", "38007", "38008", "38009", "38010", "380");
-            ////最后一列的标号  即总的行数
-            //int rowCount = sheet.LastRowNum;
-            //sb.Append(",");
-            //int f = 1;
-            //int guojia = 3;
-            //for (int i = (sheet.FirstRowNum ); i < sheet.LastRowNum; i++)
-            //{
-
-            //    var row = sheet.GetRow(i);
-
-            //    if (!string.IsNullOrWhiteSpace(courty) && courty.Trim() != row.GetCell(1).ToString().Trim())
-            //    {
-            //        sb.Append(string.Format(temp, sb2.ToString(), guojia));
-            //        sb2.Clear();
-            //        f = 1;
-            //        guojia++;
-            //    }
-                 
-            //        if (f != 1)
-            //        {
-            //            sb2.Append(",");
-
-            //        }
-            //        f++;
-            //        courty = row.GetCell(1).ToString();
-            //        sb2.Append(string.Format("\"{0}\"", row.GetCell(0).ToString()));
-
+            var da = sb2.ToString();
  
-
-            //}
-            //var da = sb.ToString();
             hssfworkbook = null;
             sheet = null;
 

@@ -352,12 +352,12 @@ namespace Langben.BLL
                 }
                 foreach (SysOperation item in listEntity)
                 {
-                    editEntity.SysOperation.Remove(item);//查询数据库
+              var asdf=      editEntity.SysOperation.Remove(item);//查询数据库
                     count++;
                 }
-            } 
-
-            if (count == repository.Save(db))
+            }
+            var sdfasd = repository.Save(db);
+            if (count == sdfasd)
             {
                 return true;
             }
