@@ -32,3 +32,4 @@ F:\newCode\git2\rights\Rights\Common\bin\Debug\Common.dll
 F:\newCode\git2\rights\Rights\Common\bin\Debug\Common.pdb
 F:\newCode\git2\rights\Rights\Common\obj\Debug\Common.dll
 F:\newCode\git2\rights\Rights\Common\obj\Debug\Common.pdb
+F:\newCode\git2\rights\Rights\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

@@ -177,6 +177,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\NPOI.dll" />
+    <Content Include="bin\NPOI.OOXML.dll" />
+    <Content Include="bin\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Default.css" />
