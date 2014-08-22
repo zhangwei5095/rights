@@ -136,12 +136,12 @@ namespace Models
             string guid = Guid.NewGuid().ToString();
             string saveFileName = xlsPath.Path(guid);
 
-            
+
             StringBuilder sb2 = new StringBuilder();
 
             string courty = "";
 
-            string temp =  "overseaotherSchoolClass[{1}] = new Array({0});\n\r";
+
             //获取sheet的首行
             var headerRow = sheet.GetRow(0);
 
@@ -152,33 +152,33 @@ namespace Models
             //{
 
             //}
- 
+
             //最后一列的标号  即总的行数
             int rowCount = sheet.LastRowNum;
-            
-            for (int i =0; i <= sheet.LastRowNum; i++)
+
+            for (int i = 0; i <= sheet.LastRowNum; i++)
             {
 
                 var row = sheet.GetRow(i);
 
-                if (row!=null)
+                if (row != null)
                 {
-                        courty = row.GetCell(0).ToString();
-                if (!string.IsNullOrWhiteSpace(courty))
-                {
-                    courty = courty.Split(' ')[0];
-                    sb2.Append(string.Format("'{0}',", courty));
+                    courty = row.GetCell(0).ToString();
+                    if (!string.IsNullOrWhiteSpace(courty))
+                    {
+                        courty = courty.Split(' ')[0];
+                        sb2.Append(string.Format("'{0}',", courty));
 
-                    
+
+                    }
                 }
-                }
-            
-               
+
+
 
 
             }
             var da = sb2.ToString();
- 
+
             hssfworkbook = null;
             sheet = null;
 
