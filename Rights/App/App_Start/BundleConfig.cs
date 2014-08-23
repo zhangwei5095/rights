@@ -10,7 +10,9 @@ namespace App
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery.min.js",
-                        "~/Scripts/JScriptCommon.js"));
+                        "~/Scripts/JScriptCommon.js",
+                        "~/Res/ckeditor/ckeditor.js" 
+                        ));
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                        "~/Res/easyui/jquery.easyui.min.js",
                       "~/Res/easyui/locale/easyui-lang-zh_CN.js",

@@ -11,21 +11,32 @@
       创建  
  
  }
+@section CurentPlaceJS {
+  var oEditor = CKEDITOR.instances.Message.getData();
+    if(oEditor==null||oEditor=='')
+    {
+        alert('内容不能为空');
+        return false;
+    }
+    $("#Message").val(oEditor);           
+
+}
     <fieldset>
         <legend>
             <input class="a2 f2" type="submit" value="创建" />
             <input class="a2 f2" type="button" onclick="BackList('SysAnnouncement')" value="返回" />
         </legend>
         <div class="bigdiv">
-            
-            <br style="clear: both;" />
+             
             <div class="editor-label">
                 @Html.LabelFor(model => model.Message)：
             </div>
-            <div class="textarea-box">
-                @Html.TextAreaFor(model => model.Message) 
-                @Html.ValidationMessageFor(model => model.Message) 
-            </div>     
+            <div class="editor-ckeditor">
+
+                <textarea id="Message" rows="10" name="Message" class="ckeditor"></textarea>
+
+            </div> 
+             <br style="clear: both;" />   
             <div class="editor-label">
                 @Html.LabelFor(model => model.State)：
             </div>

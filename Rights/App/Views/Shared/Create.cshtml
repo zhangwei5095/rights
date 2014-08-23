@@ -27,11 +27,13 @@
                 data: $(form).serialize(),
                 dataType: "json",
                 success: function (data) {
+                     
                     if ($.messager) {
                         $.messager.defaults.ok = '继续';
                         $.messager.defaults.cancel = '返回';
 
                         $.messager.confirm('操作提示', data, function (r) {
+                            
                             if (!r) {
                                 window.location.href = 'javascript:history.go(-1)';
                             }
@@ -53,6 +55,8 @@
             });
             $("form").submit(function (form) {
                 if (form.result) {
+                     @RenderSection("CurentPlaceJS", false)
+
                     ajaxFrom(this, this.action);
                 }
                 return false;

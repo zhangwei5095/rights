@@ -53,6 +53,7 @@
             });
             $("form").submit(function (form) {
                 if (form.result) {
+                    @RenderSection("CurentPlaceJS", false)
                     ajaxFrom(this, this.action);
                 }
                 return false;

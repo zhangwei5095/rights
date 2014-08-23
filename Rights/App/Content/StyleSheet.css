@@ -69,6 +69,16 @@ input {
 .datagrid-header-row {
     font-weight: bold;
 }
+
+.editor-ckeditor {
+    height: 300px;
+    width: 690px;
+    float: left;
+    margin: 11px 0 11px 6px;
+    display: inline;
+}
+
+
 /* Styles for Search
 ----------------------------------------------------------*/
 
@@ -130,9 +140,11 @@ input {
     margin: 11px 0 11px 6px;
     display: inline;
 }
-.input_search-field-time input {
+
+    .input_search-field-time input {
         width: 85px;
     }
+
 .input_search-field select {
     font-family: 微软雅黑;
     height: 23px;

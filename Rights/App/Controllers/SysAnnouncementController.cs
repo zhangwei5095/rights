@@ -112,7 +112,7 @@ namespace Langben.App.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost]
-        [SupportFilter]
+        [ValidateInput(false)]
         public ActionResult Create(SysAnnouncement entity)
         {           
             if (entity != null && ModelState.IsValid)
@@ -165,7 +165,7 @@ namespace Langben.App.Controllers
         /// <param name="collection">客户端传回的集合</param>
         /// <returns></returns>
         [HttpPost]
-        [SupportFilter]
+        [ValidateInput(false)]
         public ActionResult Edit(string id, SysAnnouncement entity)
         {
             if (entity != null && ModelState.IsValid)
