@@ -53,7 +53,7 @@ namespace Langben.DAL
 			[Display(Name = "确认密码", Order = 5)]
 			[StringLength(200, ErrorMessage = "长度不可超过200")]
 			[DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
-			[System.Web.Mvc.Compare("Password", ErrorMessage = "两次密码不一致")]
+            [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "两次密码不一致")]
 			public object SurePassword { get; set; }
 
 			[ScaffoldColumn(true)]
