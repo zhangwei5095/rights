@@ -29,6 +29,7 @@
           <Property Name="State" Type="nvarchar" MaxLength="200" />
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+          <Property Name="Title" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="SysDepartment">
           <Key>
@@ -615,6 +616,7 @@
           <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SysDepartment">
           <Key>
@@ -962,6 +964,7 @@
           <EntitySetMapping Name="SysAnnouncement">
             <EntityTypeMapping TypeName="SysModel.SysAnnouncement">
               <MappingFragment StoreEntitySet="SysAnnouncement">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="State" ColumnName="State" />

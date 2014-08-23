@@ -5,7 +5,7 @@
 @using Models
  
  
-
+<div id="dQuestion" style="display:none;" onmouseover="$(this).show()" onmouseout="$(this).hide()"></div>
 <script type="text/javascript" language="javascript">
         $(function () {
 
@@ -48,44 +48,49 @@
                         handler: function () {
                             return flexiModify();
                         }
-                    }, {
-                        text: '导出',
-                        iconCls: 'icon-excel',
-                        handler: function () {
-                            return flexiExport();
-                        }
                     } ],
                 columns: [[
                    
                     
-					{ field: 'Message', title: '@Html.DisplayNameFor(model => model.Message)', width: 259 }
-					,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 259 }
-					,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 259
+					{ field: 'Title', title: '@Html.DisplayNameFor(model => model.Title)', width: 359,
+                    		    formatter: function (value, rec, index) {
+                    		        var q = '<span onmouseout="HideQuestion()" onmouseover="ShowQuestion(event,' + index + ')" style="cursort:pointer">' + rec.Title + '</span>';
+                    		        return q;
+                    		    }
+                    		}
+					,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 109 }
+					,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 109
                     , formatter: function (value, rec) {
                         if (value) {
                             return dateConvert(value);
                         } 
                     } 
 }
-					,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 259 }
+					,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 109 }
                 ]],
                 pagination: true,
                 rownumbers: true
 
             });
 
-             var parent = window.dialogArguments; //获取父页面
-            if (parent == "undefined" || parent == null) {
-                //    不是在iframe中打开的
-            } else {
-                //隐藏所有的按钮和分隔符
-                $(".l-btn.l-btn-plain").hide();
-                $(".datagrid-btn-separator").hide();
-                //添加选择按钮
-                $('#flexigridData').datagrid("addToolbarItem", [{ "text": "选择", "iconCls": "icon-ok", handler: function () { flexiSelect(); } }]);
-            }
+              
         });
 
+
+    function ShowQuestion(e, rowIndex) {
+        var ev = e || window.event;
+        var xx = ev.clientX + document.body.scrollLeft - document.body.clientLeft;
+        var yy = ev.clientY + document.body.scrollTop - document.body.clientTop;
+        $("#dQuestion").css({ "position": "absolute", "cursor": "pointer", "background": "#fff", "z-index": "2001", "border": "1px solid #ccc", "top": +yy, "left": +xx });
+        var row = $('#flexigridData').datagrid('getRows')[rowIndex];
+        if (row && row.Message && $.trim(row.Message) != "")
+            $('#dQuestion').html(row.Message).show();
+        else
+            $('#dQuestion').html("无内容").show();
+    }
+    function HideQuestion() {
+        $('#dQuestion').hide();
+    }
         //“查询”按钮，弹出查询框
         function flexiQuery() {
 

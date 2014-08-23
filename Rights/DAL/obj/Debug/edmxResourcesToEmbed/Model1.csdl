@@ -88,6 +88,7 @@
     <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="SysDepartment">
     <Key>

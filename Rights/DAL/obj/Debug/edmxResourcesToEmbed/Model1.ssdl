@@ -24,6 +24,7 @@
     <Property Name="State" Type="nvarchar" MaxLength="200" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="Title" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="SysDepartment">
     <Key>

@@ -19,5 +19,6 @@ namespace Langben.DAL
         public string State { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public string CreatePerson { get; set; }
+        public string Title { get; set; }
     }
 }

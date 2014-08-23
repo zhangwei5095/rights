@@ -20,6 +20,7 @@
     <EntitySetMapping Name="SysAnnouncement">
       <EntityTypeMapping TypeName="SysModel.SysAnnouncement">
         <MappingFragment StoreEntitySet="SysAnnouncement">
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="State" ColumnName="State" />

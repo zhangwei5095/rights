@@ -35,22 +35,26 @@ namespace Langben.DAL
 
 			[ScaffoldColumn(true)]
 			[Display(Name = "用户名", Order = 2)]
+            [Required(ErrorMessage = "请填写")]
 			[StringLength(200, ErrorMessage = "长度不可超过200")]
 			public object Name { get; set; }
 
 			[ScaffoldColumn(true)]
 			[Display(Name = "姓名", Order = 3)]
+            [Required(ErrorMessage = "请填写")]
 			[StringLength(200, ErrorMessage = "长度不可超过200")]
 			public object MyName { get; set; }
 
 			[ScaffoldColumn(true)]
 			[Display(Name = "密码", Order = 4)]
+            [Required(ErrorMessage = "请填写")]
 			[StringLength(200, ErrorMessage = "长度不可超过200")]
 			[DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
 			public object Password { get; set; }
 
 			[ScaffoldColumn(true)]
 			[Display(Name = "确认密码", Order = 5)]
+            [Required(ErrorMessage = "请填写")]
 			[StringLength(200, ErrorMessage = "长度不可超过200")]
 			[DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
             [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "两次密码不一致")]

@@ -60,6 +60,8 @@ namespace Langben.App.Controllers
                 {
                     Id = s.Id
 					,Message = s.Message
+                    ,
+                    Title = s.Title
 					,State = s.State
 					,CreateTime = s.CreateTime
 					,CreatePerson = s.CreatePerson

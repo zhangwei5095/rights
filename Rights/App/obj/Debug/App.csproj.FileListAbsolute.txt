@@ -125,8 +125,6 @@ E:\github\rights\Rights\App\bin\App.pdb
 E:\github\rights\Rights\App\bin\BLL.dll
 E:\github\rights\Rights\App\bin\Common.dll
 E:\github\rights\Rights\App\bin\DAL.dll
-E:\github\rights\Rights\App\bin\EntityFramework.dll
-E:\github\rights\Rights\App\bin\EntityFramework.SqlServer.dll
 E:\github\rights\Rights\App\bin\IBLL.dll
 E:\github\rights\Rights\App\bin\Microsoft.Web.Infrastructure.dll
 E:\github\rights\Rights\App\bin\Newtonsoft.Json.dll
