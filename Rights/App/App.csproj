@@ -233,6 +233,7 @@
     <Content Include="Res\easyui\themes\black\datebox.css" />
     <Content Include="Res\easyui\themes\black\dialog.css" />
     <Content Include="Res\easyui\themes\black\easyui.css" />
+    <Content Include="Res\easyui\themes\black\filebox.css" />
     <Content Include="Res\easyui\themes\black\images\accordion_arrows.png" />
     <Content Include="Res\easyui\themes\black\images\blank.gif" />
     <Content Include="Res\easyui\themes\black\images\calendar_arrows.png" />
@@ -280,6 +281,7 @@
     <Content Include="Res\easyui\themes\bootstrap\datebox.css" />
     <Content Include="Res\easyui\themes\bootstrap\dialog.css" />
     <Content Include="Res\easyui\themes\bootstrap\easyui.css" />
+    <Content Include="Res\easyui\themes\bootstrap\filebox.css" />
     <Content Include="Res\easyui\themes\bootstrap\images\accordion_arrows.png" />
     <Content Include="Res\easyui\themes\bootstrap\images\blank.gif" />
     <Content Include="Res\easyui\themes\bootstrap\images\calendar_arrows.png" />
@@ -319,6 +321,7 @@
     <Content Include="Res\easyui\themes\bootstrap\tree.css" />
     <Content Include="Res\easyui\themes\bootstrap\validatebox.css" />
     <Content Include="Res\easyui\themes\bootstrap\window.css" />
+    <Content Include="Res\easyui\themes\color.css" />
     <Content Include="Res\easyui\themes\default\accordion.css" />
     <Content Include="Res\easyui\themes\default\calendar.css" />
     <Content Include="Res\easyui\themes\default\combo.css" />
@@ -327,6 +330,7 @@
     <Content Include="Res\easyui\themes\default\datebox.css" />
     <Content Include="Res\easyui\themes\default\dialog.css" />
     <Content Include="Res\easyui\themes\default\easyui.css" />
+    <Content Include="Res\easyui\themes\default\filebox.css" />
     <Content Include="Res\easyui\themes\default\images\accordion_arrows.png" />
     <Content Include="Res\easyui\themes\default\images\blank.gif" />
     <Content Include="Res\easyui\themes\default\images\calendar_arrows.png" />
@@ -374,6 +378,7 @@
     <Content Include="Res\easyui\themes\gray\datebox.css" />
     <Content Include="Res\easyui\themes\gray\dialog.css" />
     <Content Include="Res\easyui\themes\gray\easyui.css" />
+    <Content Include="Res\easyui\themes\gray\filebox.css" />
     <Content Include="Res\easyui\themes\gray\images\accordion_arrows.png" />
     <Content Include="Res\easyui\themes\gray\images\blank.gif" />
     <Content Include="Res\easyui\themes\gray\images\calendar_arrows.png" />
@@ -417,6 +422,7 @@
     <Content Include="Res\easyui\themes\icons\back.png" />
     <Content Include="Res\easyui\themes\icons\blank.gif" />
     <Content Include="Res\easyui\themes\icons\cancel.png" />
+    <Content Include="Res\easyui\themes\icons\clear.png" />
     <Content Include="Res\easyui\themes\icons\cut.png" />
     <Content Include="Res\easyui\themes\icons\edit_add.png" />
     <Content Include="Res\easyui\themes\icons\edit_remove.png" />
@@ -428,6 +434,8 @@
     <Content Include="Res\easyui\themes\icons\large_picture.png" />
     <Content Include="Res\easyui\themes\icons\large_shapes.png" />
     <Content Include="Res\easyui\themes\icons\large_smartart.png" />
+    <Content Include="Res\easyui\themes\icons\lock.png" />
+    <Content Include="Res\easyui\themes\icons\man.png" />
     <Content Include="Res\easyui\themes\icons\mini_add.png" />
     <Content Include="Res\easyui\themes\icons\mini_edit.png" />
     <Content Include="Res\easyui\themes\icons\mini_refresh.png" />
@@ -449,6 +457,7 @@
     <Content Include="Res\easyui\themes\metro\datebox.css" />
     <Content Include="Res\easyui\themes\metro\dialog.css" />
     <Content Include="Res\easyui\themes\metro\easyui.css" />
+    <Content Include="Res\easyui\themes\metro\filebox.css" />
     <Content Include="Res\easyui\themes\metro\images\accordion_arrows.png" />
     <Content Include="Res\easyui\themes\metro\images\blank.gif" />
     <Content Include="Res\easyui\themes\metro\images\calendar_arrows.png" />

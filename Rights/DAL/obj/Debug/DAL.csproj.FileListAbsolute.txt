@@ -96,3 +96,16 @@ E:\github\rights\Rights\DAL\obj\Debug\DAL.dll
 E:\github\rights\Rights\DAL\obj\Debug\DAL.pdb
 F:\newCode\git2\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 F:\newCode\git2\rights\Rights\DAL\obj\Debug\DAL.pdb
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\DAL.dll.config
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\DAL.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\DAL.pdb
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\Common.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\Common.pdb
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\obj\Debug\DAL.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\DAL\obj\Debug\DAL.pdb

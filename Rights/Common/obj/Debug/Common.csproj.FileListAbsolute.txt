@@ -33,3 +33,8 @@ F:\newCode\git2\rights\Rights\Common\bin\Debug\Common.pdb
 F:\newCode\git2\rights\Rights\Common\obj\Debug\Common.dll
 F:\newCode\git2\rights\Rights\Common\obj\Debug\Common.pdb
 F:\newCode\git2\rights\Rights\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\rights\Rights\Common\bin\Debug\Common.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\Common\bin\Debug\Common.pdb
+C:\Users\Administrator\Source\Repos\rights\Rights\Common\obj\Debug\Common.dll
+C:\Users\Administrator\Source\Repos\rights\Rights\Common\obj\Debug\Common.pdb
+C:\Users\Administrator\Source\Repos\rights\Rights\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
