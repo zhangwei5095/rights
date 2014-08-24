@@ -132,10 +132,7 @@ E:\github\rights\Rights\App\bin\BLL.pdb
 E:\github\rights\Rights\App\bin\Common.pdb
 E:\github\rights\Rights\App\bin\DAL.pdb
 E:\github\rights\Rights\App\bin\IBLL.pdb
-E:\github\rights\Rights\App\bin\EntityFramework.xml
-E:\github\rights\Rights\App\bin\EntityFramework.SqlServer.xml
 E:\github\rights\Rights\App\bin\Microsoft.Web.Infrastructure.xml
-E:\github\rights\Rights\App\bin\zh-Hans\EntityFramework.resources.dll
 E:\github\rights\Rights\App\obj\Debug\App.csprojResolveAssemblyReference.cache
 E:\github\rights\Rights\App\obj\Debug\App.dll
 E:\github\rights\Rights\App\obj\Debug\App.pdb

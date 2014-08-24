@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/8/23 20:19:02                           */
+/* Created on:     2014/8/24 15:00:17                           */
 /*==============================================================*/
 
 
@@ -252,10 +252,10 @@ create table FileUploader (
    FullPath             varchar(500)         null,
    Suffix               nvarchar(200)        null,
    Size                 int                  null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_FILEUPLOADER primary key (Id)
 )
 go
@@ -302,12 +302,11 @@ go
 /* Table: SysAnnouncement                                       */
 /*==============================================================*/
 create table dbo.SysAnnouncement (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   Title                nvarchar(100)        collate Chinese_PRC_CI_AS null,
-   Message              nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   Message              nvarchar(4000)       null,
+   State                nvarchar(200)        null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_SYSANNOUNCEMENT primary key nonclustered (Id)
          on "PRIMARY"
 )
@@ -318,16 +317,16 @@ go
 /* Table: SysDepartment                                         */
 /*==============================================================*/
 create table dbo.SysDepartment (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   Name                 nvarchar(200)        collate Chinese_PRC_CI_AS not null,
-   ParentId             nvarchar(36)         collate Chinese_PRC_CI_AS null,
-   Address              nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   Name                 nvarchar(200)        not null,
+   ParentId             nvarchar(36)         null,
+   Address              nvarchar(200)        null,
    Sort                 int                  null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
+   Remark               nvarchar(4000)       null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    UpdateTime           datetime             null,
-   UpdatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   UpdatePerson         nvarchar(200)        null,
    constraint PK_SYSDEPARTMENT primary key nonclustered (Id)
          on "PRIMARY"
 )
@@ -360,10 +359,10 @@ create table SysDocument (
    FullPath             varchar(500)         null,
    Suffix               nvarchar(200)        null,
    Size                 int                  null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   Download             int                  collate Chinese_PRC_CI_AS null,
+   Remark               nvarchar(4000)       null,
+   Download             int                  null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_SYSDOCUMENT primary key (Id)
 )
 go
@@ -434,9 +433,9 @@ create table SysDocumentTalk (
    Content              nvarchar(500)        null,
    SysDocumentId        nvarchar(36)         null,
    Bad                  int                  null,
-   Good                 int                  collate Chinese_PRC_CI_AS null,
+   Good                 int                  null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_SYSDOCUMENTTALK primary key (Id)
 )
 go
@@ -483,14 +482,14 @@ go
 /* Table: SysException                                          */
 /*==============================================================*/
 create table dbo.SysException (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   LeiXing              nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Message              nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   Result               nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   LeiXing              nvarchar(200)        null,
+   Message              nvarchar(4000)       null,
+   Result               nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_SYSEXCEPTION primary key nonclustered (Id)
          on "PRIMARY"
 )
@@ -533,17 +532,17 @@ go
 /* Table: SysField                                              */
 /*==============================================================*/
 create table dbo.SysField (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   MyTexts              nvarchar(200)        collate Chinese_PRC_CI_AS not null,
-   ParentId             nvarchar(36)         collate Chinese_PRC_CI_AS null,
-   MyTables             nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   MyColums             nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   MyTexts              nvarchar(200)        not null,
+   ParentId             nvarchar(36)         null,
+   MyTables             nvarchar(200)        null,
+   MyColums             nvarchar(200)        null,
    Sort                 int                  null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
+   Remark               nvarchar(4000)       null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    UpdateTime           datetime             null,
-   UpdatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   UpdatePerson         nvarchar(200)        null,
    constraint PK_SYSFIELD primary key nonclustered (Id)
          on "PRIMARY"
 )
@@ -570,16 +569,16 @@ go
 /* Table: SysLog                                                */
 /*==============================================================*/
 create table dbo.SysLog (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   PersonId             nvarchar(36)         collate Chinese_PRC_CI_AS null,
-   Message              nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   Result               nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   MenuId               nvarchar(36)         collate Chinese_PRC_CI_AS null,
-   Ip                   nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   PersonId             nvarchar(36)         null,
+   Message              nvarchar(4000)       null,
+   Result               nvarchar(200)        null,
+   MenuId               nvarchar(36)         null,
+   Ip                   nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_SYSLOG primary key nonclustered (Id)
          on "PRIMARY"
 )
@@ -654,19 +653,19 @@ go
 /* Table: SysMenu                                               */
 /*==============================================================*/
 create table dbo.SysMenu (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   Name                 nvarchar(200)        collate Chinese_PRC_CI_AS not null,
-   ParentId             nvarchar(36)         collate Chinese_PRC_CI_AS null,
-   Url                  nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Iconic               nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   Name                 nvarchar(200)        not null,
+   ParentId             nvarchar(36)         null,
+   Url                  nvarchar(200)        null,
+   Iconic               nvarchar(200)        null,
    Sort                 int                  null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
+   CreatePerson         nvarchar(200)        null,
    CreateTime           datetime             null,
    UpdateTime           datetime             null,
-   UpdatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   IsLeaf               nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   UpdatePerson         nvarchar(200)        null,
+   IsLeaf               nvarchar(200)        null,
    constraint PK_SYSMENU primary key (Id)
          on "PRIMARY"
 )
@@ -745,14 +744,14 @@ go
 /* Table: SysNotice                                             */
 /*==============================================================*/
 create table dbo.SysNotice (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   Message              nvarchar(4000)       collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   Message              nvarchar(4000)       null,
    LostTime             datetime             null,
-   PersonId             nvarchar(36)         collate Chinese_PRC_CI_AS null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   PersonId             nvarchar(36)         null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_SYSNOTICE primary key nonclustered (Id)
          on "PRIMARY"
 )
@@ -795,15 +794,15 @@ go
 /* Table: SysOperation                                          */
 /*==============================================================*/
 create table SysOperation (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   Name                 nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   "Function"           nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Iconic               nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   Name                 nvarchar(200)        null,
+   "Function"           nvarchar(200)        null,
+   Iconic               nvarchar(200)        null,
    Sort                 int                  null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    constraint PK_SYSOPERATION primary key nonclustered (Id),
    constraint AK_KEY_1_SYSOPERA unique clustered (Id)
 )
@@ -887,33 +886,33 @@ go
 /* Table: SysPerson                                             */
 /*==============================================================*/
 create table dbo.SysPerson (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   Name                 nvarchar(200)        collate Chinese_PRC_CI_AS not null,
-   MyName               nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Password             nvarchar(200)        collate Chinese_PRC_CI_AS not null,
-   SurePassword         nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Sex                  nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   SysDepartmentId      nvarchar(36)         collate Chinese_PRC_CI_AS null,
-   Position             nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   MobilePhoneNumber    nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   PhoneNumber          nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Province             nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   City                 nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Village              nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Address              nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   EmailAddress         nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   Remark               nvarchar(4000)       collate Chinese_PRC_CI_AS null,
-   State                nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   Name                 nvarchar(200)        not null,
+   MyName               nvarchar(200)        null,
+   Password             nvarchar(200)        not null,
+   SurePassword         nvarchar(200)        null,
+   Sex                  nvarchar(200)        null,
+   SysDepartmentId      nvarchar(36)         null,
+   Position             nvarchar(200)        null,
+   MobilePhoneNumber    nvarchar(200)        null,
+   PhoneNumber          nvarchar(200)        null,
+   Province             nvarchar(200)        null,
+   City                 nvarchar(200)        null,
+   Village              nvarchar(200)        null,
+   Address              nvarchar(200)        null,
+   EmailAddress         nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    UpdateTime           datetime             null,
    LogonNum             int                  null,
    LogonTime            datetime             null,
-   LogonIP              nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   LogonIP              nvarchar(200)        null,
    LastLogonTime        datetime             null,
-   LastLogonIP          nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   PageStyle            nvarchar(200)        collate Chinese_PRC_CI_AS null,
-   UpdatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   LastLogonIP          nvarchar(200)        null,
+   PageStyle            nvarchar(200)        null,
+   UpdatePerson         nvarchar(200)        null,
    Version              timestamp            null,
    constraint PK_SYSPERSON primary key (Id)
          on "PRIMARY"
@@ -1053,13 +1052,13 @@ go
 /* Table: SysRole                                               */
 /*==============================================================*/
 create table dbo.SysRole (
-   Id                   nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   Name                 nvarchar(200)        collate Chinese_PRC_CI_AS not null,
-   Description          nvarchar(4000)       collate Chinese_PRC_CI_AS null,
+   Id                   nvarchar(36)         not null,
+   Name                 nvarchar(200)        not null,
+   Description          nvarchar(4000)       null,
    CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   CreatePerson         nvarchar(200)        null,
    UpdateTime           datetime             null,
-   UpdatePerson         nvarchar(200)        collate Chinese_PRC_CI_AS null,
+   UpdatePerson         nvarchar(200)        null,
    constraint PK_SYSROLE primary key (Id)
          on "PRIMARY"
 )
@@ -1086,8 +1085,8 @@ go
 /* Table: SysRoleSysPerson                                      */
 /*==============================================================*/
 create table dbo.SysRoleSysPerson (
-   SysPersonId          nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   SysRoleId            nvarchar(36)         collate Chinese_PRC_CI_AS not null,
+   SysPersonId          nvarchar(36)         not null,
+   SysRoleId            nvarchar(36)         not null,
    constraint PK_SYSROLESYSPERSON primary key (SysPersonId, SysRoleId)
          on "PRIMARY"
 )
