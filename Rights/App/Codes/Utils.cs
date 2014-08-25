@@ -243,6 +243,44 @@ namespace Models
             return Htmlstring;
         }
         #endregion
+        #region 获取当前星期
 
+        /// <summary>
+        /// 获取当前星期用中文格式显示
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCurCnWeek()
+        {
+            string cnWeek = string.Empty;
+            string enWeek = DateTime.Now.DayOfWeek.ToString();
+            switch (enWeek)
+            {
+                case "Monday":
+                    cnWeek = "星期一";
+                    break;
+                case "Tuesday":
+                    cnWeek = "星期二";
+                    break;
+                case "Wednesday":
+                    cnWeek = "星期三";
+                    break;
+                case "Thursday":
+                    cnWeek = "星期四";
+                    break;
+                case "Friday":
+                    cnWeek = "星期五";
+                    break;
+                case "Saturday":
+                    cnWeek = "星期六";
+                    break;
+                case "Sunday":
+                    cnWeek = "星期日";
+                    break;
+            }
+            return cnWeek;
+        }
+
+
+        #endregion
     }
 }

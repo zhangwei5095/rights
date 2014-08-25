@@ -11,6 +11,141 @@
     @Scripts.Render("~/bundles/easyui")
     <script type="text/javascript">
 
+        function addTab(subtitle, url, icon, closable, id) {
+
+            if (!$('#tabs').tabs('exists', subtitle)) {
+                $('#tabs').tabs('add', {
+                    title: subtitle,
+                    content: createFrame(url, id),
+                    closable: closable
+                    , icon: icon
+                });
+            } else {
+                $('#tabs').tabs('select', subtitle);
+
+            }
+            tabClose();
+        }
+
+        function createFrame(url, id) {
+            var s = '<iframe id="' + id + '" scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:99%;overflow-y: auto; "></iframe>';
+            return s;
+        }
+        function tabClose() {
+            /*双击关闭TAB选项卡*/
+            $(".tabs-inner").dblclick(function () {
+                var subtitle = $(this).children(".tabs-closable").text();
+                $('#tabs').tabs('close', subtitle);
+            })
+            /*为选项卡绑定右键*/
+            $(".tabs-inner").bind('contextmenu', function (e) {
+                $('#mm').menu('show', {
+                    left: e.pageX,
+                    top: e.pageY
+                });
+
+                var subtitle = $(this).children(".tabs-closable").text();
+
+                $('#mm').data("currtab", subtitle);
+                $('#tabs').tabs('select', subtitle);
+                return false;
+            });
+        }
+        //绑定右键菜单事件
+        function tabCloseEven() {
+            //刷新
+            $('#mm-tabupdate').click(function () {
+                var currTab = $('#tabs').tabs('getSelected');
+                var url = $(currTab.panel('options').content).attr('src');
+                var id = $(currTab.panel('options').content).attr('id');; //获取id
+
+                $('#tabs').tabs('update', {
+                    tab: currTab,
+                    options: {
+                        content: createFrame(url, id)
+                    }
+                })
+            })
+            //关闭
+            $('#mm-tabclose').click(function () {
+                var currtab_title = $('#mm').data("currtab");
+                $('#tabs').tabs('close', currtab_title);
+            })
+            // 关闭其他
+            $('#closeother').click(function () {
+                //所有所有tab对象
+                var allTabs = $('#tabs').tabs('tabs');
+                var currentTab = $('#tabs').tabs('getSelected');
+                var currtab_title = currentTab.panel('options').title;
+
+                for (var i = (allTabs.length - 1) ; i >= 0; i--) {
+
+                    var tab = allTabs[i];
+                    var opt = tab.panel('options');
+                    //获取标题
+                    var title = opt.title;
+                    if (currtab_title == title) {
+                        continue;
+                    }
+                    //是否可关闭 ture:会显示一个关闭按钮，点击该按钮将关闭选项卡
+                    var closable = opt.closable;
+                    if (closable) {
+                        //alert('title' + title + '  curTabTitle:' + curTabTitle);
+                        $('#tabs').tabs('close', title);
+                    }
+
+                }
+            })
+            // 全部关闭
+            $('#mm-tabAllclose').click(function () {
+                //所有所有tab对象
+                var allTabs = $('#tabs').tabs('tabs');
+                for (var i = (allTabs.length - 1) ; i >= 0; i--) {
+                    var tab = allTabs[i];
+                    var opt = tab.panel('options');
+                    //获取标题
+                    var title = opt.title;
+                    //是否可关闭 ture:会显示一个关闭按钮，点击该按钮将关闭选项卡
+                    var closable = opt.closable;
+                    if (closable) {
+                        //alert('title' + title + '  curTabTitle:' + curTabTitle);
+                        $('#tabs').tabs('close', title);
+                    }
+
+                }
+            })
+
+            //退出
+            $("#mm-exit").click(function () {
+                $('#mm').menu('hide');
+            })
+        }
+        function showMyWindow(title, href, width, height, modal, minimizable, maximizable) {
+
+            $('#myWindow').window({
+                title: title,
+                width: width === undefined ? 600 : width,
+                height: height === undefined ? 450 : height,
+                content: '<iframe scrolling="yes" frameborder="0"  src="' + href + '" style="width:100%;height:98%;"></iframe>',
+                //        href: href === undefined ? null : href,
+                modal: modal === undefined ? true : modal,
+                minimizable: minimizable === undefined ? false : minimizable,
+                maximizable: maximizable === undefined ? false : maximizable,
+                shadow: false,
+                cache: false,
+                closed: false,
+                collapsible: false,
+                resizable: false,
+                loadingMessage: '正在加载数据，请稍等片刻......'
+            });
+
+        }
+
+
+     
+    </script>
+    <script type="text/javascript">
+
 
         $(function () {
 
@@ -32,16 +167,35 @@
                 $.messager.confirm('系统提示', '您确定要退出本次登录吗?', function (r) {
 
                     if (r) {
-                        location.href = 'http://www.langben.com';
+                        location.href = '/Account/LogOff';
                     }
                 });
             });
-            $('#ChangePassword').click(function () {
-                showMyWindow("修改密码", "http://www.langben.com");
+            slide();
+            $('.ChangePassword').click(function () {
+                showMyWindow("修改密码", "Account/ChangePassword");
 
             });
 
         })
+        //右下角弹出框;
+
+        function slide() {
+
+            var dt = '<%= ViewData["Show"]%>';
+            jQuery.messager.show({
+                height: 170,
+                title: '当前登录情况:',
+
+                msg: dt + '温馨提示：为了账户的安全，如果上面的登录情况不正常，建议您马上<a href="#" style="color:red;" class="ChangePassword" >修改密码</a>',
+
+                timeout: 8000,
+
+                showType: 'slide'
+
+            });
+
+        }
 
         function addTab(subtitle, url, icon, closable, id) {
 
@@ -173,37 +327,32 @@
 
         }
     </script>
+
     <style type="text/css">
-        body
-        {
+        body {
             font-family: 微软雅黑,新宋体;
         }
-        a
-        {
+
+        a {
             color: Black;
             text-decoration: none;
         }
-        .easyui-tree li
-        {
+
+        .easyui-tree li {
             margin: 5px 0px 0px 0px;
             padding: 1px;
         }
 
-        #mainlogo
-        {
+        #mainlogo {
             position: absolute;
             top: 0px;
             left: 0px;
             width: 575px;
             height: 72px;
         }
-        #center
-        {
-            padding-left: 575px;
-            padding-right: 425px;
-        }
-        #mainctrl
-        {
+
+
+        #mainctrl {
             position: absolute;
             top: 0px;
             right: 0px;
@@ -212,108 +361,114 @@
         }
 
 
-        .wel
-        {
-            height: 30px;
-            line-height: 30px;
-            color: #FFFFFF;
-            font-size: 14px;
-            text-align: right;
-            padding-right: 5px;
-        }
-        .ctr
-        {
-            vertical-align: middle;
-            margin-top: 18px;
-            height: 24px;
-            text-align: right;
-            background-image: url(../images/beijing.gif);
-            background-repeat: repeat-x;
-        }
-        .ctr li
-        {
-            float: left;
-            list-style: none;
-        }
-        .zi
-        {
-            padding-right: 16px;
-            padding-left: 3px;
-        }
 
 
-        a.v1:visited, a.v1:active, a.v1:link
-        {
-            font-size: 14px;
-            color: #000;
-            text-decoration: none;
+
+      
+
+        .user {
+            color: #464646;
+            float: right;
+            text-align: right;
+            margin: 25px 15px 10px 0px;
+            line-height: 21px;
         }
-        a.v1:hover
-        {
-            font-size: 14px;
-            color: #005500;
-            text-decoration: none;
+
+            .user a {
+                color: #464646;
+                text-decoration: none;
+            }
+
+                .user a:hover {
+                    color: #F00;
+                }
+
+        .wel {
+            display: inline;
+        }
+
+            .wel em {
+                font-style: normal;
+                color: #06c;
+                margin-right: 10px;
+            }
+
+        .uset {
+            display: inline;
+            margin: 0 0 0 8px;
         }
     </style>
 </head>
 <body class="easyui-layout">
+
     <noscript>
         <div style="position: absolute; z-index: 100000; height: 2046px; top: 0px; left: 0px;
             width: 100%; background: white; text-align: center;">
             <img src="images/noscript.gif" alt='抱歉，请开启脚本支持！' />
         </div>
     </noscript>
-    <div region="north" split="true" border="false" style="overflow: hidden; height: 76px;
-        line-height: 20px; background-color: green; font-family: 微软雅黑,黑体">
+    <div region="north" split="true" border="false" style="overflow: hidden; height: 56px;
+        line-height: 0px;   font-family: 微软雅黑,黑体">
         <div id="mainlogo">
 
         </div>
-        <div id="center">
-        </div>
-        <div id="mainctrl">
+
+        <div class="user">
+
             <div class="wel">
-                欢迎您的光临！
+                <em>您好：@ViewBag.Name</em>
+            </div>
+            <div class="uset">
+                <a href="http://www.langben.com" target="_blank">帮助中心</a>
+            </div>
+            <div class="uset">
+                <a href="#" class="ChangePassword">修改密码</a>
             </div>
 
+            <div class="uset">
+                <a href="#" id="loginOut">安全退出</a>
+            </div>
         </div>
+
     </div>
+
 
     <div region="west" hide="true" split="true" title="导航菜单" style="width: 180px;" id="west">
         <div class="easyui-accordion" fit="true" border="false">
-             <div data-options="iconCls:'tu2011'" title="所有表">
+            <div data-options="iconCls:'tu2011'" title="所有表">
                 <div class="easyui-panel" fit="true" border="false">
                     <ul class="easyui-tree">
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysPerson" >人员</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysPerson">人员</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysMenu" >菜单</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysMenu">菜单</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysRole" >角色</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysRole">角色</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysLog" >日志</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysLog">日志</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysException" >异常处理</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysException">异常处理</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysField" >数据字典</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysField">数据字典</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="FileUploader" >附件</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="FileUploader">附件</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysOperation" >操作</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysOperation">操作</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysMenuSysRoleSysOperation" >菜单角色操作</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysMenuSysRoleSysOperation">菜单角色操作</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysDepartment" >部门</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysDepartment">部门</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysAnnouncement" >公告管理</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysAnnouncement">公告管理</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysDocument" >文档管理</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysDocument">文档管理</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysDocumentTalk" >文档评论</a></li>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysDocumentTalk">文档评论</a></li>
 
-<li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysNotice" >通知中心</a></li>
-   </ul>
+                        <li data-options="iconCls:'tu0202'"><a href="#" icon="tu0202" rel="SysNotice">通知中心</a></li>
+                    </ul>
                 </div>
             </div>
-<div data-options="iconCls:'tu2012'" title="所有视图">
+            <div data-options="iconCls:'tu2012'" title="所有视图">
                 <div class="easyui-panel" fit="true" border="false">
                     <ul class="easyui-tree">   </ul>
                 </div>
@@ -359,4 +514,3 @@
 
 </body>
 </html>
-

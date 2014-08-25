@@ -28,6 +28,22 @@ namespace Common
         [DataMember]
         public string PersonName { get; set; }
         /// <summary>
+        /// 登录总次数
+        /// </summary>
+        [DataMember]
+        public int? LogonNum { get; set; }
+        /// <summary>
+        /// 上次登录的时间
+        /// </summary>
+        [DataMember]
+        public DateTime? LastLogonTime { get; set; }
+        /// <summary>
+        /// 上次登录IP
+        /// </summary>
+        [DataMember]
+        public string LastLogonIP { get; set; }
+        
+        /// <summary>
         /// 角色的集合
         /// </summary>
         [DataMember]
