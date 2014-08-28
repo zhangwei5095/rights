@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/8/24 15:00:17                           */
+/* Created on:     2014/8/28 14:43:45                           */
 /*==============================================================*/
 
 
@@ -303,6 +303,7 @@ go
 /*==============================================================*/
 create table dbo.SysAnnouncement (
    Id                   nvarchar(36)         not null,
+   Title                nvarchar(100)        null,
    Message              nvarchar(4000)       null,
    State                nvarchar(200)        null,
    CreateTime           datetime             null,
