@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="FileUploader">
           <Key>
             <PropertyRef Name="Id" />
@@ -227,6 +227,7 @@
           <Property Name="PageStyle" Type="nvarchar" MaxLength="200" />
           <Property Name="UpdatePerson" Type="nvarchar" MaxLength="200" />
           <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="HDpic" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="SysRole">
           <Key>
@@ -812,6 +813,7 @@
           <NavigationProperty Name="SysDepartment" Relationship="SysModel.FK_SYSPERSO_REFERENCE_SYSDEPAR" FromRole="SysPerson" ToRole="SysDepartment" />
           <NavigationProperty Name="SysDocument" Relationship="SysModel.SysDocumentSysPerson" FromRole="SysPerson" ToRole="SysDocument" />
           <NavigationProperty Name="SysRole" Relationship="SysModel.SysRoleSysPerson" FromRole="SysPerson" ToRole="SysRole" />
+          <Property Name="HDpic" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SysRole">
           <Key>
@@ -1126,6 +1128,7 @@
           <EntitySetMapping Name="SysPerson">
             <EntityTypeMapping TypeName="SysModel.SysPerson">
               <MappingFragment StoreEntitySet="SysPerson">
+                <ScalarProperty Name="HDpic" ColumnName="HDpic" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="UpdatePerson" ColumnName="UpdatePerson" />
                 <ScalarProperty Name="PageStyle" ColumnName="PageStyle" />

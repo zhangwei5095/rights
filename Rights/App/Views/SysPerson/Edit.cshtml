@@ -264,9 +264,42 @@
             </div>
         </div>
         </div>
+        <div class="easyui-panel" title="头像照片" style="width:900px;height:500px;padding:10px;background:#fafafa;" data-options="closable:false,collapsible:false,minimizable:false,maximizable:false">
+            @Html.HiddenFor(model => model.HDpic)<img src="~/Images/no-img.jpg" id="showPic" />
+            <input type="hidden" id="fileUrl" value="HDpic" />
+            <div id="uploader" class="wu-example">
+                <!--用来存放文件信息-->
+                <div id="thelist" class="uploader-list"></div>
+                <div class="btns">
+                    <div id="picker">选择文件</div>
+                    <label id="ctlBtn" class="btn btn-default">开始上传</label>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="@Url.Content("~/Res/webuploader/js/webuploader.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/UploadFile.js")" type="text/javascript"></script>
     </fieldset>
 
-
+@section HeadContent{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Res/webuploader/images/style.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Res/webuploader/css/webuploader.css")" />
+    <script>
+        $(function () {
+            var picUrl=$("#HDpic").val();
+            if (picUrl!="") {
+                $("#showPic").attr("src", picUrl);
+            }
+        })
+        var uploadurl = "/FileUploader/HDpic";//上传地址
+        var fileNum = 1;//文件数量
+        var fileSingleSize = 4;//文件大小mb
+        var acceptFile = {//扩展文件名
+            title: '图片文件',
+            extensions: 'jpg,png,gif,bmp',
+            mimeTypes: 'image/*'
+        };
+    </script>
+}
 
 
     <script type="text/javascript">

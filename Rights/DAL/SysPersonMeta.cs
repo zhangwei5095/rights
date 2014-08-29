@@ -178,6 +178,9 @@ namespace Langben.DAL
 			[ScaffoldColumn(true)]
 			[Display(Name = "时间戳", Order = 28)]
 			public object Version { get; set; }
+            [ScaffoldColumn(true)]
+            [Display(Name = "高清头像", Order = 29)]
+            public object HDpic { get; set; }
 
 
     }
