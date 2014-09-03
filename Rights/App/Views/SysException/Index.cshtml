@@ -50,12 +50,6 @@
                 toolbar: [
                  
                      {
-                        text: '详细',
-                        iconCls: 'icon-search',
-                        handler: function () {
-                            return getView();
-                        }
-                    }, {
                         text: '创建',
                         iconCls: 'icon-add',
                         handler: function () {
@@ -84,7 +78,14 @@
                    
                     
 					{ field: 'LeiXing', title: '@Html.DisplayNameFor(model => model.LeiXing)', width: 129 }
-					,{ field: 'Message', title:  '@Html.DisplayNameFor(model => model.Message)', width: 129 }
+					, {
+					    field: 'Message', title: '@Html.DisplayNameFor(model => model.Message)', width: 129,
+					    formatter: function (value, rec) {
+					        if (value) {
+					            return "<a onclick='Detail("+rec.Id+")'>" + value + "</a>";
+					        }
+					    }
+					}
 					,{ field: 'Result', title:  '@Html.DisplayNameFor(model => model.Result)', width: 129 }
 					,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 129 }
 					,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 129 }
@@ -178,6 +179,10 @@
             if (arr.length > 0) {//一条数据和多于一条
                 returnParent(arr.join("&")); //每一项用 & 分割
             }
+        }
+        function Detail(id)
+        {
+            window.location.href = "../SysException/Details/" +id;
         }
         //导航到查看详细的按钮
         function getView() {

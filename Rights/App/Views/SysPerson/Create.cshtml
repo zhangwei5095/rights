@@ -16,228 +16,253 @@
             <input class="a2 f2" type="submit" value="创建" />
             <input class="a2 f2" type="button" onclick="BackList('SysPerson')" value="返回" />
         </legend>
-        <div class="bigdiv">
-                 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Name)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.MyName)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.MyName)
-                @Html.ValidationMessageFor(model => model.MyName)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Password)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Password)
-                @Html.ValidationMessageFor(model => model.Password)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SurePassword)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SurePassword)
-                @Html.ValidationMessageFor(model => model.SurePassword)
-            </div>        
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Sex)：
-            </div>
-            <div class="editor-field">
-                @Html.DropDownListFor(model => model.Sex,Models.SysFieldModels.GetSysField("SysPerson","Sex"),"请选择")
-            </div>
-        <div class="editor-label">
-            <a class="anUnderLine" onclick="showModalOnly('SysDepartmentId','../../SysDepartment');">
-                @Html.LabelFor(model => model.SysDepartmentId) 
-            </a>：
-        </div>
-        <div class="editor-field">
-            <div id="checkSysDepartmentId">            
-            </div>
-            @Html.HiddenFor(model => model.SysDepartmentId)
-        </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Position)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Position)
-                @Html.ValidationMessageFor(model => model.Position)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.MobilePhoneNumber)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.MobilePhoneNumber)
-                @Html.ValidationMessageFor(model => model.MobilePhoneNumber)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.PhoneNumber)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.PhoneNumber)
-                @Html.ValidationMessageFor(model => model.PhoneNumber)
-            </div>        
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Province)：
-            </div>
-            <div class="editor-field">
-                @Html.DropDownListFor(model => model.Province,Models.SysFieldModels.GetSysField("SysPerson","Province"),"请选择")
-            </div>        
-            <div class="editor-label">
-                @Html.LabelFor(model => model.City)：
-            </div>
-            <div class="editor-field">
-                <select id="City" name="City">
-                </select>              
-            </div>        
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Village)：
-            </div>
-            <div class="editor-field">
-                <select id="Village" name="Village">
-                </select>              
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Address)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Address)
-                @Html.ValidationMessageFor(model => model.Address)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.EmailAddress)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.EmailAddress)
-                @Html.ValidationMessageFor(model => model.EmailAddress)
-            </div>
-            <br style="clear: both;" />
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Remark)：
-            </div>
-            <div class="textarea-box">
-                @Html.TextAreaFor(model => model.Remark) 
-                @Html.ValidationMessageFor(model => model.Remark) 
-            </div>        
-            <div class="editor-label">
-                @Html.LabelFor(model => model.State)：
-            </div>
-            <div class="editor-field">
-             @Html.RadioButtonListFor(model => model.State,Models.SysFieldModels.GetSysField("SysPerson","State"),false) 
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LogonNum) ：
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.LogonNum, new {  onkeyup = "isInt(this)", @class="text-box single-line" })
-                @Html.ValidationMessageFor(model => model.LogonNum) 
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LogonTime)：
-            </div>
-            <div class="editor-field">
-                @Html.TextBox("LogonTime", ((Model != null && Model.LogonTime != null) ? Model.LogonTime.ToString().AsDateTime().ToString("yyyy-MM-dd") : ""), new { style = "width: 244px;", @class="easyui-datebox" })
-                @Html.ValidationMessageFor(model => model.LogonTime)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LogonIP)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.LogonIP)
-                @Html.ValidationMessageFor(model => model.LogonIP)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LastLogonTime)：
-            </div>
-            <div class="editor-field">
-                @Html.TextBox("LastLogonTime", ((Model != null && Model.LastLogonTime != null) ? Model.LastLogonTime.ToString().AsDateTime().ToString("yyyy-MM-dd") : ""), new { style = "width: 244px;", @class="easyui-datebox" })
-                @Html.ValidationMessageFor(model => model.LastLogonTime)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LastLogonIP)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.LastLogonIP)
-                @Html.ValidationMessageFor(model => model.LastLogonIP)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.PageStyle)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.PageStyle)
-                @Html.ValidationMessageFor(model => model.PageStyle)
-            </div>   <div class="editor-label">
-            <a class="anUnderLine" onclick="showModalMany('SysRoleId','../../SysRole');">
-                @Html.LabelFor(model => model.SysRoleId) 
-            </a>：
-        </div>
-        <div class="editor-field">
-            <div id="checkSysRoleId">
-                
-                @if (Model != null && !string.IsNullOrWhiteSpace(Model.SysRoleId))
+        <div class="easyui-panel" title="基本信息" style="width:900px;height:750px;padding:10px;background:#fafafa;" data-options="closable:false,collapsible:false,minimizable:false,maximizable:false">
+            <div class="bigdiv">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MyName)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MyName)
+                    @Html.ValidationMessageFor(model => model.MyName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Password)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SurePassword)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SurePassword)
+                    @Html.ValidationMessageFor(model => model.SurePassword)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Sex)：
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Sex,Models.SysFieldModels.GetSysField("SysPerson","Sex"),"请选择")
+                </div>
+                <div class="editor-label">
+                    <a class="anUnderLine" onclick="showModalOnly('SysDepartmentId','../../SysDepartment');">
+                        @Html.LabelFor(model => model.SysDepartmentId)
+                    </a>：
+                </div>
+                <div class="editor-field">
+                    <div id="checkSysDepartmentId">
+                    </div>
+                    @Html.HiddenFor(model => model.SysDepartmentId)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Position)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Position)
+                    @Html.ValidationMessageFor(model => model.Position)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MobilePhoneNumber)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MobilePhoneNumber)
+                    @Html.ValidationMessageFor(model => model.MobilePhoneNumber)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PhoneNumber)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.PhoneNumber)
+                    @Html.ValidationMessageFor(model => model.PhoneNumber)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Province)：
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Province,Models.SysFieldModels.GetSysField("SysPerson","Province"),"请选择")
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.City)：
+                </div>
+                <div class="editor-field">
+                    <select id="City" name="City"></select>
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Village)：
+                </div>
+                <div class="editor-field">
+                    <select id="Village" name="Village"></select>
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Address)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.EmailAddress)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.EmailAddress)
+                    @Html.ValidationMessageFor(model => model.EmailAddress)
+                </div>
+                <br style="clear: both;" />
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Remark)：
+                </div>
+                <div class="textarea-box">
+                    @Html.TextAreaFor(model => model.Remark)
+                    @Html.ValidationMessageFor(model => model.Remark)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.State)：
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonListFor(model => model.State,Models.SysFieldModels.GetSysField("SysPerson","State"),false)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LogonNum) ：
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.LogonNum, new {  onkeyup = "isInt(this)", @class="text-box single-line" })
+                    @Html.ValidationMessageFor(model => model.LogonNum)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LogonTime)：
+                </div>
+                <div class="editor-field">
+                    @Html.TextBox("LogonTime", ((Model != null && Model.LogonTime != null) ? Model.LogonTime.ToString().AsDateTime().ToString("yyyy-MM-dd") : ""), new { style = "width: 244px;", @class="easyui-datebox" })
+                    @Html.ValidationMessageFor(model => model.LogonTime)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LogonIP)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.LogonIP)
+                    @Html.ValidationMessageFor(model => model.LogonIP)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LastLogonTime)：
+                </div>
+                <div class="editor-field">
+                    @Html.TextBox("LastLogonTime", ((Model != null && Model.LastLogonTime != null) ? Model.LastLogonTime.ToString().AsDateTime().ToString("yyyy-MM-dd") : ""), new { style = "width: 244px;", @class="easyui-datebox" })
+                    @Html.ValidationMessageFor(model => model.LastLogonTime)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LastLogonIP)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.LastLogonIP)
+                    @Html.ValidationMessageFor(model => model.LastLogonIP)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PageStyle)：
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.PageStyle)
+                    @Html.ValidationMessageFor(model => model.PageStyle)
+                </div>   <div class="editor-label">
+                    <a class="anUnderLine" onclick="showModalMany('SysRoleId','../../SysRole');">
+                        @Html.LabelFor(model => model.SysRoleId)
+                    </a>：
+                </div>
+                <div class="editor-field">
+                    <div id="checkSysRoleId">
+
+                        @if (Model != null && !string.IsNullOrWhiteSpace(Model.SysRoleId))
                 {
                    foreach (var item29 in Model.SysRoleId.Split('^'))
                    {
                         string[] it = item29.Split('&');
                         if (it != null && it.Length == 2 && !string.IsNullOrWhiteSpace(it[0]) && !string.IsNullOrWhiteSpace(it[1]))
-                        {                        
-                
+                        {
+
                 <table id="@item29"
-                    class="deleteStyle">
+                       class="deleteStyle">
                     <tr>
                         <td>
-                            <img  alt="删除" title="点击删除" onclick="deleteTable('@item29','SysRoleId');"  src="../../../Images/deleteimge.png" />
+                            <img alt="删除" title="点击删除" onclick="deleteTable('@item29','SysRoleId');" src="../../../Images/deleteimge.png" />
                         </td>
                         <td>
-                            @it[1] 
+                            @it[1]
                         </td>
                     </tr>
                 </table>
-                 }}} 
-              @Html.HiddenFor(model => model.SysRoleId) 
-            </div>
-        </div>   <div class="editor-label">
-            <a class="anUnderLine" onclick="showModalMany('SysDocumentId','../../SysDocument');">
-                @Html.LabelFor(model => model.SysDocumentId) 
-            </a>：
-        </div>
-        <div class="editor-field">
-            <div id="checkSysDocumentId">
-                
-                @if (Model != null && !string.IsNullOrWhiteSpace(Model.SysDocumentId))
+                 }}}
+                        @Html.HiddenFor(model => model.SysRoleId)
+                    </div>
+                </div>   <div class="editor-label">
+                    <a class="anUnderLine" onclick="showModalMany('SysDocumentId','../../SysDocument');">
+                        @Html.LabelFor(model => model.SysDocumentId)
+                    </a>：
+                </div>
+                <div class="editor-field">
+                    <div id="checkSysDocumentId">
+
+                        @if (Model != null && !string.IsNullOrWhiteSpace(Model.SysDocumentId))
                 {
                    foreach (var item30 in Model.SysDocumentId.Split('^'))
                    {
                         string[] it = item30.Split('&');
                         if (it != null && it.Length == 2 && !string.IsNullOrWhiteSpace(it[0]) && !string.IsNullOrWhiteSpace(it[1]))
-                        {                        
-                
+                        {
+
                 <table id="@item30"
-                    class="deleteStyle">
+                       class="deleteStyle">
                     <tr>
                         <td>
-                            <img  alt="删除" title="点击删除" onclick="deleteTable('@item30','SysDocumentId');"  src="../../../Images/deleteimge.png" />
+                            <img alt="删除" title="点击删除" onclick="deleteTable('@item30','SysDocumentId');" src="../../../Images/deleteimge.png" />
                         </td>
                         <td>
-                            @it[1] 
+                            @it[1]
                         </td>
                     </tr>
                 </table>
-                 }}} 
-              @Html.HiddenFor(model => model.SysDocumentId) 
+                 }}}
+                        @Html.HiddenFor(model => model.SysDocumentId)
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="easyui-panel" title="头像照片" style="width:900px;height:500px;padding:10px;background:#fafafa;" data-options="closable:false,collapsible:false,minimizable:false,maximizable:false">
+          @Html.HiddenFor(model=>model.HDpic)<img src="~/Images/no-img.jpg" id="showPic"/>
+            <input type="hidden" id="fileUrl" value="HDpic"/>
+            <div id="uploader" class="wu-example">
+                <!--用来存放文件信息-->
+                <div id="thelist" class="uploader-list"></div>
+                <div class="btns">
+                    <div id="picker">选择文件</div>
+                    <label id="ctlBtn" class="btn btn-default">开始上传</label>
+                </div>
             </div>
         </div>
-        </div>
-    </fieldset>
- 
-
-    
+        <script type="text/javascript" src="@Url.Content("~/Res/webuploader/js/webuploader.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/UploadFile.js")" type="text/javascript"></script>
+</fieldset>
+ @section HeadContent{
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Res/webuploader/images/style.css")" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Res/webuploader/css/webuploader.css")" />
+     <script>
+         var uploadurl = "/FileUploader/HDpic";//上传地址
+         var fileNum = 1;//文件数量
+         var fileSingleSize = 4;//文件大小mb
+         var acceptFile = {//扩展文件名
+             title: '图片文件',
+             extensions: 'jpg,png,gif,bmp',
+             mimeTypes: 'image/*'
+         };
+     </script>
+ }
     <script type="text/javascript">
 
         $(function () {

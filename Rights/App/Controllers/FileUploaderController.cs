@@ -38,6 +38,16 @@ namespace Langben.App.Controllers
 
             return View();
         }
+        [HttpPost]
+        public string HDpic()//头像上传
+        {
+            byte[] FileByte = Request.BinaryRead(Request.TotalBytes);
+            string upfile = Request.QueryString["name"]; //取得上传的对象名称
+
+            UploadFiles upFiles = new UploadFiles();
+            string msg = upFiles.UploadFile(FileByte, upfile);
+            return msg;
+        }
         /// <summary>
         /// 异步加载数据
         /// </summary>

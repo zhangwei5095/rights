@@ -41,7 +41,7 @@ namespace Langben.DAL
 			public object MenuId { get; set; }
 
 			[ScaffoldColumn(true)]
-			[Display(Name = "地址", Order = 6)]
+			[Display(Name = "IP", Order = 6)]
 			[StringLength(200, ErrorMessage = "长度不可超过200")]
 			public object Ip { get; set; }
 
