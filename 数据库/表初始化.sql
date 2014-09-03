@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/8/28 14:43:45                           */
+/* Created on:     2014/9/3 19:25:06                            */
 /*==============================================================*/
 
 
@@ -44,6 +44,13 @@ if exists (select 1
    where r.fkeyid = object_id('SysDocumentTalk') and o.name = 'FK_SYSDOCUM_REFERENCE_SYSDOCUM')
 alter table SysDocumentTalk
    drop constraint FK_SYSDOCUM_REFERENCE_SYSDOCUM
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('dbo.SysEmail') and o.name = 'FK_SYSEMAIL_REFERENCE_SYSMAILT')
+alter table dbo.SysEmail
+   drop constraint FK_SYSEMAIL_REFERENCE_SYSMAILT
 go
 
 if exists (select 1
@@ -93,6 +100,13 @@ if exists (select 1
    where r.fkeyid = object_id('SysMenuSysRoleSysOperation') and o.name = 'FK_SYSMENUS_REFERENCE_SYSMENU2')
 alter table SysMenuSysRoleSysOperation
    drop constraint FK_SYSMENUS_REFERENCE_SYSMENU2
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('dbo.SysMessage') and o.name = 'FK_SYSMESSA_REFERENCE_SYSMESSA')
+alter table dbo.SysMessage
+   drop constraint FK_SYSMESSA_REFERENCE_SYSMESSA
 go
 
 if exists (select 1
@@ -167,6 +181,13 @@ go
 
 if exists (select 1
             from  sysobjects
+           where  id = object_id('dbo.SysEmail')
+            and   type = 'U')
+   drop table dbo.SysEmail
+go
+
+if exists (select 1
+            from  sysobjects
            where  id = object_id('dbo.SysException')
             and   type = 'U')
    drop table dbo.SysException
@@ -184,6 +205,13 @@ if exists (select 1
            where  id = object_id('dbo.SysLog')
             and   type = 'U')
    drop table dbo.SysLog
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.SysMailTemp')
+            and   type = 'U')
+   drop table dbo.SysMailTemp
 go
 
 if exists (select 1
@@ -209,6 +237,20 @@ go
 
 if exists (select 1
             from  sysobjects
+           where  id = object_id('dbo.SysMessage')
+            and   type = 'U')
+   drop table dbo.SysMessage
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('dbo.SysMessageTemp')
+            and   type = 'U')
+   drop table dbo.SysMessageTemp
+go
+
+if exists (select 1
+            from  sysobjects
            where  id = object_id('dbo.SysNotice')
             and   type = 'U')
    drop table dbo.SysNotice
@@ -219,6 +261,15 @@ if exists (select 1
            where  id = object_id('SysOperation')
             and   type = 'U')
    drop table SysOperation
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('dbo.SysPerson')
+            and   name  = 'Index_1'
+            and   indid > 0
+            and   indid < 255)
+   drop index dbo.SysPerson.Index_1
 go
 
 if exists (select 1
@@ -480,6 +531,59 @@ execute sp_addextendedproperty 'MS_Description',
 go
 
 /*==============================================================*/
+/* Table: SysEmail                                              */
+/*==============================================================*/
+create table dbo.SysEmail (
+   Id                   nvarchar(36)         not null,
+   SysMailId            nvarchar(36)         null,
+   Subject              nvarchar(200)        not null,
+   Content              ntext                null,
+   Reply_email          nvarchar(200)        null,
+   Mail_type            nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
+   ReadTime             datetime             null,
+   CreateTime           datetime             null,
+   CreatePerson         nvarchar(200)        null,
+   constraint PK_notice_info2 primary key nonclustered (Id)
+         on secondgroup
+)
+on "PRIMARY"
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysEmail')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ReadTime')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysEmail', 'column', 'ReadTime'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'Research',
+   'user', 'dbo', 'table', 'SysEmail', 'column', 'ReadTime'
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysEmail')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysEmail', 'column', 'CreateTime'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'Research',
+   'user', 'dbo', 'table', 'SysEmail', 'column', 'CreateTime'
+go
+
+/*==============================================================*/
 /* Table: SysException                                          */
 /*==============================================================*/
 create table dbo.SysException (
@@ -651,6 +755,60 @@ execute sp_addextendedproperty 'MS_Description',
 go
 
 /*==============================================================*/
+/* Table: SysMailTemp                                           */
+/*==============================================================*/
+create table dbo.SysMailTemp (
+   Id                   nvarchar(36)         not null,
+   Mail_name            nvarchar(200)        not null,
+   Subject              nvarchar(200)        not null,
+   Content              ntext                null,
+   Reply_email          nvarchar(200)        null,
+   IsDefault            nvarchar(200)        null,
+   Mail_type            nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
+   CreateTime           datetime             null,
+   CreatePerson         nvarchar(200)        null,
+   constraint PK_mail_info2 primary key nonclustered (Id)
+         with fillfactor= 90
+   on "PRIMARY"
+)
+on "PRIMARY"
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysMailTemp')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'IsDefault')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'IsDefault'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'RadioButton',
+   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'IsDefault'
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysMailTemp')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'CreateTime'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'Research',
+   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'CreateTime'
+go
+
+/*==============================================================*/
 /* Table: SysMenu                                               */
 /*==============================================================*/
 create table dbo.SysMenu (
@@ -742,6 +900,109 @@ create table SysMenuSysRoleSysOperation (
 go
 
 /*==============================================================*/
+/* Table: SysMessage                                            */
+/*==============================================================*/
+create table dbo.SysMessage (
+   Id                   nvarchar(36)         not null,
+   Content              nvarchar(400)        null,
+   SysMessageTempId     nvarchar(36)         null,
+   MessageType          nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
+   ReadTime             datetime             null,
+   CreateTime           datetime             null,
+   CreatePerson         nvarchar(200)        null,
+   constraint PK_notice_info primary key nonclustered (Id)
+         on secondgroup
+)
+on "PRIMARY"
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysMessage')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ReadTime')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysMessage', 'column', 'ReadTime'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'Research',
+   'user', 'dbo', 'table', 'SysMessage', 'column', 'ReadTime'
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysMessage')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysMessage', 'column', 'CreateTime'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'Research',
+   'user', 'dbo', 'table', 'SysMessage', 'column', 'CreateTime'
+go
+
+/*==============================================================*/
+/* Table: SysMessageTemp                                        */
+/*==============================================================*/
+create table dbo.SysMessageTemp (
+   Id                   nvarchar(36)         not null,
+   MessageName          nvarchar(200)        not null,
+   Content              nvarchar(400)        null,
+   IsDefault            nvarchar(200)        null,
+   MessageType          nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
+   CreateTime           datetime             null,
+   CreatePerson         nvarchar(200)        null,
+   constraint PK_mail_info primary key nonclustered (Id)
+         with fillfactor= 90
+   on "PRIMARY"
+)
+on "PRIMARY"
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysMessageTemp')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'IsDefault')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysMessageTemp', 'column', 'IsDefault'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'RadioButton',
+   'user', 'dbo', 'table', 'SysMessageTemp', 'column', 'IsDefault'
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysMessageTemp')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysMessageTemp', 'column', 'CreateTime'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'Research',
+   'user', 'dbo', 'table', 'SysMessageTemp', 'column', 'CreateTime'
+go
+
+/*==============================================================*/
 /* Table: SysNotice                                             */
 /*==============================================================*/
 create table dbo.SysNotice (
@@ -804,8 +1065,7 @@ create table SysOperation (
    State                nvarchar(200)        null,
    CreateTime           datetime             null,
    CreatePerson         nvarchar(200)        null,
-   constraint PK_SYSOPERATION primary key nonclustered (Id),
-   constraint AK_KEY_1_SYSOPERA unique clustered (Id)
+   constraint PK_SYSOPERATION primary key nonclustered (Id)
 )
 go
 
@@ -915,7 +1175,7 @@ create table dbo.SysPerson (
    PageStyle            nvarchar(200)        null,
    UpdatePerson         nvarchar(200)        null,
    Version              timestamp            null,
-   constraint PK_SYSPERSON primary key (Id)
+   constraint PK_SYSPERSON primary key nonclustered (Id)
          on "PRIMARY"
 )
 on "PRIMARY"
@@ -1050,6 +1310,14 @@ execute sp_addextendedproperty 'MS_Description',
 go
 
 /*==============================================================*/
+/* Index: Index_1                                               */
+/*==============================================================*/
+create index Index_1 on dbo.SysPerson (
+Name ASC
+)
+go
+
+/*==============================================================*/
 /* Table: SysRole                                               */
 /*==============================================================*/
 create table dbo.SysRole (
@@ -1124,6 +1392,11 @@ alter table SysDocumentTalk
       references SysDocument (Id)
 go
 
+alter table dbo.SysEmail
+   add constraint FK_SYSEMAIL_REFERENCE_SYSMAILT foreign key (SysMailId)
+      references dbo.SysMailTemp (Id)
+go
+
 alter table dbo.SysField
    add constraint FK_SYSFIELD_REFERENCE_SYSFIELD foreign key (ParentId)
       references dbo.SysField (Id)
@@ -1157,6 +1430,11 @@ go
 alter table SysMenuSysRoleSysOperation
    add constraint FK_SYSMENUS_REFERENCE_SYSMENU2 foreign key (SysMenuId)
       references dbo.SysMenu (Id)
+go
+
+alter table dbo.SysMessage
+   add constraint FK_SYSMESSA_REFERENCE_SYSMESSA foreign key (SysMessageTempId)
+      references dbo.SysMessageTemp (Id)
 go
 
 alter table dbo.SysPerson
