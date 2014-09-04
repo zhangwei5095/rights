@@ -28,15 +28,16 @@ namespace App
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
+    
+ bundles.Add(new StyleBundle("~/Content").Include(
+                  "~/Content/default.css"
+              ));//菜单图标
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Res/easyui/themes/default/easyui.css",
                       "~/Res/easyui/themes/icon.css",
-                      "~/Content/default.css",
+                       
                       "~/Content/StyleSheet.css"));
+           
         }
     }
 }

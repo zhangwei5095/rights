@@ -50,9 +50,9 @@
         <div id="pp">
             <div style="width:40%;">
                 <div title="登录信息" collapsible="true" closable="true" style="height:200px; padding-left:5px  ">
-                    <span class="denglu">
-                        @ViewBag.MyName
-                    </span>,您好,欢迎使用本平台！ <br />
+                    您好，<span class="denglu">
+                        @ViewBag.PersonName
+                    </span>，欢迎使用本平台！ <br />
                     登录总次数：<span class="denglu">@ViewBag.LogonNum </span><br /> 
                           本次登录IP：<span class="denglu">@ViewBag.IP </span>     <br />                     
                       上次登录IP：<span class="denglu">@ViewBag.LastLogonIP </span>     <br />  
@@ -76,7 +76,7 @@
 
             </div>
             <div style="width:40%;">
-                <div title="公告栏" collapsible="true" closable="true" style="height: 200px; padding-left: 5px">
+                <div title="@ViewBag.Title" collapsible="true" closable="true" style="height: 200px; padding-left: 5px">
                     @(new HtmlString(ViewBag.Announcement))
 
 

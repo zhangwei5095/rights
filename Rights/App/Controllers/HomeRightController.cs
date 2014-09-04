@@ -30,9 +30,14 @@ namespace Langben.App.Controllers
             SysAnnouncement announcement = announcementBLL.GetTop(1);
             if (announcement != null)
             {
+                ViewBag.Title = announcement.Title;
                 ViewBag.Announcement = announcement.Message;
             }
-
+            else
+            {
+                ViewBag.Title = "暂无公告";
+                ViewBag.Announcement = "暂无公告";
+            }
 
 
             return View();

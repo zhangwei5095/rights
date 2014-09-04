@@ -852,9 +852,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="up\b.xls" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
+    <None Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Account\NotFound.aspx" />
+    <None Include="Views\Account\NotFound.cshtml" />
     <Content Include="Views\Exception\Index.aspx" />
     <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Shared\Details.cshtml" />

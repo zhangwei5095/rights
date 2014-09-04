@@ -22,15 +22,15 @@ namespace Models
     public class BaseController : Controller
     {
         /// <summary>
-        /// 获取当前登陆人的名称
+        /// 获取当前登陆人的用户名
         /// </summary>
         /// <returns></returns>
         public string GetCurrentPerson()
         {
             Account account = GetCurrentAccount();
-            if (account != null && !string.IsNullOrWhiteSpace(account.PersonName))
+            if (account != null && !string.IsNullOrWhiteSpace(account.Name))
             {
-                return account.PersonName;
+                return account.Name;
             }
             return string.Empty;
         }

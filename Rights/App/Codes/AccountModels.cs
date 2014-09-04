@@ -11,38 +11,7 @@ using Common;
 namespace Models
 {
 
-    /// <summary>
-    /// 当前登陆者
-    /// </summary>
-    public class AccountModel
-    {
-        /// <summary>
-        /// 获取当前登陆者
-        /// </summary>
-        /// <returns></returns>
-        public static string GetCurrentPerson()
-        {
-            Account account = GetCurrentAccount();
-            if (account != null && !string.IsNullOrWhiteSpace(account.PersonName))
-            {
-                return account.PersonName;
-            }
-            return string.Empty;
-        }
-        /// <summary>
-        /// 获取当前登陆者的账户信息
-        /// </summary>
-        /// <returns>账户信息</returns>
-        public static Account GetCurrentAccount()
-        {
-            if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.Session != null && System.Web.HttpContext.Current.Session["account"] != null)
-            {
-                return (Account)System.Web.HttpContext.Current.Session["account"];
-
-            }
-            return null;
-        }
-    }
+     
     #region 模型
 
     public class ChangePasswordModel

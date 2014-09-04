@@ -97,10 +97,7 @@ namespace Langben.App.Controllers
         /// <returns></returns>
         public ActionResult LogOff()
         {
-            if (Session["account"] != null)
-            {
-                Session["account"] = null;
-            }
+            Utils.DeleteCookie("account");
             return RedirectToAction("Index", "Account");
         }
         /// <summary>
