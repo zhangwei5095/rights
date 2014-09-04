@@ -1175,6 +1175,7 @@ create table dbo.SysPerson (
    PageStyle            nvarchar(200)        null,
    UpdatePerson         nvarchar(200)        null,
    Version              timestamp            null,
+   HDpic				varchar(200)		 null,
    constraint PK_SYSPERSON primary key nonclustered (Id)
          on "PRIMARY"
 )
