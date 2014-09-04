@@ -284,6 +284,7 @@
     <NavigationProperty Name="SysDepartment" Relationship="SysModel.FK_SYSPERSO_REFERENCE_SYSDEPAR" FromRole="SysPerson" ToRole="SysDepartment" />
     <NavigationProperty Name="SysDocument" Relationship="SysModel.SysDocumentSysPerson" FromRole="SysPerson" ToRole="SysDocument" />
     <NavigationProperty Name="SysRole" Relationship="SysModel.SysRoleSysPerson" FromRole="SysPerson" ToRole="SysRole" />
+    <Property Name="HDpic" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="SysRole">
     <Key>

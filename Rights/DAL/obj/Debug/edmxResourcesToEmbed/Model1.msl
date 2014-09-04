@@ -182,6 +182,7 @@
     <EntitySetMapping Name="SysPerson">
       <EntityTypeMapping TypeName="SysModel.SysPerson">
         <MappingFragment StoreEntitySet="SysPerson">
+          <ScalarProperty Name="HDpic" ColumnName="HDpic" />
           <ScalarProperty Name="Version" ColumnName="Version" />
           <ScalarProperty Name="UpdatePerson" ColumnName="UpdatePerson" />
           <ScalarProperty Name="PageStyle" ColumnName="PageStyle" />
