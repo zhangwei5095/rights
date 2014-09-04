@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/9/4 10:18:16                            */
+/* Created on:     2014/9/4 19:21:54                            */
 /*==============================================================*/
 
 
@@ -48,9 +48,9 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('SysEmail') and o.name = 'FK_SYSEMAIL_REFERENCE_SYSMAILT')
+   where r.fkeyid = object_id('SysEmail') and o.name = 'FK_SYSEMAIL_REFERENCE_SYSEMAIL')
 alter table SysEmail
-   drop constraint FK_SYSEMAIL_REFERENCE_SYSMAILT
+   drop constraint FK_SYSEMAIL_REFERENCE_SYSEMAIL
 go
 
 if exists (select 1
@@ -188,9 +188,25 @@ go
 
 if exists (select 1
             from  sysobjects
+           where  id = object_id('dbo.SysEmailTemp')
+            and   type = 'U')
+   drop table dbo.SysEmailTemp
+go
+
+if exists (select 1
+            from  sysobjects
            where  id = object_id('dbo.SysException')
             and   type = 'U')
    drop table dbo.SysException
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('dbo.SysField')
+            and   name  = 'Index_1'
+            and   indid > 0
+            and   indid < 255)
+   drop index dbo.SysField.Index_1
 go
 
 if exists (select 1
@@ -205,13 +221,6 @@ if exists (select 1
            where  id = object_id('dbo.SysLog')
             and   type = 'U')
    drop table dbo.SysLog
-go
-
-if exists (select 1
-            from  sysobjects
-           where  id = object_id('dbo.SysMailTemp')
-            and   type = 'U')
-   drop table dbo.SysMailTemp
 go
 
 if exists (select 1
@@ -588,6 +597,60 @@ execute sp_addextendedproperty 'MS_Description',
 go
 
 /*==============================================================*/
+/* Table: SysEmailTemp                                          */
+/*==============================================================*/
+create table dbo.SysEmailTemp (
+   Id                   nvarchar(36)         not null,
+   Mail_name            nvarchar(200)        not null,
+   Subject              nvarchar(200)        not null,
+   Content              ntext                null,
+   Reply_email          nvarchar(200)        null,
+   IsDefault            nvarchar(200)        null,
+   Mail_type            nvarchar(200)        null,
+   Remark               nvarchar(4000)       null,
+   State                nvarchar(200)        null,
+   CreateTime           datetime             null,
+   CreatePerson         nvarchar(200)        null,
+   constraint PK_mail_info2 primary key nonclustered (Id)
+         with fillfactor= 90
+   on "PRIMARY"
+)
+on "PRIMARY"
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysEmailTemp')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'IsDefault')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysEmailTemp', 'column', 'IsDefault'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'RadioButton',
+   'user', 'dbo', 'table', 'SysEmailTemp', 'column', 'IsDefault'
+go
+
+if exists(select 1 from sys.extended_properties p where
+      p.major_id = object_id('dbo.SysEmailTemp')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
+)
+begin
+   execute sp_dropextendedproperty 'MS_Description', 
+   'user', 'dbo', 'table', 'SysEmailTemp', 'column', 'CreateTime'
+
+end
+
+
+execute sp_addextendedproperty 'MS_Description', 
+   'Research',
+   'user', 'dbo', 'table', 'SysEmailTemp', 'column', 'CreateTime'
+go
+
+/*==============================================================*/
 /* Table: SysException                                          */
 /*==============================================================*/
 create table dbo.SysException (
@@ -675,6 +738,15 @@ execute sp_addextendedproperty 'MS_Description',
 go
 
 /*==============================================================*/
+/* Index: Index_1                                               */
+/*==============================================================*/
+create index Index_1 on dbo.SysField (
+MyTables ASC,
+MyColums ASC
+)
+go
+
+/*==============================================================*/
 /* Table: SysLog                                                */
 /*==============================================================*/
 create table dbo.SysLog (
@@ -756,60 +828,6 @@ end
 execute sp_addextendedproperty 'MS_Description', 
    'Research',
    'user', 'dbo', 'table', 'SysLog', 'column', 'CreateTime'
-go
-
-/*==============================================================*/
-/* Table: SysMailTemp                                           */
-/*==============================================================*/
-create table dbo.SysMailTemp (
-   Id                   nvarchar(36)         not null,
-   Mail_name            nvarchar(200)        not null,
-   Subject              nvarchar(200)        not null,
-   Content              ntext                null,
-   Reply_email          nvarchar(200)        null,
-   IsDefault            nvarchar(200)        null,
-   Mail_type            nvarchar(200)        null,
-   Remark               nvarchar(4000)       null,
-   State                nvarchar(200)        null,
-   CreateTime           datetime             null,
-   CreatePerson         nvarchar(200)        null,
-   constraint PK_mail_info2 primary key nonclustered (Id)
-         with fillfactor= 90
-   on "PRIMARY"
-)
-on "PRIMARY"
-go
-
-if exists(select 1 from sys.extended_properties p where
-      p.major_id = object_id('dbo.SysMailTemp')
-  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'IsDefault')
-)
-begin
-   execute sp_dropextendedproperty 'MS_Description', 
-   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'IsDefault'
-
-end
-
-
-execute sp_addextendedproperty 'MS_Description', 
-   'RadioButton',
-   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'IsDefault'
-go
-
-if exists(select 1 from sys.extended_properties p where
-      p.major_id = object_id('dbo.SysMailTemp')
-  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
-)
-begin
-   execute sp_dropextendedproperty 'MS_Description', 
-   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'CreateTime'
-
-end
-
-
-execute sp_addextendedproperty 'MS_Description', 
-   'Research',
-   'user', 'dbo', 'table', 'SysMailTemp', 'column', 'CreateTime'
 go
 
 /*==============================================================*/
@@ -1402,8 +1420,8 @@ alter table SysDocumentTalk
 go
 
 alter table SysEmail
-   add constraint FK_SYSEMAIL_REFERENCE_SYSMAILT foreign key (SysMailId)
-      references dbo.SysMailTemp (Id)
+   add constraint FK_SYSEMAIL_REFERENCE_SYSEMAIL foreign key (SysMailId)
+      references dbo.SysEmailTemp (Id)
 go
 
 alter table dbo.SysField
