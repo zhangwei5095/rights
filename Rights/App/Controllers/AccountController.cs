@@ -75,8 +75,8 @@ namespace Langben.App.Controllers
                 if (person != null)
                 {//登录成功
                     Account account = new Account();
-                    account.Name = person.MyName;
-                    account.PersonName = person.Name;
+                    account.Name = person.Name;
+                    account.PersonName = person.MyName;
                     account.Id = person.Id.ToString();
                     account.LastLogonIP = person.LastLogonIP;
                     account.LastLogonTime = person.LastLogonTime;

@@ -24,7 +24,7 @@ namespace Langben.App.Controllers
             ViewBag.IP = Common.IP.GetIP();            
             ViewBag.LastLogonIP = account.LastLogonIP;
             ViewBag.LastLogonTime = account.LastLogonTime;
-            ViewBag.Name = account.Name;
+            ViewBag.PersonName = account.PersonName;
 
             ISysAnnouncementBLL announcementBLL = new SysAnnouncementBLL();
             SysAnnouncement announcement = announcementBLL.GetTop(1);
