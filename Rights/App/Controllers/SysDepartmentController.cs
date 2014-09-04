@@ -64,10 +64,10 @@ namespace Langben.App.Controllers
 					,Address = s.Address
 					,Sort = s.Sort
 					,Remark = s.Remark
-					,CreateTime = s.CreateTime
-					,CreatePerson = s.CreatePerson
-					,UpdateTime = s.UpdateTime
-					,UpdatePerson = s.UpdatePerson
+                    //,CreateTime = s.CreateTime
+                    //,CreatePerson = s.CreatePerson
+                    //,UpdateTime = s.UpdateTime
+                    //,UpdatePerson = s.UpdatePerson
 					
                 }
 

@@ -72,21 +72,7 @@
                 <div class="display-field">
                     @Html.DisplayFor(model => model.UpdatePerson) 
                 </div>    
-                <div class="display-label">
-                      @Html.LabelFor(model => model.SysDocumentId) :
-                </div>
-                <div class="display-field">            
-                    @{string ids11 = string.Empty;
-                       foreach (var item11 in Model.SysDocument)
-                       {
-                           ids11 += item11.Name;
-                           ids11 += " , ";
-                                 
-                     } 
-                    
-                @ids11   
-                  }
-                </div>
+                
         </div>
     </fieldset>
 

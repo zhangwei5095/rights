@@ -70,46 +70,8 @@
             <div class="textarea-box">
                 @Html.TextAreaFor(model => model.Remark) 
                 @Html.ValidationMessageFor(model => model.Remark) 
-            </div>@Html.HiddenFor(model => model.CreateTime ) @Html.HiddenFor(model => model.CreatePerson )   
-        <div class="editor-label">
-            <a class="anUnderLine" onclick="showModalMany('SysDocumentId','../../SysDocument');">
-                @Html.LabelFor(model => model.SysDocumentId) 
-            </a>：
-        </div>
-        <div class="editor-field">
-            <div id="checkSysDocumentId">
-                @{string ids11 = string.Empty;
-                if(Model!=null)
-                {
-                   foreach (var item11 in Model.SysDocument)
-                   {
-                       string item111 = string.Empty;
-                       item111 += item11.Id + "&" + item11.Name;
-                       if (ids11.Length > 0)
-                       {
-                           ids11 += "^" + item111;
-                       }
-                       else
-                       {
-                           ids11 += item111;
-                       }
-               
-                <table id="@item111"
-                    class="deleteStyle">
-                    <tr>
-                        <td>
-                            <img  alt="删除" title="点击删除" onclick="deleteTable('@item111','SysDocumentId');"  src="../../../Images/deleteimge.png" />
-                        </td>
-                        <td>
-                            @item11.Name
-                        </td>
-                    </tr>
-                </table>
-                }} }
-                <input type="hidden" value="@ids11" name="SysDocumentIdOld" id="SysDocumentIdOld" />
-                <input type="hidden" value="@ids11" name="SysDocumentId" id="SysDocumentId" />
-            </div>
-        </div>
+            </div>@Html.HiddenFor(model => model.CreateTime ) @Html.HiddenFor(model => model.CreatePerson )  
+             
         </div>
     </fieldset>
 
