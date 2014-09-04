@@ -53,9 +53,12 @@
                     <span class="denglu">
                         @ViewBag.MyName
                     </span>,您好,欢迎使用本平台！ <br />
- 
-
-                </div>
+                    登录总次数：<span class="denglu">@ViewBag.LogonNum </span><br /> 
+                          本次登录IP：<span class="denglu">@ViewBag.IP </span>     <br />                     
+                      上次登录IP：<span class="denglu">@ViewBag.LastLogonIP </span>     <br />  
+                      上次登录时间：<span class="denglu">@ViewBag.LastLogonTime</span> <br />
+               
+</div>
                 <div id="pgrid2" title="通知中心" closable="true" style="height: 310px;">
                     <table class="easyui-datagrid" style="width:460px;height:auto"
                            fit="true" border="false"

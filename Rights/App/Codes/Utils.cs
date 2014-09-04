@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Json;
 using System.IO;
  
 using System.Text.RegularExpressions;
+using Common;
 
 namespace Models
 {
@@ -38,14 +39,14 @@ namespace Models
         /// 写cookie
         /// </summary>
         /// <param name="strname"></param>
-        /// <param name="Ocookie"></param>
+        /// <param name="mycookie"></param>
         /// <param name="days"></param>
-        public static void WriteCookie(string strname, CookieEntity Ocookie, int days)
+        public static void WriteCookie(string strname, Common.Account mycookie, int days)
         {
             HttpCookie cookie = HttpContext.Current.Request.Cookies[strname];
             if (cookie == null)
                 cookie = new HttpCookie(strname);
-            cookie.Value = UrlEncode(SerializeObject(Ocookie));
+            cookie.Value = UrlEncode(SerializeObject(mycookie));
             if (days > 0)
                 cookie.Expires = DateTime.Now.AddDays(days);
             HttpContext.Current.Response.AppendCookie(cookie);
@@ -70,12 +71,12 @@ namespace Models
         /// </summary>
         /// <param name="strname"></param>
         /// <returns></returns>
-        public static CookieEntity ReadCookieAsObj(string strname)
+        public static Account ReadCookieAsObj(string strname)
         {
-            CookieEntity cookie = null;
+            Account cookie = null;
             if (HttpContext.Current.Request.Cookies != null && HttpContext.Current.Request.Cookies[strname] != null)
             {
-                return DSerializeToObject<CookieEntity>(UrlDecode(HttpContext.Current.Request.Cookies[strname].Value.ToString()));
+                return DSerializeToObject<Account>(UrlDecode(HttpContext.Current.Request.Cookies[strname].Value.ToString()));
             }
             return cookie;
         }

@@ -1,4 +1,5 @@
-﻿using Langben.BLL;
+﻿using Common;
+using Langben.BLL;
 using Langben.DAL;
 using Langben.IBLL;
 using Models;
@@ -17,27 +18,26 @@ namespace Langben.App.Controllers
 
         public ActionResult Index()
         {
+            Account account = GetCurrentAccount();
 
- 
-            //var person = Utils.ReadCookieAsObj("SysPerson");
-            //if (person == null)
-            //{
-            //    return Redirect("/Account");
-            //}
-            ViewBag.MyName = "person.MyName";
+            ViewBag.LogonNum = account.LogonNum;
+            ViewBag.IP = Common.IP.GetIP();            
+            ViewBag.LastLogonIP = account.LastLogonIP;
+            ViewBag.LastLogonTime = account.LastLogonTime;
+            ViewBag.Name = account.Name;
 
             ISysAnnouncementBLL announcementBLL = new SysAnnouncementBLL();
             SysAnnouncement announcement = announcementBLL.GetTop(1);
-            if (announcement!=null)
+            if (announcement != null)
             {
                 ViewBag.Announcement = announcement.Message;
             }
-            
-            
+
+
 
             return View();
         }
-       
+
     }
 }
 

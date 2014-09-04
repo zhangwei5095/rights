@@ -10,6 +10,7 @@ namespace Common
     /// 登录的用户信息
     /// </summary>
     [DataContract]
+    [Serializable]
     public class Account
     {
         /// <summary>

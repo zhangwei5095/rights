@@ -182,7 +182,7 @@
 
         function slide() {
 
-            var dt = '<%= ViewData["Show"]%>';
+            var dt = '@ViewData["Show"]';
             jQuery.messager.show({
                 height: 170,
                 title: '当前登录情况:',
@@ -415,9 +415,7 @@
 
         <div class="user">
 
-            <div class="wel">
-                <em>您好：@ViewBag.Name</em>
-            </div>
+           
             <div class="uset">
                 <a href="http://www.langben.com" target="_blank">帮助中心</a>
             </div>

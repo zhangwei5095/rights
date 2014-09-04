@@ -40,9 +40,14 @@ namespace Models
         /// <returns>账户信息</returns>
         public Account GetCurrentAccount()
         {
-            if (Session["account"] != null)
+            var account = Utils.ReadCookieAsObj("account");
+            if (account == null)
             {
-                Account account = (Account)Session["account"];
+                Redirect("/account");
+            }
+            else
+            {
+
                 return account;
             }
             return null;
