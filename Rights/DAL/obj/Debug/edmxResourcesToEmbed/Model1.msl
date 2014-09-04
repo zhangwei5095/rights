@@ -20,11 +20,11 @@
     <EntitySetMapping Name="SysAnnouncement">
       <EntityTypeMapping TypeName="SysModel.SysAnnouncement">
         <MappingFragment StoreEntitySet="SysAnnouncement">
-          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -70,6 +70,40 @@
           <ScalarProperty Name="Bad" ColumnName="Bad" />
           <ScalarProperty Name="SysDocumentId" ColumnName="SysDocumentId" />
           <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysEmail">
+      <EntityTypeMapping TypeName="SysModel.SysEmail">
+        <MappingFragment StoreEntitySet="SysEmail">
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ReadTime" ColumnName="ReadTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Mail_type" ColumnName="Mail_type" />
+          <ScalarProperty Name="Reply_email" ColumnName="Reply_email" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="SysMailId" ColumnName="SysMailId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysEmailTemp">
+      <EntityTypeMapping TypeName="SysModel.SysEmailTemp">
+        <MappingFragment StoreEntitySet="SysEmailTemp">
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Mail_type" ColumnName="Mail_type" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Reply_email" ColumnName="Reply_email" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Mail_name" ColumnName="Mail_name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -146,6 +180,36 @@
           <ScalarProperty Name="SysRoleId" ColumnName="SysRoleId" />
           <ScalarProperty Name="SysOperationId" ColumnName="SysOperationId" />
           <ScalarProperty Name="SysMenuId" ColumnName="SysMenuId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysMessage">
+      <EntityTypeMapping TypeName="SysModel.SysMessage">
+        <MappingFragment StoreEntitySet="SysMessage">
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ReadTime" ColumnName="ReadTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+          <ScalarProperty Name="SysMessageTempId" ColumnName="SysMessageTempId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysMessageTemp">
+      <EntityTypeMapping TypeName="SysModel.SysMessageTemp">
+        <MappingFragment StoreEntitySet="SysMessageTemp">
+          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="MessageName" ColumnName="MessageName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

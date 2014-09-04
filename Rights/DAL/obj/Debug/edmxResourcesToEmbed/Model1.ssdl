@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="SysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="FileUploader">
     <Key>
       <PropertyRef Name="Id" />
@@ -20,11 +20,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
     <Property Name="Message" Type="nvarchar" MaxLength="4000" />
     <Property Name="State" Type="nvarchar" MaxLength="200" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
-    <Property Name="Title" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="SysDepartment">
     <Key>
@@ -81,6 +81,38 @@
     <Property Name="SysDocumentId" Type="nvarchar" MaxLength="36" />
     <Property Name="Bad" Type="int" />
     <Property Name="Good" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysEmail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysMailId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Content" Type="ntext" />
+    <Property Name="Reply_email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Mail_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReadTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysEmailTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Mail_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Content" Type="ntext" />
+    <Property Name="Reply_email" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsDefault" Type="nvarchar" MaxLength="200" />
+    <Property Name="Mail_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
   </EntityType>
@@ -162,6 +194,34 @@
     <Property Name="SysMenuId" Type="nvarchar" MaxLength="36" />
     <Property Name="SysOperationId" Type="nvarchar" MaxLength="36" />
     <Property Name="SysRoleId" Type="nvarchar" MaxLength="36" />
+  </EntityType>
+  <EntityType Name="SysMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="400" />
+    <Property Name="SysMessageTempId" Type="nvarchar" MaxLength="36" />
+    <Property Name="MessageType" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReadTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysMessageTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="MessageName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="400" />
+    <Property Name="IsDefault" Type="nvarchar" MaxLength="200" />
+    <Property Name="MessageType" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="SysNotice">
     <Key>
@@ -316,6 +376,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SYSEMAIL_REFERENCE_SYSEMAIL">
+    <End Role="SysEmailTemp" Type="Self.SysEmailTemp" Multiplicity="0..1" />
+    <End Role="SysEmail" Type="Self.SysEmail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysEmailTemp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysEmail">
+        <PropertyRef Name="SysMailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SYSFIELD_REFERENCE_SYSFIELD">
     <End Role="SysField" Type="Self.SysField" Multiplicity="0..1" />
     <End Role="SysField1" Type="Self.SysField" Multiplicity="*" />
@@ -400,6 +472,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SYSMESSA_REFERENCE_SYSMESSA">
+    <End Role="SysMessageTemp" Type="Self.SysMessageTemp" Multiplicity="0..1" />
+    <End Role="SysMessage" Type="Self.SysMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysMessageTemp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysMessage">
+        <PropertyRef Name="SysMessageTempId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SYSPERSO_REFERENCE_SYSDEPAR">
     <End Role="SysDepartment" Type="Self.SysDepartment" Multiplicity="0..1" />
     <End Role="SysPerson" Type="Self.SysPerson" Multiplicity="*" />
@@ -444,12 +528,16 @@
     <EntitySet Name="SysDocumentSysDepartment" EntityType="Self.SysDocumentSysDepartment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysDocumentSysPerson" EntityType="Self.SysDocumentSysPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysDocumentTalk" EntityType="Self.SysDocumentTalk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysEmail" EntityType="Self.SysEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysEmailTemp" EntityType="Self.SysEmailTemp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysField" EntityType="Self.SysField" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysMenu" EntityType="Self.SysMenu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysMenuSysOperation" EntityType="Self.SysMenuSysOperation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysMenuSysRoleSysOperation" EntityType="Self.SysMenuSysRoleSysOperation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMessage" EntityType="Self.SysMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMessageTemp" EntityType="Self.SysMessageTemp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysNotice" EntityType="Self.SysNotice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysOperation" EntityType="Self.SysOperation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysPerson" EntityType="Self.SysPerson" Schema="dbo" store:Type="Tables" />
@@ -479,6 +567,10 @@
       <End Role="SysPerson" EntitySet="SysPerson" />
       <End Role="SysDocumentSysPerson" EntitySet="SysDocumentSysPerson" />
     </AssociationSet>
+    <AssociationSet Name="FK_SYSEMAIL_REFERENCE_SYSEMAIL" Association="Self.FK_SYSEMAIL_REFERENCE_SYSEMAIL">
+      <End Role="SysEmailTemp" EntitySet="SysEmailTemp" />
+      <End Role="SysEmail" EntitySet="SysEmail" />
+    </AssociationSet>
     <AssociationSet Name="FK_SYSFIELD_REFERENCE_SYSFIELD" Association="Self.FK_SYSFIELD_REFERENCE_SYSFIELD">
       <End Role="SysField" EntitySet="SysField" />
       <End Role="SysField1" EntitySet="SysField" />
@@ -506,6 +598,10 @@
     <AssociationSet Name="FK_SYSMENUS_REFERENCE_SYSROLE" Association="Self.FK_SYSMENUS_REFERENCE_SYSROLE">
       <End Role="SysRole" EntitySet="SysRole" />
       <End Role="SysMenuSysRoleSysOperation" EntitySet="SysMenuSysRoleSysOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SYSMESSA_REFERENCE_SYSMESSA" Association="Self.FK_SYSMESSA_REFERENCE_SYSMESSA">
+      <End Role="SysMessageTemp" EntitySet="SysMessageTemp" />
+      <End Role="SysMessage" EntitySet="SysMessage" />
     </AssociationSet>
     <AssociationSet Name="FK_SYSPERSO_REFERENCE_SYSDEPAR" Association="Self.FK_SYSPERSO_REFERENCE_SYSDEPAR">
       <End Role="SysDepartment" EntitySet="SysDepartment" />

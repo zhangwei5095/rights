@@ -6,11 +6,15 @@
     <EntitySet Name="SysDepartment" EntityType="SysModel.SysDepartment" />
     <EntitySet Name="SysDocument" EntityType="SysModel.SysDocument" />
     <EntitySet Name="SysDocumentTalk" EntityType="SysModel.SysDocumentTalk" />
+    <EntitySet Name="SysEmail" EntityType="SysModel.SysEmail" />
+    <EntitySet Name="SysEmailTemp" EntityType="SysModel.SysEmailTemp" />
     <EntitySet Name="SysException" EntityType="SysModel.SysException" />
     <EntitySet Name="SysField" EntityType="SysModel.SysField" />
     <EntitySet Name="SysLog" EntityType="SysModel.SysLog" />
     <EntitySet Name="SysMenu" EntityType="SysModel.SysMenu" />
     <EntitySet Name="SysMenuSysRoleSysOperation" EntityType="SysModel.SysMenuSysRoleSysOperation" />
+    <EntitySet Name="SysMessage" EntityType="SysModel.SysMessage" />
+    <EntitySet Name="SysMessageTemp" EntityType="SysModel.SysMessageTemp" />
     <EntitySet Name="SysNotice" EntityType="SysModel.SysNotice" />
     <EntitySet Name="SysOperation" EntityType="SysModel.SysOperation" />
     <EntitySet Name="SysPerson" EntityType="SysModel.SysPerson" />
@@ -26,6 +30,10 @@
     <AssociationSet Name="FK_SYSDOCUM_REFERENCE_SYSDOCUM" Association="SysModel.FK_SYSDOCUM_REFERENCE_SYSDOCUM">
       <End Role="SysDocument" EntitySet="SysDocument" />
       <End Role="SysDocumentTalk" EntitySet="SysDocumentTalk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SYSEMAIL_REFERENCE_SYSEMAIL" Association="SysModel.FK_SYSEMAIL_REFERENCE_SYSEMAIL">
+      <End Role="SysEmailTemp" EntitySet="SysEmailTemp" />
+      <End Role="SysEmail" EntitySet="SysEmail" />
     </AssociationSet>
     <AssociationSet Name="FK_SYSFIELD_REFERENCE_SYSFIELD" Association="SysModel.FK_SYSFIELD_REFERENCE_SYSFIELD">
       <End Role="SysField" EntitySet="SysField" />
@@ -46,6 +54,10 @@
     <AssociationSet Name="FK_SYSMENUS_REFERENCE_SYSROLE" Association="SysModel.FK_SYSMENUS_REFERENCE_SYSROLE">
       <End Role="SysRole" EntitySet="SysRole" />
       <End Role="SysMenuSysRoleSysOperation" EntitySet="SysMenuSysRoleSysOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SYSMESSA_REFERENCE_SYSMESSA" Association="SysModel.FK_SYSMESSA_REFERENCE_SYSMESSA">
+      <End Role="SysMessageTemp" EntitySet="SysMessageTemp" />
+      <End Role="SysMessage" EntitySet="SysMessage" />
     </AssociationSet>
     <AssociationSet Name="SysDocumentSysDepartment" Association="SysModel.SysDocumentSysDepartment">
       <End Role="SysDepartment" EntitySet="SysDepartment" />
@@ -84,11 +96,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="SysDepartment">
     <Key>
@@ -139,6 +151,40 @@
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="SysDocument" Relationship="SysModel.FK_SYSDOCUM_REFERENCE_SYSDOCUM" FromRole="SysDocumentTalk" ToRole="SysDocument" />
+  </EntityType>
+  <EntityType Name="SysEmail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="SysMailId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reply_email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Mail_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ReadTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SysEmailTemp" Relationship="SysModel.FK_SYSEMAIL_REFERENCE_SYSEMAIL" FromRole="SysEmail" ToRole="SysEmailTemp" />
+  </EntityType>
+  <EntityType Name="SysEmailTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="Mail_name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reply_email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Mail_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SysEmail" Relationship="SysModel.FK_SYSEMAIL_REFERENCE_SYSEMAIL" FromRole="SysEmailTemp" ToRole="SysEmail" />
   </EntityType>
   <EntityType Name="SysException">
     <Key>
@@ -220,6 +266,36 @@
     <NavigationProperty Name="SysOperation" Relationship="SysModel.FK_SYSMENUS_REFERENCE_SYSOPERA2" FromRole="SysMenuSysRoleSysOperation" ToRole="SysOperation" />
     <NavigationProperty Name="SysRole" Relationship="SysModel.FK_SYSMENUS_REFERENCE_SYSROLE" FromRole="SysMenuSysRoleSysOperation" ToRole="SysRole" />
   </EntityType>
+  <EntityType Name="SysMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="SysMessageTempId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="MessageType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ReadTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SysMessageTemp" Relationship="SysModel.FK_SYSMESSA_REFERENCE_SYSMESSA" FromRole="SysMessage" ToRole="SysMessageTemp" />
+  </EntityType>
+  <EntityType Name="SysMessageTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+    <Property Name="MessageName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MessageType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SysMessage" Relationship="SysModel.FK_SYSMESSA_REFERENCE_SYSMESSA" FromRole="SysMessageTemp" ToRole="SysMessage" />
+  </EntityType>
   <EntityType Name="SysNotice">
     <Key>
       <PropertyRef Name="Id" />
@@ -281,10 +357,10 @@
     <Property Name="PageStyle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="UpdatePerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="HDpic" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="SysDepartment" Relationship="SysModel.FK_SYSPERSO_REFERENCE_SYSDEPAR" FromRole="SysPerson" ToRole="SysDepartment" />
     <NavigationProperty Name="SysDocument" Relationship="SysModel.SysDocumentSysPerson" FromRole="SysPerson" ToRole="SysDocument" />
     <NavigationProperty Name="SysRole" Relationship="SysModel.SysRoleSysPerson" FromRole="SysPerson" ToRole="SysRole" />
-    <Property Name="HDpic" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="SysRole">
     <Key>
@@ -333,6 +409,18 @@
       </Principal>
       <Dependent Role="SysDocumentTalk">
         <PropertyRef Name="SysDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SYSEMAIL_REFERENCE_SYSEMAIL">
+    <End Type="SysModel.SysEmailTemp" Role="SysEmailTemp" Multiplicity="0..1" />
+    <End Type="SysModel.SysEmail" Role="SysEmail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysEmailTemp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysEmail">
+        <PropertyRef Name="SysMailId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -393,6 +481,18 @@
       </Principal>
       <Dependent Role="SysMenuSysRoleSysOperation">
         <PropertyRef Name="SysRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SYSMESSA_REFERENCE_SYSMESSA">
+    <End Type="SysModel.SysMessageTemp" Role="SysMessageTemp" Multiplicity="0..1" />
+    <End Type="SysModel.SysMessage" Role="SysMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysMessageTemp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysMessage">
+        <PropertyRef Name="SysMessageTempId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

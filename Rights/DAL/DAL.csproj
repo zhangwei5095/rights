@@ -87,6 +87,16 @@
     <Compile Include="SysDocumentTalk.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SysEmail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysEmailMeta.cs" />
+    <Compile Include="SysEmailRepository.cs" />
+    <Compile Include="SysEmailTemp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysEmailTempMeta.cs" />
+    <Compile Include="SysEmailTempRepository.cs" />
     <Compile Include="SysException.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -102,6 +112,16 @@
     <Compile Include="SysMenuSysRoleSysOperation.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SysMessage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysMessageMeta.cs" />
+    <Compile Include="SysMessageRepository.cs" />
+    <Compile Include="SysMessageTemp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysMessageTempMeta.cs" />
+    <Compile Include="SysMessageTempRepository.cs" />
     <Compile Include="SysNotice.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

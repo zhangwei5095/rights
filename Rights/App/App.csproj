@@ -154,6 +154,8 @@
     <Compile Include="Controllers\SysDepartmentTreeController.cs" />
     <Compile Include="Controllers\SysDocumentController.cs" />
     <Compile Include="Controllers\SysDocumentTalkController.cs" />
+    <Compile Include="Controllers\SysEmailController.cs" />
+    <Compile Include="Controllers\SysEmailTempController.cs" />
     <Compile Include="Controllers\SysExceptionController.cs" />
     <Compile Include="Controllers\SysFieldController.cs" />
     <Compile Include="Controllers\SysFieldTreeController.cs" />
@@ -161,6 +163,8 @@
     <Compile Include="Controllers\SysMenuController.cs" />
     <Compile Include="Controllers\SysMenuSysRoleSysOperationController.cs" />
     <Compile Include="Controllers\SysMenuTreeController.cs" />
+    <Compile Include="Controllers\SysMessageController.cs" />
+    <Compile Include="Controllers\SysMessageTempController.cs" />
     <Compile Include="Controllers\SysNoticeController.cs" />
     <Compile Include="Controllers\SysOperationController.cs" />
     <Compile Include="Controllers\SysPersonController.cs" />
@@ -939,6 +943,22 @@
     <Content Include="Views\SysRole\Edit.cshtml" />
     <Content Include="Views\SysRole\Index.cshtml" />
     <Content Include="Views\HomeRight\Index.cshtml" />
+    <Content Include="Views\SysEmailTemp\Create.cshtml" />
+    <Content Include="Views\SysEmailTemp\Details.cshtml" />
+    <Content Include="Views\SysEmailTemp\Edit.cshtml" />
+    <Content Include="Views\SysEmailTemp\Index.cshtml" />
+    <Content Include="Views\SysEmail\Create.cshtml" />
+    <Content Include="Views\SysEmail\Details.cshtml" />
+    <Content Include="Views\SysEmail\Edit.cshtml" />
+    <Content Include="Views\SysEmail\Index.cshtml" />
+    <Content Include="Views\SysMessageTemp\Create.cshtml" />
+    <Content Include="Views\SysMessageTemp\Details.cshtml" />
+    <Content Include="Views\SysMessageTemp\Edit.cshtml" />
+    <Content Include="Views\SysMessageTemp\Index.cshtml" />
+    <Content Include="Views\SysMessage\Create.cshtml" />
+    <Content Include="Views\SysMessage\Details.cshtml" />
+    <Content Include="Views\SysMessage\Edit.cshtml" />
+    <Content Include="Views\SysMessage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
