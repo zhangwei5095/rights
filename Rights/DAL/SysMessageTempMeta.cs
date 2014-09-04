@@ -14,21 +14,16 @@ namespace Langben.DAL
         #endregion
 
     }
-    public class SysMessageTempMetadata
+    public partial class SysMessageTempMetadata
     {
 			[ScaffoldColumn(false)]
 			[Display(Name = "主键", Order = 1)]
 			public object Id { get; set; }
 
-			[ScaffoldColumn(true)]
-			[Display(Name = "模板名称", Order = 2)]
-			[StringLength(200, ErrorMessage = "长度不可超过200")]
-			public object MessageName { get; set; }
-
-			[ScaffoldColumn(true)]
-			[Display(Name = "内容", Order = 3)]
-			[StringLength(400, ErrorMessage = "长度不可超过400")]
-			public object Content { get; set; }
+            [ScaffoldColumn(true)]
+            [Display(Name = "内容", Order = 3)]
+            [StringLength(400, ErrorMessage = "长度不可超过400")]
+            public string Content { get; set; }
 
 			[ScaffoldColumn(true)]
 			[Display(Name = "是否默认", Order = 4)]

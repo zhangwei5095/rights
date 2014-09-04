@@ -14,21 +14,13 @@ namespace Langben.DAL
         #endregion
 
     }
-    public class SysEmailTempMetadata
+    public partial class SysEmailTempMetadata
     {
 			[ScaffoldColumn(false)]
 			[Display(Name = "主键", Order = 1)]
 			public object Id { get; set; }
 
-			[ScaffoldColumn(true)]
-			[Display(Name = "模板名称", Order = 2)]
-			[StringLength(200, ErrorMessage = "长度不可超过200")]
-			public object Mail_name { get; set; }
-
-			[ScaffoldColumn(true)]
-			[Display(Name = "邮件主题", Order = 3)]
-			[StringLength(200, ErrorMessage = "长度不可超过200")]
-			public object Subject { get; set; }
+		 
 
 			[ScaffoldColumn(true)]
 			[Display(Name = "邮件内容", Order = 4)]

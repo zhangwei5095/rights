@@ -13,11 +13,11 @@
  }
 @section CurentPlaceJS {
   var oEditor = CKEDITOR.instances.Message.getData();
-    @*if(oEditor==null||oEditor=='')
+    if(oEditor==null||oEditor=='')
     {
         alert('内容不能为空');
         return false;
-    }*@
+    }
     $("#Message").val(oEditor);           
 
 }

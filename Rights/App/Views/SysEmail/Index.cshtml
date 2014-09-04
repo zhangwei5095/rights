@@ -32,7 +32,7 @@
     </div>
 </div>
  <br style="clear: both;" />
-
+<div id="dQuestion" style="display:none;" onmouseover="$(this).show()" onmouseout="$(this).hide()"></div>
 <script type="text/javascript" language="javascript">
         $(function () {
 
@@ -57,25 +57,7 @@
                         handler: function () {
                             return getView();
                         }
-                    }, {
-                        text: '创建',
-                        iconCls: 'icon-add',
-                        handler: function () {
-                            return flexiCreate();
-                        }
-                    },  {
-                        text: '删除',
-                        iconCls: 'icon-remove',
-                        handler: function () {
-                            return flexiDelete();
-                        }
-                    }, {
-                        text: '修改',
-                        iconCls: 'icon-edit',
-                        handler: function () {
-                            return flexiModify();
-                        }
-                    }, {
+                    } ,{
                         text: '导出',
                         iconCls: 'icon-excel',
                         handler: function () {
@@ -84,14 +66,19 @@
                     } ],
                 columns: [[
                    
-                    
-					{ field: 'SysMailId', title: '@Html.DisplayNameFor(model => model.SysMailId)', width: 86 }
-					,{ field: 'Subject', title:  '@Html.DisplayNameFor(model => model.Subject)', width: 86 }
-					,{ field: 'Content', title:  '@Html.DisplayNameFor(model => model.Content)', width: 86 }
-					,{ field: 'Reply_email', title:  '@Html.DisplayNameFor(model => model.Reply_email)', width: 86 }
-					,{ field: 'Mail_type', title:  '@Html.DisplayNameFor(model => model.Mail_type)', width: 86 }
-					,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 86 }
-					,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 86 }
+                    {
+                        field: 'Subject', title: '@Html.DisplayNameFor(model => model.Subject)', width: 259,
+                        formatter: function (value, rec, index) {
+                            var q = '<span onmouseout="HideQuestion()" onmouseover="ShowQuestion(event,' + index + ')" style="cursort:pointer">' + rec.Subject + '</span>';
+                            return q;
+                        }
+                    } 
+					,{ field: 'SysMailId', title: '@Html.DisplayNameFor(model => model.SysMailId)', width: 186 }
+					 
+					,{ field: 'Reply_email', title:  '@Html.DisplayNameFor(model => model.Reply_email)', width: 136 }
+					//,{ field: 'Mail_type', title:  '@Html.DisplayNameFor(model => model.Mail_type)', width: 86 }
+					//,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 86 }
+					//,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 86 }
 					,{ field: 'ReadTime', title:  '@Html.DisplayNameFor(model => model.ReadTime)', width: 86
                     , formatter: function (value, rec) {
                         if (value) {
@@ -124,7 +111,20 @@
                 $('#flexigridData').datagrid("addToolbarItem", [{ "text": "选择", "iconCls": "icon-ok", handler: function () { flexiSelect(); } }]);
             }
         });
-
+    function ShowQuestion(e, rowIndex) {
+        var ev = e || window.event;
+        var xx = ev.clientX + document.body.scrollLeft - document.body.clientLeft;
+        var yy = ev.clientY + document.body.scrollTop - document.body.clientTop;
+        $("#dQuestion").css({ "position": "absolute", "cursor": "pointer", "background": "#fff", "z-index": "2001", "border": "1px solid #ccc", "top": +yy, "left": +xx });
+        var row = $('#flexigridData').datagrid('getRows')[rowIndex];
+        if (row && row.Content && $.trim(row.Content) != "")
+            $('#dQuestion').html(row.Content).show();
+        else
+            $('#dQuestion').html("无内容").show();
+    }
+    function HideQuestion() {
+        $('#dQuestion').hide();
+    }
         //“查询”按钮，弹出查询框
         function flexiQuery() {
 

@@ -170,13 +170,10 @@ input {
     display: inline;
 }
 
-    .editor-label span {
-        width: 10px;
-        height: 5px;
-        float: left;
-        display: inline-block;
+    .editor-label span {       
+        float: right;       
         color: Red;
-        display: inline;
+       
     }
 
     .editor-label label {

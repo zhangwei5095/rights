@@ -117,6 +117,7 @@ namespace Langben.App.Controllers
         /// <returns></returns>
         [HttpPost]
         [SupportFilter]
+        [ValidateInput(false)]
         public ActionResult Create(SysMessageTemp entity)
         {           
             if (entity != null && ModelState.IsValid)
@@ -170,6 +171,7 @@ namespace Langben.App.Controllers
         /// <returns></returns>
         [HttpPost]
         [SupportFilter]
+        [ValidateInput(false)]
         public ActionResult Edit(string id, SysMessageTemp entity)
         {
             if (entity != null && ModelState.IsValid)

@@ -41,28 +41,13 @@
                     }],
                   
                     columns: [[ 
-                    	{ field: 'MyTexts', title: '@Html.DisplayNameFor(model => model.MyTexts)', width: 115 }
+                    	{ field: 'MyTexts', title: '@Html.DisplayNameFor(model => model.MyTexts)', width: 215 }
                         
-					,{ field: 'MyTables', title:  '@Html.DisplayNameFor(model => model.MyTables)', width: 86 }
-					,{ field: 'MyColums', title:  '@Html.DisplayNameFor(model => model.MyColums)', width: 86 }
-					,{ field: 'Sort', title:  '@Html.DisplayNameFor(model => model.Sort)', width: 86 }
-					,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 86 }
-					,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 86
-                    , formatter: function (value, rec) {
-                        if (value) {
-                            return dateConvert(value);
-                        } 
-                    } 
-}
-					,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 86 }
-					,{ field: 'UpdateTime', title:  '@Html.DisplayNameFor(model => model.UpdateTime)', width: 86
-                    , formatter: function (value, rec) {
-                        if (value) {
-                            return dateConvert(value);
-                        } 
-                    } 
-}
-					,{ field: 'UpdatePerson', title:  '@Html.DisplayNameFor(model => model.UpdatePerson)', width: 86 }
+					,{ field: 'MyTables', title:  '@Html.DisplayNameFor(model => model.MyTables)', width: 106 }
+					,{ field: 'MyColums', title:  '@Html.DisplayNameFor(model => model.MyColums)', width: 106 }
+					,{ field: 'Sort', title:  '@Html.DisplayNameFor(model => model.Sort)', width: 106 }
+					,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 186 }
+					 
 				    ]]
                      ,
                     onBeforeLoad: function (row, param) {
