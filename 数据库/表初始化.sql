@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/9/3 19:25:06                            */
+/* Created on:     2014/9/4 10:18:16                            */
 /*==============================================================*/
 
 
@@ -48,8 +48,8 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('dbo.SysEmail') and o.name = 'FK_SYSEMAIL_REFERENCE_SYSMAILT')
-alter table dbo.SysEmail
+   where r.fkeyid = object_id('SysEmail') and o.name = 'FK_SYSEMAIL_REFERENCE_SYSMAILT')
+alter table SysEmail
    drop constraint FK_SYSEMAIL_REFERENCE_SYSMAILT
 go
 
@@ -104,8 +104,8 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('dbo.SysMessage') and o.name = 'FK_SYSMESSA_REFERENCE_SYSMESSA')
-alter table dbo.SysMessage
+   where r.fkeyid = object_id('SysMessage') and o.name = 'FK_SYSMESSA_REFERENCE_SYSMESSA')
+alter table SysMessage
    drop constraint FK_SYSMESSA_REFERENCE_SYSMESSA
 go
 
@@ -181,9 +181,9 @@ go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.SysEmail')
+           where  id = object_id('SysEmail')
             and   type = 'U')
-   drop table dbo.SysEmail
+   drop table SysEmail
 go
 
 if exists (select 1
@@ -237,9 +237,9 @@ go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('dbo.SysMessage')
+           where  id = object_id('SysMessage')
             and   type = 'U')
-   drop table dbo.SysMessage
+   drop table SysMessage
 go
 
 if exists (select 1
@@ -533,7 +533,7 @@ go
 /*==============================================================*/
 /* Table: SysEmail                                              */
 /*==============================================================*/
-create table dbo.SysEmail (
+create table SysEmail (
    Id                   nvarchar(36)         not null,
    SysMailId            nvarchar(36)         null,
    Subject              nvarchar(200)        not null,
@@ -545,42 +545,46 @@ create table dbo.SysEmail (
    ReadTime             datetime             null,
    CreateTime           datetime             null,
    CreatePerson         nvarchar(200)        null,
-   constraint PK_notice_info2 primary key nonclustered (Id)
-         on secondgroup
+   constraint PK_SYSEMAIL primary key (Id)
 )
-on "PRIMARY"
 go
 
 if exists(select 1 from sys.extended_properties p where
-      p.major_id = object_id('dbo.SysEmail')
+      p.major_id = object_id('SysEmail')
   and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ReadTime')
 )
 begin
-   execute sp_dropextendedproperty 'MS_Description', 
-   'user', 'dbo', 'table', 'SysEmail', 'column', 'ReadTime'
+   declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_dropextendedproperty 'MS_Description', 
+   'user', @CurrentUser, 'table', 'SysEmail', 'column', 'ReadTime'
 
 end
 
 
+select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
    'Research',
-   'user', 'dbo', 'table', 'SysEmail', 'column', 'ReadTime'
+   'user', @CurrentUser, 'table', 'SysEmail', 'column', 'ReadTime'
 go
 
 if exists(select 1 from sys.extended_properties p where
-      p.major_id = object_id('dbo.SysEmail')
+      p.major_id = object_id('SysEmail')
   and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
 )
 begin
-   execute sp_dropextendedproperty 'MS_Description', 
-   'user', 'dbo', 'table', 'SysEmail', 'column', 'CreateTime'
+   declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_dropextendedproperty 'MS_Description', 
+   'user', @CurrentUser, 'table', 'SysEmail', 'column', 'CreateTime'
 
 end
 
 
+select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
    'Research',
-   'user', 'dbo', 'table', 'SysEmail', 'column', 'CreateTime'
+   'user', @CurrentUser, 'table', 'SysEmail', 'column', 'CreateTime'
 go
 
 /*==============================================================*/
@@ -902,7 +906,7 @@ go
 /*==============================================================*/
 /* Table: SysMessage                                            */
 /*==============================================================*/
-create table dbo.SysMessage (
+create table SysMessage (
    Id                   nvarchar(36)         not null,
    Content              nvarchar(400)        null,
    SysMessageTempId     nvarchar(36)         null,
@@ -912,42 +916,46 @@ create table dbo.SysMessage (
    ReadTime             datetime             null,
    CreateTime           datetime             null,
    CreatePerson         nvarchar(200)        null,
-   constraint PK_notice_info primary key nonclustered (Id)
-         on secondgroup
+   constraint PK_SYSMESSAGE primary key (Id)
 )
-on "PRIMARY"
 go
 
 if exists(select 1 from sys.extended_properties p where
-      p.major_id = object_id('dbo.SysMessage')
+      p.major_id = object_id('SysMessage')
   and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ReadTime')
 )
 begin
-   execute sp_dropextendedproperty 'MS_Description', 
-   'user', 'dbo', 'table', 'SysMessage', 'column', 'ReadTime'
+   declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_dropextendedproperty 'MS_Description', 
+   'user', @CurrentUser, 'table', 'SysMessage', 'column', 'ReadTime'
 
 end
 
 
+select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
    'Research',
-   'user', 'dbo', 'table', 'SysMessage', 'column', 'ReadTime'
+   'user', @CurrentUser, 'table', 'SysMessage', 'column', 'ReadTime'
 go
 
 if exists(select 1 from sys.extended_properties p where
-      p.major_id = object_id('dbo.SysMessage')
+      p.major_id = object_id('SysMessage')
   and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'CreateTime')
 )
 begin
-   execute sp_dropextendedproperty 'MS_Description', 
-   'user', 'dbo', 'table', 'SysMessage', 'column', 'CreateTime'
+   declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_dropextendedproperty 'MS_Description', 
+   'user', @CurrentUser, 'table', 'SysMessage', 'column', 'CreateTime'
 
 end
 
 
+select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
    'Research',
-   'user', 'dbo', 'table', 'SysMessage', 'column', 'CreateTime'
+   'user', @CurrentUser, 'table', 'SysMessage', 'column', 'CreateTime'
 go
 
 /*==============================================================*/
@@ -1175,7 +1183,7 @@ create table dbo.SysPerson (
    PageStyle            nvarchar(200)        null,
    UpdatePerson         nvarchar(200)        null,
    Version              timestamp            null,
-   HDpic				varchar(200)		 null,
+   HDpic                varchar(200)         null,
    constraint PK_SYSPERSON primary key nonclustered (Id)
          on "PRIMARY"
 )
@@ -1393,7 +1401,7 @@ alter table SysDocumentTalk
       references SysDocument (Id)
 go
 
-alter table dbo.SysEmail
+alter table SysEmail
    add constraint FK_SYSEMAIL_REFERENCE_SYSMAILT foreign key (SysMailId)
       references dbo.SysMailTemp (Id)
 go
@@ -1433,7 +1441,7 @@ alter table SysMenuSysRoleSysOperation
       references dbo.SysMenu (Id)
 go
 
-alter table dbo.SysMessage
+alter table SysMessage
    add constraint FK_SYSMESSA_REFERENCE_SYSMESSA foreign key (SysMessageTempId)
       references dbo.SysMessageTemp (Id)
 go
