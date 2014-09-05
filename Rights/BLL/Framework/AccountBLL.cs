@@ -65,10 +65,7 @@ namespace Langben.BLL
                         person.Password = newPasswordEncryptString;
                         person.SurePassword = newPasswordEncryptString;
                         if (!string.IsNullOrWhiteSpace(person.EmailAddress))
-                        {
-
-
-                            //发送验证码的邮件61.129.33.136
+                        { 
                             NetSendMail.MailSendChangePassword(db, person.EmailAddress, personName, newPassword);
                             //发送通知的邮件
 

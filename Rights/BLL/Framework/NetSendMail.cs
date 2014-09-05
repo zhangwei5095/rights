@@ -33,9 +33,7 @@ namespace Langben.BLL
             string tempName = "修改密码发送的邮件通知";
             var data = db.SysEmailTemp.Where(w => w.Mail_name == tempName).FirstOrDefault();
             if (data != null)
-            {
-
-
+            { 
                 SysEmail email = new SysEmail();
                 email.CreateTime = DateTime.Now;
                 email.Id = Common.Result.GetNewId();
@@ -49,10 +47,8 @@ namespace Langben.BLL
                 string mailFromPwd = "langben123",
                   mailSmtpServer = "smtp.exmail.qq.com";
 
-                SendSMTPEMail(mailSmtpServer, 25, email.Reply_email,"服务", "service@langben.com", mailFromPwd, mailTo, email.Subject, email.Content);
+                SendSMTPEMail(mailSmtpServer, 25, email.Reply_email, "服务", "service@langben.com", mailFromPwd, mailTo, email.Subject, email.Content);
 
-
-                //MailSend(mailFrom, maiFromlAccount, mailFromPwd, mailSmtpServer,465, mailToList, mailCC, mailBCC, email.Subject, email.Content, attList, Encoding.UTF8, true);
             }
         }
     }
