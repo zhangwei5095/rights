@@ -69,7 +69,7 @@ namespace Langben.BLL
 
 
                             //发送验证码的邮件61.129.33.136
-                            NetSendMail.MailSendHTML(db,person.EmailAddress, personName, newPassword);
+                            NetSendMail.MailSendChangePassword(db, person.EmailAddress, personName, newPassword);
                             //发送通知的邮件
 
                         }
