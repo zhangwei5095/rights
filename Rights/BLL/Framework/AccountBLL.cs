@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Langben.DAL;
 using Langben.IBLL;
+using Common;
 
 namespace Langben.BLL
 {
@@ -55,11 +56,24 @@ namespace Langben.BLL
             {
                 try
                 {
+                 string   oldPasswordEncryptString = EncryptAndDecrypte.EncryptString(oldPassword);
+                string    newPasswordEncryptString = EncryptAndDecrypte.EncryptString(newPassword);
+
                     using (SysEntities db = new SysEntities())
                     {
-                        var person = db.SysPerson.FirstOrDefault(p => (p.Name == personName) && (p.Password == oldPassword));
-                        person.Password = newPassword;
-                        person.SurePassword = newPassword;
+                        var person = db.SysPerson.FirstOrDefault(p => (p.Name == personName) && (p.Password == oldPasswordEncryptString));
+                        person.Password = newPasswordEncryptString;
+                        person.SurePassword = newPasswordEncryptString;
+                        if (!string.IsNullOrWhiteSpace(person.EmailAddress))
+                        {
+
+
+                            //发送验证码的邮件61.129.33.136
+                            NetSendMail.MailSendHTML(db,person.EmailAddress, personName, newPassword);
+                            //发送通知的邮件
+
+                        }
+
                         db.SaveChanges();
                         return true;
                     }

@@ -48,6 +48,7 @@
     <Compile Include="Framework\AccountBLL.cs" />
     <Compile Include="Framework\DataOfDiffrent.cs" />
     <Compile Include="Framework\ExceptionsHander.cs" />
+    <Compile Include="Framework\NetSendMail.cs" />
     <Compile Include="Framework\SysAnnouncementBLL.cs" />
     <Compile Include="Framework\SysFieldHander.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

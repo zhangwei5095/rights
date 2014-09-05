@@ -135,7 +135,7 @@ namespace Langben.App.Controllers
 
                 if (null != (accountBLL.ValidateUser(currentPerson, EncryptAndDecrypte.EncryptString(model.OldPassword))))
                 {
-                    if (accountBLL.ChangePassword(currentPerson, EncryptAndDecrypte.EncryptString(model.OldPassword), EncryptAndDecrypte.EncryptString(model.NewPassword)))
+                    if (accountBLL.ChangePassword(currentPerson, model.OldPassword,  model.NewPassword))
                     {
                         ModelState.AddModelError("", "修改密码成功");
                         return View();
