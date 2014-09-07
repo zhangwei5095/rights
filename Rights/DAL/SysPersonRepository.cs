@@ -244,16 +244,19 @@ namespace Langben.DAL
         /// </summary>
         /// <param name="db">实体数据</param>
         /// <param name="deleteCollection">主键的集合</param>
-        public void Delete(SysEntities db, string[] deleteCollection)
+        public List<string> Delete(SysEntities db, string[] deleteCollection)
         {
+            List<string> HDpic = new List<string>();//获取删除用户头像图片路径
             //数据库设置级联关系，自动删除子表的内容   
             IQueryable<SysPerson> collection = from f in db.SysPerson
                     where deleteCollection.Contains(f.Id)
                     select f;
             foreach (var deleteItem in collection)
             {
+                HDpic.Add(deleteItem.HDpic);
                 db.SysPerson.Remove(deleteItem);
             }
+            return HDpic;
         }
 
         /// <summary>
