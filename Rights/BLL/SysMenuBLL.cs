@@ -352,7 +352,7 @@ namespace Langben.BLL
                 }
                 foreach (SysOperation item in listEntity)
                 {
-              var asdf=      editEntity.SysOperation.Remove(item);//查询数据库
+                    var asdf=editEntity.SysOperation.Remove(item);//查询数据库
                     count++;
                 }
             }
