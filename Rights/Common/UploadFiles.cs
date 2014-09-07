@@ -41,8 +41,32 @@ namespace Common
           string postfix = filename.Substring(start + 1);
           return postfix;
       }
+      public string fileSaveAs(HttpPostedFileBase postedFile, string fileName)
+      {
+          string ramName = fileName.Substring(0, fileName.LastIndexOf('.'));
+          string fileExt = GetPostfixStr(fileName); //文件扩展名，不含“.”
+          string ramFileName = GetFileNameByTime() + "." + fileExt; //随机文件名
+          string dirPath = GetUpLoadPath(); //上传目录相对路径
+          string serverFileName = dirPath + ramFileName;
+          //物理完整路径                    
+          string toFileFullPath = GetMapPath(dirPath);
+          //检查有该路径是否就创建
+          if (!Directory.Exists(toFileFullPath))
+          {
+              Directory.CreateDirectory(toFileFullPath);
+          }
+          try
+          {
+              postedFile.SaveAs(toFileFullPath + ramFileName);
+          }
+          catch
+          {
+              return "{\"jsonrpc\" : \"2.0\", \"result\" : \"上传错误\"}";
+          }
+          return "{\"jsonrpc\" : \"" + ramName + "\", \"result\" : \"" + serverFileName + "\"}";
+      }
       /// <summary>
-      /// 上传音频文件
+      /// 上传文件
       /// </summary>
       /// <param name="fileByte"></param>
       /// <param name="fileName"></param>
