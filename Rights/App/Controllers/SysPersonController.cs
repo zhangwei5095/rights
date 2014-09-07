@@ -179,6 +179,7 @@ namespace Langben.App.Controllers
         public ActionResult Edit(string id)
         {
             SysPerson item = m_BLL.GetById(id);
+            ViewBag.OldPic = item.HDpic;
             return View(item);
         }
         /// <summary>
@@ -193,7 +194,12 @@ namespace Langben.App.Controllers
         {
             if (entity != null && ModelState.IsValid)
             {   //数据校验
-            
+
+                string oldPic = Request.Form["OldPic"];
+                if (entity.HDpic!=oldPic)//修改头像删除老的头像文件
+                {
+                    DirFile.DeleteFile(oldPic);
+                }
                 string currentPerson = GetCurrentPerson();                 
                 entity.UpdateTime = DateTime.Now;
                 entity.UpdatePerson = currentPerson;
