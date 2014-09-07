@@ -10,6 +10,7 @@ using Common;
 using Langben.DAL;
 using Langben.BLL;
 using Langben.App.Models;
+using System.Web;
 
 namespace Langben.App.Controllers
 {
@@ -41,11 +42,11 @@ namespace Langben.App.Controllers
         [HttpPost]
         public string HDpic()//头像上传
         {
-            byte[] FileByte = Request.BinaryRead(Request.TotalBytes);
-            string upfile = Request.QueryString["name"]; //取得上传的对象名称
-
+            //byte[] FileByte = Request.BinaryRead(Request.TotalBytes);
+            string upfile = Request.Form["name"]; //取得上传的对象名称
+            HttpPostedFileBase pstFile = Request.Files["file"];
             UploadFiles upFiles = new UploadFiles();
-            string msg = upFiles.UploadFile(FileByte, upfile);
+            string msg = upFiles.fileSaveAs(pstFile, upfile);
             return msg;
         }
         /// <summary>
