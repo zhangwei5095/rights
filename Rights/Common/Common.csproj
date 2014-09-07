@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="DirFile.cs" />
     <Compile Include="EncryptAndDecrypte.cs" />
     <Compile Include="IP.cs" />
     <Compile Include="NetSendMail.cs" />
