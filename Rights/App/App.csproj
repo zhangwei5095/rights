@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,17 +67,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -118,10 +117,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <Private>True</Private>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -219,6 +215,7 @@
     <Content Include="Images\login_pic.gif" />
     <Content Include="Images\login_top.gif" />
     <Content Include="Images\mimaxiugai.gif" />
+    <Content Include="Images\noPic.jpg" />
     <Content Include="Images\noscript.gif" />
     <Content Include="Images\notfound.gif" />
     <Content Include="Images\password_bg.gif" />
@@ -767,6 +764,17 @@
     <Content Include="Res\My97DatePicker\skin\whyGreen\datepicker.css" />
     <Content Include="Res\My97DatePicker\skin\whyGreen\img.gif" />
     <Content Include="Res\My97DatePicker\WdatePicker.js" />
+    <Content Include="Res\webuploader\css\webuploader.css" />
+    <Content Include="Res\webuploader\images\bg.png" />
+    <Content Include="Res\webuploader\images\icons.png" />
+    <Content Include="Res\webuploader\images\image.png" />
+    <Content Include="Res\webuploader\images\progress.png" />
+    <Content Include="Res\webuploader\images\style.css" />
+    <Content Include="Res\webuploader\images\success.png" />
+    <Content Include="Res\webuploader\js\expressInstall.swf" />
+    <Content Include="Res\webuploader\js\Uploader.swf" />
+    <Content Include="Res\webuploader\js\webuploader.min.js" />
+    <Content Include="Res\webuploader\js\webuploader.nolog.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Res\jquery.uploadify-v2.1.4\check.php" />
@@ -853,6 +861,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\UploadFile.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="up\b.xls" />
     <None Include="Views\Account\ChangePassword.cshtml" />
