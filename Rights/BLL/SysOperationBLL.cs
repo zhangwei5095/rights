@@ -325,12 +325,25 @@ namespace Langben.BLL
             {
                 return false;
             }
-            int count = 1;
-            SysOperation editEntity = repository.Edit(db, entity);
+            int count = 1;            
             
             List<string> addSysMenuId = new List<string>();
             List<string> deleteSysMenuId = new List<string>();
             DataOfDiffrent.GetDiffrent(entity.SysMenuId.GetIdSort(), entity.SysMenuIdOld.GetIdSort(), ref addSysMenuId, ref deleteSysMenuId);
+            List<SysMenu> listEntitySysMenu = new List<SysMenu>();
+            if (deleteSysMenuId != null && deleteSysMenuId.Count() > 0)
+            {                
+                foreach (var item in deleteSysMenuId)
+                {
+                    SysMenu sys = new SysMenu { Id = item };
+                    listEntitySysMenu.Add(sys);
+                    entity.SysMenu.Add(sys);
+                }                
+            } 
+
+            SysOperation editEntity = repository.Edit(db, entity);
+            
+         
             if (addSysMenuId != null && addSysMenuId.Count() > 0)
             {
                 foreach (var item in addSysMenuId)
@@ -342,17 +355,10 @@ namespace Langben.BLL
                 }
             }
             if (deleteSysMenuId != null && deleteSysMenuId.Count() > 0)
-            {
-                List<SysMenu> listEntity = new List<SysMenu>();
-                foreach (var item in deleteSysMenuId)
+            { 
+                foreach (SysMenu item in listEntitySysMenu)
                 {
-                    SysMenu sys = new SysMenu { Id = item };
-                    listEntity.Add(sys);
-                    db.SysMenu.Attach(sys);
-                }
-                foreach (SysMenu item in listEntity)
-                {
-                    editEntity.SysMenu.Remove(item);//查询数据库
+                    editEntity.SysMenu.Remove(item);
                     count++;
                 }
             } 

@@ -342,12 +342,39 @@ namespace Langben.BLL
             {
                 return false;
             }
-            int count = 1;
-            SysPerson editEntity = repository.Edit(db, entity);
+            int count = 1;            
             
             List<string> addSysRoleId = new List<string>();
             List<string> deleteSysRoleId = new List<string>();
             DataOfDiffrent.GetDiffrent(entity.SysRoleId.GetIdSort(), entity.SysRoleIdOld.GetIdSort(), ref addSysRoleId, ref deleteSysRoleId);
+            List<SysRole> listEntitySysRole = new List<SysRole>();
+            if (deleteSysRoleId != null && deleteSysRoleId.Count() > 0)
+            {                
+                foreach (var item in deleteSysRoleId)
+                {
+                    SysRole sys = new SysRole { Id = item };
+                    listEntitySysRole.Add(sys);
+                    entity.SysRole.Add(sys);
+                }                
+            } 
+
+            List<string> addSysDocumentId = new List<string>();
+            List<string> deleteSysDocumentId = new List<string>();
+            DataOfDiffrent.GetDiffrent(entity.SysDocumentId.GetIdSort(), entity.SysDocumentIdOld.GetIdSort(), ref addSysDocumentId, ref deleteSysDocumentId);
+            List<SysDocument> listEntitySysDocument = new List<SysDocument>();
+            if (deleteSysDocumentId != null && deleteSysDocumentId.Count() > 0)
+            {                
+                foreach (var item in deleteSysDocumentId)
+                {
+                    SysDocument sys = new SysDocument { Id = item };
+                    listEntitySysDocument.Add(sys);
+                    entity.SysDocument.Add(sys);
+                }                
+            } 
+
+            SysPerson editEntity = repository.Edit(db, entity);
+            
+         
             if (addSysRoleId != null && addSysRoleId.Count() > 0)
             {
                 foreach (var item in addSysRoleId)
@@ -359,24 +386,15 @@ namespace Langben.BLL
                 }
             }
             if (deleteSysRoleId != null && deleteSysRoleId.Count() > 0)
-            {
-                List<SysRole> listEntity = new List<SysRole>();
-                foreach (var item in deleteSysRoleId)
+            { 
+                foreach (SysRole item in listEntitySysRole)
                 {
-                    SysRole sys = new SysRole { Id = item };
-                    listEntity.Add(sys);
-                    db.SysRole.Attach(sys);
-                }
-                foreach (SysRole item in listEntity)
-                {
-                    editEntity.SysRole.Remove(item);//查询数据库
+                    editEntity.SysRole.Remove(item);
                     count++;
                 }
             } 
 
-            List<string> addSysDocumentId = new List<string>();
-            List<string> deleteSysDocumentId = new List<string>();
-            DataOfDiffrent.GetDiffrent(entity.SysDocumentId.GetIdSort(), entity.SysDocumentIdOld.GetIdSort(), ref addSysDocumentId, ref deleteSysDocumentId);
+         
             if (addSysDocumentId != null && addSysDocumentId.Count() > 0)
             {
                 foreach (var item in addSysDocumentId)
@@ -388,17 +406,10 @@ namespace Langben.BLL
                 }
             }
             if (deleteSysDocumentId != null && deleteSysDocumentId.Count() > 0)
-            {
-                List<SysDocument> listEntity = new List<SysDocument>();
-                foreach (var item in deleteSysDocumentId)
+            { 
+                foreach (SysDocument item in listEntitySysDocument)
                 {
-                    SysDocument sys = new SysDocument { Id = item };
-                    listEntity.Add(sys);
-                    db.SysDocument.Attach(sys);
-                }
-                foreach (SysDocument item in listEntity)
-                {
-                    editEntity.SysDocument.Remove(item);//查询数据库
+                    editEntity.SysDocument.Remove(item);
                     count++;
                 }
             } 

@@ -325,12 +325,25 @@ namespace Langben.BLL
             {
                 return false;
             }
-            int count = 1;
-            SysDepartment editEntity = repository.Edit(db, entity);
+            int count = 1;            
             
             List<string> addSysDocumentId = new List<string>();
             List<string> deleteSysDocumentId = new List<string>();
             DataOfDiffrent.GetDiffrent(entity.SysDocumentId.GetIdSort(), entity.SysDocumentIdOld.GetIdSort(), ref addSysDocumentId, ref deleteSysDocumentId);
+            List<SysDocument> listEntitySysDocument = new List<SysDocument>();
+            if (deleteSysDocumentId != null && deleteSysDocumentId.Count() > 0)
+            {                
+                foreach (var item in deleteSysDocumentId)
+                {
+                    SysDocument sys = new SysDocument { Id = item };
+                    listEntitySysDocument.Add(sys);
+                    entity.SysDocument.Add(sys);
+                }                
+            } 
+
+            SysDepartment editEntity = repository.Edit(db, entity);
+            
+         
             if (addSysDocumentId != null && addSysDocumentId.Count() > 0)
             {
                 foreach (var item in addSysDocumentId)
@@ -342,17 +355,10 @@ namespace Langben.BLL
                 }
             }
             if (deleteSysDocumentId != null && deleteSysDocumentId.Count() > 0)
-            {
-                List<SysDocument> listEntity = new List<SysDocument>();
-                foreach (var item in deleteSysDocumentId)
+            { 
+                foreach (SysDocument item in listEntitySysDocument)
                 {
-                    SysDocument sys = new SysDocument { Id = item };
-                    listEntity.Add(sys);
-                    db.SysDocument.Attach(sys);
-                }
-                foreach (SysDocument item in listEntity)
-                {
-                    editEntity.SysDocument.Remove(item);//查询数据库
+                    editEntity.SysDocument.Remove(item);
                     count++;
                 }
             } 

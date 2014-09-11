@@ -342,12 +342,39 @@ namespace Langben.BLL
             {
                 return false;
             }
-            int count = 1;
-            SysDocument editEntity = repository.Edit(db, entity);
+            int count = 1;            
             
             List<string> addSysPersonId = new List<string>();
             List<string> deleteSysPersonId = new List<string>();
             DataOfDiffrent.GetDiffrent(entity.SysPersonId.GetIdSort(), entity.SysPersonIdOld.GetIdSort(), ref addSysPersonId, ref deleteSysPersonId);
+            List<SysPerson> listEntitySysPerson = new List<SysPerson>();
+            if (deleteSysPersonId != null && deleteSysPersonId.Count() > 0)
+            {                
+                foreach (var item in deleteSysPersonId)
+                {
+                    SysPerson sys = new SysPerson { Id = item };
+                    listEntitySysPerson.Add(sys);
+                    entity.SysPerson.Add(sys);
+                }                
+            } 
+
+            List<string> addSysDepartmentId = new List<string>();
+            List<string> deleteSysDepartmentId = new List<string>();
+            DataOfDiffrent.GetDiffrent(entity.SysDepartmentId.GetIdSort(), entity.SysDepartmentIdOld.GetIdSort(), ref addSysDepartmentId, ref deleteSysDepartmentId);
+            List<SysDepartment> listEntitySysDepartment = new List<SysDepartment>();
+            if (deleteSysDepartmentId != null && deleteSysDepartmentId.Count() > 0)
+            {                
+                foreach (var item in deleteSysDepartmentId)
+                {
+                    SysDepartment sys = new SysDepartment { Id = item };
+                    listEntitySysDepartment.Add(sys);
+                    entity.SysDepartment.Add(sys);
+                }                
+            } 
+
+            SysDocument editEntity = repository.Edit(db, entity);
+            
+         
             if (addSysPersonId != null && addSysPersonId.Count() > 0)
             {
                 foreach (var item in addSysPersonId)
@@ -359,24 +386,15 @@ namespace Langben.BLL
                 }
             }
             if (deleteSysPersonId != null && deleteSysPersonId.Count() > 0)
-            {
-                List<SysPerson> listEntity = new List<SysPerson>();
-                foreach (var item in deleteSysPersonId)
+            { 
+                foreach (SysPerson item in listEntitySysPerson)
                 {
-                    SysPerson sys = new SysPerson { Id = item };
-                    listEntity.Add(sys);
-                    db.SysPerson.Attach(sys);
-                }
-                foreach (SysPerson item in listEntity)
-                {
-                    editEntity.SysPerson.Remove(item);//查询数据库
+                    editEntity.SysPerson.Remove(item);
                     count++;
                 }
             } 
 
-            List<string> addSysDepartmentId = new List<string>();
-            List<string> deleteSysDepartmentId = new List<string>();
-            DataOfDiffrent.GetDiffrent(entity.SysDepartmentId.GetIdSort(), entity.SysDepartmentIdOld.GetIdSort(), ref addSysDepartmentId, ref deleteSysDepartmentId);
+         
             if (addSysDepartmentId != null && addSysDepartmentId.Count() > 0)
             {
                 foreach (var item in addSysDepartmentId)
@@ -388,17 +406,10 @@ namespace Langben.BLL
                 }
             }
             if (deleteSysDepartmentId != null && deleteSysDepartmentId.Count() > 0)
-            {
-                List<SysDepartment> listEntity = new List<SysDepartment>();
-                foreach (var item in deleteSysDepartmentId)
+            { 
+                foreach (SysDepartment item in listEntitySysDepartment)
                 {
-                    SysDepartment sys = new SysDepartment { Id = item };
-                    listEntity.Add(sys);
-                    db.SysDepartment.Attach(sys);
-                }
-                foreach (SysDepartment item in listEntity)
-                {
-                    editEntity.SysDepartment.Remove(item);//查询数据库
+                    editEntity.SysDepartment.Remove(item);
                     count++;
                 }
             } 

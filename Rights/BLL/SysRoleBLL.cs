@@ -320,12 +320,25 @@ namespace Langben.BLL
             {
                 return false;
             }
-            int count = 1;
-            SysRole editEntity = repository.Edit(db, entity);
+            int count = 1;            
             
             List<string> addSysPersonId = new List<string>();
             List<string> deleteSysPersonId = new List<string>();
             DataOfDiffrent.GetDiffrent(entity.SysPersonId.GetIdSort(), entity.SysPersonIdOld.GetIdSort(), ref addSysPersonId, ref deleteSysPersonId);
+            List<SysPerson> listEntitySysPerson = new List<SysPerson>();
+            if (deleteSysPersonId != null && deleteSysPersonId.Count() > 0)
+            {                
+                foreach (var item in deleteSysPersonId)
+                {
+                    SysPerson sys = new SysPerson { Id = item };
+                    listEntitySysPerson.Add(sys);
+                    entity.SysPerson.Add(sys);
+                }                
+            } 
+
+            SysRole editEntity = repository.Edit(db, entity);
+            
+         
             if (addSysPersonId != null && addSysPersonId.Count() > 0)
             {
                 foreach (var item in addSysPersonId)
@@ -337,17 +350,10 @@ namespace Langben.BLL
                 }
             }
             if (deleteSysPersonId != null && deleteSysPersonId.Count() > 0)
-            {
-                List<SysPerson> listEntity = new List<SysPerson>();
-                foreach (var item in deleteSysPersonId)
+            { 
+                foreach (SysPerson item in listEntitySysPerson)
                 {
-                    SysPerson sys = new SysPerson { Id = item };
-                    listEntity.Add(sys);
-                    db.SysPerson.Attach(sys);
-                }
-                foreach (SysPerson item in listEntity)
-                {
-                    editEntity.SysPerson.Remove(item);//查询数据库
+                    editEntity.SysPerson.Remove(item);
                     count++;
                 }
             } 
