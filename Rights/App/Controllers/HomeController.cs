@@ -17,7 +17,7 @@ namespace Langben.App.Controllers
         {
             Account account = GetCurrentAccount();
             if (account == null)
-            {
+            {  
                 RedirectToAction("Index", "Account");
             }
             else
