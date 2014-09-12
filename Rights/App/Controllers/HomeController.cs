@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Langben.IBLL;
+using Langben.BLL;
 
 namespace Langben.App.Controllers
 {
@@ -22,9 +24,10 @@ namespace Langben.App.Controllers
             }
             else
             {
-              
-                //IHomeBLL home = new HomeBLL();                
-                //ViewData["Menu"] = home.GetMenuByAccount(ref account);// 获取菜单
+
+                //IHomeBLL home = new HomeBLL();
+                ViewData["Menu"] = App.Codes.MenuCaching.GetMenu(ref account); //home.GetMenuByAccount(ref account);// 获取菜单
+
             }
 
 

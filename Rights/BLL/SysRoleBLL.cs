@@ -437,6 +437,66 @@ namespace Langben.BLL
         {
            
         }
+
+
+
+        public bool SaveCollection(ref ValidationErrors validationErrors, string[] ids, string id)
+        {
+            char split = '^';
+            var data = (
+                from f in ids
+                where f.Contains(split)
+                select f.Substring(0, f.IndexOf(split))
+                        ).Union(
+                from f in ids
+                where !string.IsNullOrWhiteSpace(f) && !f.Contains(split)
+                select f);
+
+            using (TransactionScope transactionScope = new TransactionScope())
+            {
+                //利用编码机制，查询出所有的菜单
+                var codes = db.SysMenu.Where(w => data.Contains(w.Id)).Select(s => s.Remark).Distinct();
+                List<string> ls = new List<string>();
+                foreach (var item in codes)
+                {
+                    for (int i = 0; i < item.Length / 4; i++)
+                    {
+                        //需要在项目中引用  System.Numerics.dll  
+                        //在1.2版本中修改
+                        string num = System.Numerics.BigInteger.Divide(System.Numerics.BigInteger.Parse(item), System.Numerics.BigInteger.Pow(10000, i)).ToString();
+
+                        if (!ls.Contains(num))
+                        {
+                            ls.Add(num);
+                        }
+                    }
+                }
+                var SysMenusIds = from f in db.SysMenu
+                                  where ls.Contains(f.Remark)
+                                  select f.Id; //现在所有的菜单
+
+                StringBuilder builder = new StringBuilder();
+                builder.AppendFormat("DELETE FROM  [SysMenuSysRoleSysOperation] WHERE [SysRoleId] = '{0}';", id);//删除该角色的所有的菜单和操作
+                foreach (var item in SysMenusIds)
+                {//插入菜单
+                    builder.AppendFormat("INSERT INTO [SysMenuSysRoleSysOperation]([Id],[SysRoleId],[SysMenuId])VALUES('{0}','{1}','{2}');"
+                        , Common.Result.GetNewId(), id, item);
+                }
+
+                foreach (var item in ids)
+                {//插入操作
+                    if (item.Contains(split))
+                        builder.AppendFormat("INSERT INTO [SysMenuSysRoleSysOperation]([Id],[SysRoleId],[SysMenuId],[SysOperationId])VALUES('{0}','{1}','{2}','{3}');"
+                       , Common.Result.GetNewId(), id, item.Substring(0, item.IndexOf(split)), item.Substring(item.IndexOf(split) + 1));
+                }
+
+                db.Database.ExecuteSqlCommand(builder.ToString());
+                db.SaveChanges();
+                transactionScope.Complete();
+                return true;
+
+            }
+        }
     }
 }
 

@@ -81,7 +81,7 @@
             @Html.LabelFor(model => model.State)：
         </div>
         <div class="editor-field">
-            @Html.RadioButtonListFor(model => model.State, Models.SysFieldModels.GetSysField("SysMenu", "State"), false)
+            @Html.RadioButtonListFor(model => model.State, Models.SysFieldModels.GetSysField("SysMenu", "State"), true)
         </div>@Html.HiddenFor(model => model.CreatePerson) @Html.HiddenFor(model => model.CreateTime)
         <div class="editor-label">
             @Html.LabelFor(model => model.IsLeaf)：

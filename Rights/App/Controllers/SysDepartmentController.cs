@@ -286,6 +286,44 @@ namespace Langben.App.Controllers
             }
             return Content("[]");
         }
+
+ 
+
+        [HttpPost]
+        public ActionResult GetAllMetadata2(string id)
+        {
+            SysMenuBLL m_BLL = new SysMenuBLL();
+            var rows = m_BLL.GetAllMetadata().ToList().Select(s =>
+                        new
+                        {
+                            Id = s.Id
+                    ,
+                            Name = s.Name
+                    ,
+                            _parentId = s.ParentId
+                    ,
+                            isCheck = string.Join(",", s.SysOperation.Select(t => t.Id + "^" + t.Name))
+                    ,
+                            iconCls = s.Iconic
+
+                        }
+                        ).OrderBy(o => o.Id);
+
+            return Json(new treegrid() { rows = rows });
+
+        }
+        /// <summary>
+        /// 获取树形列表的数据
+        /// </summary>
+        /// <returns></returns>
+
+        public ActionResult GetAllMetadata23(string id)
+        {
+            SysMenuSysRoleSysOperationBLL m_BLL = new SysMenuSysRoleSysOperationBLL();
+            var rows = m_BLL.GetByRefSysRoleId(id).Select(s => (s.SysOperationId == null) ? s.SysMenuId : s.SysMenuId + "^" + s.SysOperationId);
+            return Json(rows, JsonRequestBehavior.AllowGet);
+
+        }
     }
 }
 

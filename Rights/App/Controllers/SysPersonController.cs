@@ -208,7 +208,8 @@ namespace Langben.App.Controllers
                 if (m_BLL.Edit(ref validationErrors, entity))
                 {
                     LogClassModels.WriteServiceLog(Suggestion.UpdateSucceed + "，人员信息的Id为" + id,"人员"
-                        );//写入日志                           
+                        );//写入日志    
+                    App.Codes.MenuCaching.ClearCache(id);   
                     return Json(Suggestion.UpdateSucceed); //提示更新成功 
                 }
                 else
@@ -245,6 +246,7 @@ namespace Langben.App.Controllers
                 {
                     LogClassModels.WriteServiceLog(Suggestion.DeleteSucceed + "，信息的Id为" + string.Join(",", deleteId), "消息"
                         );//删除成功，写入日志
+                    App.Codes.MenuCaching.ClearCache(deleteId);
                     return Json("OK");
                 }
                 else

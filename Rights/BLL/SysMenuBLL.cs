@@ -408,6 +408,13 @@ namespace Langben.BLL
             return repository.GetAll(db).ToList();
         }
 
+
+        public IQueryable<SysMenu> GetAllMetadata()
+        {
+            return db.SysMenu.Include("SysOperation").AsQueryable();
+
+        }
+
         /// <summary>
         /// 获取自连接树形列表数据
         /// </summary>

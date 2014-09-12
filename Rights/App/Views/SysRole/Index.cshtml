@@ -21,7 +21,14 @@
                 idField: 'Id',
 
                 toolbar: [
-                 
+
+                   {
+                       text: '分配权限',
+                       iconCls: 'icon-search',
+                       handler: function () {
+                           flexiSetSysMenu();
+                       }
+                   },
                      {
                         text: '详细',
                         iconCls: 'icon-search',
@@ -228,6 +235,19 @@
             });
 
         };
+        //分配权限
+        flexiSetSysMenu = function () {
+            var arr = $('#flexigridData').datagrid('getSelections');
 
+            if (arr.length == 1) {
+                window.location.href = "../SysRole/SetSysMenu/" + arr[0].Id;
+
+            } else {
+                $.messager.alert('操作提示', '请选择一条数据!', 'warning');
+            }
+            return false;
+
+
+        };
 </script>
 

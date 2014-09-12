@@ -92,8 +92,17 @@ namespace Langben.IBLL
         /// <param name="entity">一个对象</param>
         /// <returns></returns>
         [OperationContract]
-        bool Edit(ref Common.ValidationErrors validationErrors, SysRole entity); 
-    
+        bool Edit(ref Common.ValidationErrors validationErrors, SysRole entity);
+
+        /// <summary>
+        /// 保存对象集合
+        /// </summary>
+        /// <param name="validationErrors">返回的错误信息</param>
+        /// <param name="deleteCollection">主键的集合</param>
+        /// <returns></returns>       
+        [OperationContract]
+        bool SaveCollection(ref Common.ValidationErrors validationErrors, string[] saveCollection, string id);
+
     }
 }
 

@@ -129,6 +129,7 @@ namespace Langben.App.Controllers
                 {
                     LogClassModels.WriteServiceLog(Suggestion.InsertSucceed  + "，角色的信息的Id为" + entity.Id,"角色"
                         );//写入日志 
+                    App.Codes.MenuCaching.ClearCache();
                     return Json(Suggestion.InsertSucceed);
                 }
                 else
@@ -181,7 +182,8 @@ namespace Langben.App.Controllers
                 if (m_BLL.Edit(ref validationErrors, entity))
                 {
                     LogClassModels.WriteServiceLog(Suggestion.UpdateSucceed + "，角色信息的Id为" + id,"角色"
-                        );//写入日志                           
+                        );//写入日志           
+                    App.Codes.MenuCaching.ClearCache();  
                     return Json(Suggestion.UpdateSucceed); //提示更新成功 
                 }
                 else
@@ -202,6 +204,49 @@ namespace Langben.App.Controllers
             return Json(Suggestion.UpdateFail + "请核对输入的数据的格式"); //提示输入的数据的格式不对               
           
         }
+
+
+
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>   
+        [HttpPost]
+        [SupportFilter]
+        public ActionResult Save(FormCollection collection)
+        {
+            string returnValue = string.Empty;
+            string[] ids = collection["ids"].GetString().Split(',');
+            string id = collection["id"].GetString();
+
+            if (m_BLL.SaveCollection(ref validationErrors, ids, id))
+            {
+                LogClassModels.WriteServiceLog(Suggestion.DeleteSucceed + "，信息的Id为" + string.Join(",", ids), "消息"
+                    );//删除成功，写入日志
+                //0904
+                App.Codes.MenuCaching.ClearCache();
+                return Json("OK");
+            }
+            else
+            {
+                if (validationErrors != null && validationErrors.Count > 0)
+                {
+                    validationErrors.All(a =>
+                    {
+                        returnValue += a.ErrorMessage;
+                        return true;
+                    });
+                }
+                LogClassModels.WriteServiceLog(Suggestion.DeleteFail + "，信息的Id为" + string.Join(",", ids) + "," + returnValue, "消息"
+                    );//删除失败，写入日志
+            }
+
+            return Json(returnValue);
+        }
+
+
+
         /// <summary>
         /// 删除
         /// </summary>
@@ -218,6 +263,7 @@ namespace Langben.App.Controllers
                 {
                     LogClassModels.WriteServiceLog(Suggestion.DeleteSucceed + "，信息的Id为" + string.Join(",", deleteId), "消息"
                         );//删除成功，写入日志
+                    App.Codes.MenuCaching.ClearCache();
                     return Json("OK");
                 }
                 else
@@ -236,7 +282,22 @@ namespace Langben.App.Controllers
             }
             return Json(returnValue);
         }
-     
+
+
+        /// <summary>
+        /// 首次设置SysMenu
+        /// </summary>
+        /// <param name="id">主键</param>
+        /// <returns></returns> 
+        [SupportFilter]
+        public ActionResult SetSysMenu(string id)
+        {
+            var entity = m_BLL.GetById(id);
+            ViewData["myname"] = entity.Name;
+            ViewData["myid"] = id;
+            return View(entity);
+        }
+
         IBLL.ISysRoleBLL m_BLL;
 
         ValidationErrors validationErrors = new ValidationErrors();
