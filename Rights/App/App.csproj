@@ -968,6 +968,7 @@
     <Content Include="Views\SysMessage\Details.cshtml" />
     <Content Include="Views\SysMessage\Edit.cshtml" />
     <Content Include="Views\SysMessage\Index.cshtml" />
+    <Content Include="Views\SysRole\SetSysMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
