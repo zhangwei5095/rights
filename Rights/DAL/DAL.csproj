@@ -60,6 +60,7 @@
     <Compile Include="Framework\IBaseEntity.cs" />
     <Compile Include="Framework\SysAnnouncementRepository.cs" />
     <Compile Include="Framework\SysEmailTempMeta.cs" />
+    <Compile Include="Framework\SysMenuSysRoleSysOperationRepository.cs" />
     <Compile Include="Framework\SysMessageTempMeta.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>

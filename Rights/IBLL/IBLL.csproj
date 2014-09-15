@@ -44,6 +44,7 @@
     <Compile Include="Framework\IHomeBLL.cs" />
     <Compile Include="Framework\ISysAnnouncementBLL.cs" />
     <Compile Include="Framework\ISysFieldHander.cs" />
+    <Compile Include="Framework\ISysMenuSysRoleSysOperationBLL.cs" />
     <Compile Include="ISysEmailBLL.cs" />
     <Compile Include="ISysEmailTempBLL.cs" />
     <Compile Include="ISysMessageBLL.cs" />

@@ -196,9 +196,7 @@ namespace Langben.DAL
                       
         }
 
-        public void Dispose()
-        {          
-        }
+       
     }
 }
 
