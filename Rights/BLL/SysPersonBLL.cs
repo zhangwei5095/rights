@@ -37,6 +37,19 @@ namespace Langben.BLL
             db = entities;
         }
         /// <summary>
+        /// 保存皮肤
+        /// </summary>
+        /// <param name="theme"></param>
+        /// <param name="id"></param>
+        public bool SaveTheme(string theme, string id)
+        {
+            SysPerson p = this.GetById(id);
+            p.PageStyle = theme;
+            repository.Edit(db, p);
+            int count = repository.Save(db);
+            return count > 0;
+        }
+        /// <summary>
         /// 查询的数据
         /// </summary>
         /// <param name="id">额外的参数</param>

@@ -55,57 +55,60 @@
                 columns: [[
                    
                     
-					{ field: 'Name', title: '@Html.DisplayNameFor(model => model.Name)', width: 29 }
-					,{ field: 'MyName', title:  '@Html.DisplayNameFor(model => model.MyName)', width: 29 }
-					,{ field: 'Password', title:  '@Html.DisplayNameFor(model => model.Password)', width: 29 }
-					,{ field: 'SurePassword', title:  '@Html.DisplayNameFor(model => model.SurePassword)', width: 29 }
-					,{ field: 'Sex', title:  '@Html.DisplayNameFor(model => model.Sex)', width: 29 }
-					,{ field: 'SysDepartmentId', title: '@Html.DisplayNameFor(model => model.SysDepartmentIdOld)', width: 29 }
+					{ field: 'Name', title: '@Html.DisplayNameFor(model => model.Name)', width: 100 }
+					, { field: 'MyName', title: '@Html.DisplayNameFor(model => model.MyName)', width: 100 }
+					@*,{ field: 'Password', title:  '@Html.DisplayNameFor(model => model.Password)', width: 29 }
+					,{ field: 'SurePassword', title:  '@Html.DisplayNameFor(model => model.SurePassword)', width: 29 }*@
+					, { field: 'Sex', title: '@Html.DisplayNameFor(model => model.Sex)', width: 100 }
+					@*,{ field: 'SysDepartmentId', title: '@Html.DisplayNameFor(model => model.SysDepartmentIdOld)', width: 29 }
 					,{ field: 'Position', title:  '@Html.DisplayNameFor(model => model.Position)', width: 29 }
 					,{ field: 'MobilePhoneNumber', title:  '@Html.DisplayNameFor(model => model.MobilePhoneNumber)', width: 29 }
 					,{ field: 'PhoneNumber', title:  '@Html.DisplayNameFor(model => model.PhoneNumber)', width: 29 }
 					,{ field: 'Province', title:  '@Html.DisplayNameFor(model => model.Province)', width: 29 }
 					,{ field: 'City', title:  '@Html.DisplayNameFor(model => model.City)', width: 29 }
 					,{ field: 'Village', title:  '@Html.DisplayNameFor(model => model.Village)', width: 29 }
-					,{ field: 'Address', title:  '@Html.DisplayNameFor(model => model.Address)', width: 29 }
-					,{ field: 'EmailAddress', title:  '@Html.DisplayNameFor(model => model.EmailAddress)', width: 29 }
-					,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 29 }
-					,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 29 }
-					,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 29
+					,{ field: 'Address', title:  '@Html.DisplayNameFor(model => model.Address)', width: 29 }*@
+					, { field: 'EmailAddress', title: '@Html.DisplayNameFor(model => model.EmailAddress)', width: 100 }
+					@*,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 29 }*@
+					, { field: 'State', title: '@Html.DisplayNameFor(model => model.State)', width: 100 }
+					, {
+					    field: 'CreateTime', title: '@Html.DisplayNameFor(model => model.CreateTime)', width: 100
                     , formatter: function (value, rec) {
                         if (value) {
                             return dateConvert(value);
                         } 
                     } 
-}
-					,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 29 }
+                    }
+					@*,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 29 }
 					,{ field: 'UpdateTime', title:  '@Html.DisplayNameFor(model => model.UpdateTime)', width: 29
                     , formatter: function (value, rec) {
                         if (value) {
                             return dateConvert(value);
                         } 
                     } 
-}
-					,{ field: 'LogonNum', title:  '@Html.DisplayNameFor(model => model.LogonNum)', width: 29 }
-					,{ field: 'LogonTime', title:  '@Html.DisplayNameFor(model => model.LogonTime)', width: 29
+                    }*@
+					, { field: 'LogonNum', title: '@Html.DisplayNameFor(model => model.LogonNum)', width: 100 }
+					, {
+					    field: 'LogonTime', title: '@Html.DisplayNameFor(model => model.LogonTime)', width: 100
+                    , formatter: function (value, rec) {
+                        if (value) {
+                            return dateConvert(value);
+                        } 
+                    } 
+                }
+					, { field: 'LogonIP', title: '@Html.DisplayNameFor(model => model.LogonIP)', width: 100 }
+					, {
+					    field: 'LastLogonTime', title: '@Html.DisplayNameFor(model => model.LastLogonTime)', width: 100
                     , formatter: function (value, rec) {
                         if (value) {
                             return dateConvert(value);
                         } 
                     } 
 }
-					,{ field: 'LogonIP', title:  '@Html.DisplayNameFor(model => model.LogonIP)', width: 29 }
-					,{ field: 'LastLogonTime', title:  '@Html.DisplayNameFor(model => model.LastLogonTime)', width: 29
-                    , formatter: function (value, rec) {
-                        if (value) {
-                            return dateConvert(value);
-                        } 
-                    } 
-}
-					,{ field: 'LastLogonIP', title:  '@Html.DisplayNameFor(model => model.LastLogonIP)', width: 29 }
-					,{ field: 'PageStyle', title:  '@Html.DisplayNameFor(model => model.PageStyle)', width: 29 }
+					, { field: 'LastLogonIP', title: '@Html.DisplayNameFor(model => model.LastLogonIP)', width: 100 }
+					@*,{ field: 'PageStyle', title:  '@Html.DisplayNameFor(model => model.PageStyle)', width: 29 }
 					,{ field: 'UpdatePerson', title:  '@Html.DisplayNameFor(model => model.UpdatePerson)', width: 29 }
-					,{ field: 'Version', title: '@Html.DisplayNameFor(model => model.Version)', width: 29, hidden: true }					//, { display: '@Html.DisplayNameFor(model => model.SysRoleId)', name: 'SysRoleId', width: 29, sortable: false, align: 'left' }
+					,{ field: 'Version', title: '@Html.DisplayNameFor(model => model.Version)', width: 29, hidden: true }*@					//, { display: '@Html.DisplayNameFor(model => model.SysRoleId)', name: 'SysRoleId', width: 29, sortable: false, align: 'left' }
 					//, { display: '@Html.DisplayNameFor(model => model.SysDocumentId)', name: 'SysDocumentId', width: 29, sortable: false, align: 'left' }
 
                 ]],

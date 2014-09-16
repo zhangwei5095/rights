@@ -40,6 +40,7 @@ namespace Langben.App.Controllers
                 account.LastLogonIP = person.LastLogonIP;
                 account.LastLogonTime = person.LastLogonTime;
                 account.LogonNum = person.LogonNum;
+                account.Theme = person.PageStyle;
                 //Session["account"] = account;
                 Utils.WriteCookie("account", account, 7);
                 return RedirectToAction("Index", "Home");
@@ -81,6 +82,8 @@ namespace Langben.App.Controllers
                     account.LastLogonIP = person.LastLogonIP;
                     account.LastLogonTime = person.LastLogonTime;
                     account.LogonNum = person.LogonNum;
+                    account.Theme = person.PageStyle;
+                    Utils.WriteCookie("easyuiThemeName", account.Theme, 60);
                     Utils.WriteCookie("account", account, 7);
                     //Session["account"] = account;
 

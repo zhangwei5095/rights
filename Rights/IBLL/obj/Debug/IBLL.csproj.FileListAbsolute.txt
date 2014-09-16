@@ -104,3 +104,13 @@ E:\work\mvc\git\langben\trunk\Rights\IBLL\bin\Debug\DAL.pdb
 E:\work\mvc\git\langben\trunk\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
 E:\work\mvc\git\langben\trunk\Rights\IBLL\obj\Debug\IBLL.dll
 E:\work\mvc\git\langben\trunk\Rights\IBLL\obj\Debug\IBLL.pdb
+E:\work\git\ben\rights\Rights\IBLL\bin\Debug\IBLL.dll
+E:\work\git\ben\rights\Rights\IBLL\bin\Debug\IBLL.pdb
+E:\work\git\ben\rights\Rights\IBLL\bin\Debug\Common.dll
+E:\work\git\ben\rights\Rights\IBLL\bin\Debug\DAL.dll
+E:\work\git\ben\rights\Rights\IBLL\bin\Debug\EntityFramework.dll
+E:\work\git\ben\rights\Rights\IBLL\bin\Debug\Common.pdb
+E:\work\git\ben\rights\Rights\IBLL\bin\Debug\DAL.pdb
+E:\work\git\ben\rights\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
+E:\work\git\ben\rights\Rights\IBLL\obj\Debug\IBLL.dll
+E:\work\git\ben\rights\Rights\IBLL\obj\Debug\IBLL.pdb

@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>管理信息系统</title>
-   
+    <title>管理信息 系统</title>
+    <link id="easyuiTheme" href="@Url.Content("~/Res/easyui/themes/default/easyui.css")" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content")
     @Scripts.Render("~/bundles/jquery")
@@ -415,8 +415,10 @@
         </div>
 
         <div class="user">
-
-           
+            <div class="uset">
+                <font>皮肤:</font>
+                <select id="cb-theme" style="width: 150px"></select>
+            </div>
             <div class="uset">
                 <a href="http://www.langben.com" target="_blank">帮助中心</a>
             </div>

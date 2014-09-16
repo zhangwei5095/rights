@@ -107,3 +107,14 @@ C:\Users\Administrator\Source\Repos\rights\Rights\BLL\bin\Debug\IBLL.pdb
 C:\Users\Administrator\Source\Repos\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Source\Repos\rights\Rights\BLL\obj\Debug\BLL.dll
 C:\Users\Administrator\Source\Repos\rights\Rights\BLL\obj\Debug\BLL.pdb
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\BLL.dll
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\BLL.pdb
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\Common.dll
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\DAL.dll
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\IBLL.dll
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\Common.pdb
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\DAL.pdb
+E:\work\git\ben\rights\Rights\BLL\bin\Debug\IBLL.pdb
+E:\work\git\ben\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\work\git\ben\rights\Rights\BLL\obj\Debug\BLL.dll
+E:\work\git\ben\rights\Rights\BLL\obj\Debug\BLL.pdb

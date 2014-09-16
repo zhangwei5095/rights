@@ -99,3 +99,11 @@ C:\Users\Administrator\Source\Repos\rights\Rights\DAL\bin\Debug\Common.pdb
 C:\Users\Administrator\Source\Repos\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Source\Repos\rights\Rights\DAL\obj\Debug\DAL.dll
 C:\Users\Administrator\Source\Repos\rights\Rights\DAL\obj\Debug\DAL.pdb
+E:\work\git\ben\rights\Rights\DAL\bin\Debug\DAL.dll.config
+E:\work\git\ben\rights\Rights\DAL\bin\Debug\DAL.dll
+E:\work\git\ben\rights\Rights\DAL\bin\Debug\DAL.pdb
+E:\work\git\ben\rights\Rights\DAL\bin\Debug\Common.dll
+E:\work\git\ben\rights\Rights\DAL\bin\Debug\Common.pdb
+E:\work\git\ben\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\work\git\ben\rights\Rights\DAL\obj\Debug\DAL.dll
+E:\work\git\ben\rights\Rights\DAL\obj\Debug\DAL.pdb

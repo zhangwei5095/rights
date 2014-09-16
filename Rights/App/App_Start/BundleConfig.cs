@@ -11,7 +11,9 @@ namespace App
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery.min.js",
                         "~/Scripts/JScriptCommon.js",
-                        "~/Res/ckeditor/ckeditor.js" 
+                        "~/Res/ckeditor/ckeditor.js" ,
+                         "~/Scripts/jquery.cookie.js",
+                        "~/Scripts/Theme.js"
                         ));
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                        "~/Res/easyui/jquery.easyui.min.js",
@@ -33,7 +35,6 @@ namespace App
                   "~/Content/default.css"
               ));//菜单图标
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Res/easyui/themes/default/easyui.css",
                       "~/Res/easyui/themes/icon.css",
                        
                       "~/Content/StyleSheet.css"));

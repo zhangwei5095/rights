@@ -55,7 +55,10 @@ namespace Common
         /// </summary>
         [DataMember]
         public List<string> MenuIds { get; set; }
-
-
+        /// <summary>
+        /// 皮肤
+        /// </summary>
+        [DataMember]
+        public string Theme { get; set; }
     }
 }

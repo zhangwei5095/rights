@@ -352,3 +352,22 @@ $(function () {
     });
 
 })
+var themes = [
+                    { value: 'default', text: '默认' },
+                    { value: 'gray', text: '灰' },
+                    { value: 'metro', text: '磁贴' },
+                    { value: 'bootstrap', text: 'bootstrap' }
+];
+$(function () {//加载主题    var th = $.cookie('easyuiThemeName');    $('#cb-theme').combobox({
+        data: themes,        editable: false,        panelHeight: 'auto',        onSelect:onChangeTheme,        onLoadSuccess: function () {
+            if (th != undefined && th!='') {
+                $(this).combobox('setValue', $.cookie('easyuiThemeName'));
+            } else {
+                $(this).combobox('setValue', 'default');
+            }
+        }
+    });
+    if (th != undefined && th != '') {
+        onChangeTheme($.cookie('easyuiThemeName'));
+    }
+});

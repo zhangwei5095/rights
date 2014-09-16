@@ -35,6 +35,25 @@ namespace Langben.App.Controllers
             return View();
         }
         /// <summary>
+        /// 保存皮肤
+        /// </summary>
+        /// <param name="theme"></param>
+        [HttpGet]
+        public void SaveTheme(string theme)
+        {
+            bool isSuccess=false;
+            if (!string.IsNullOrEmpty(theme))
+            {
+                Account account = GetCurrentAccount();
+                SysPersonBLL bll = new SysPersonBLL();
+               isSuccess= bll.SaveTheme(theme, account.Id);
+            }
+            if (isSuccess)
+            {
+                
+            }
+        }
+        /// <summary>
         /// 获取列表中的按钮导航
         /// </summary>
         /// <param name="id"></param>
