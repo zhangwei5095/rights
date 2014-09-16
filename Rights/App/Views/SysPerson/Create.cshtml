@@ -13,7 +13,7 @@
  }
     <fieldset>
         <legend>
-            <input class="a2 f2" type="submit" value="创建" />
+            <input class="a2 f2" type="button" onclick="SubmitForm()" value="创建" />
             <input class="a2 f2" type="button" onclick="BackList('SysPerson')" value="返回" />
         </legend>
             <div class="bigdiv">
@@ -59,7 +59,7 @@
                     @Html.LabelFor(model => model.Sex)：
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Sex, Models.SysFieldModels.GetSysField("SysPerson", "Sex"), "请选择")
+                    @Html.DropDownListFor(model => model.Sex, Models.SysFieldModels.GetSysField("SysPerson", "Sex"))
                 </div>
                 <div class="editor-label">
                     <a class="anUnderLine" onclick="showModalOnly('SysDepartmentId','../../SysDepartment');">

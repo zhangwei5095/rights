@@ -352,6 +352,7 @@ $(function () {
     });
 
 })
+//主题
 var themes = [
                     { value: 'default', text: '默认' },
                     { value: 'gray', text: '灰' },
@@ -371,3 +372,8 @@ $(function () {//加载主题    var th = $.cookie('easyuiThemeName');    $('#
         onChangeTheme($.cookie('easyuiThemeName'));
     }
 });
+//提交表单
+function SubmitForm() {
+   $("form").submit();
+
+}

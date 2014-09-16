@@ -125,9 +125,10 @@ namespace Langben.App.Controllers
         /// <returns></returns>
         [SupportFilter]
         public ActionResult Create(string id)
-        { 
-            
-            return View();
+        {
+            SysPerson p = new SysPerson();
+            p.PageStyle = "default";
+            return View(p);
         }
         /// <summary>
         /// 创建
