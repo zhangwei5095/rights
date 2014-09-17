@@ -64,25 +64,7 @@
             idField: 'Id',
 
             toolbar: [
-                {
-                    text: '创建',
-                    iconCls: 'icon-add',
-                    handler: function () {
-                        return flexiCreate();
-                    }
-                },  {
-                    text: '删除',
-                    iconCls: 'icon-remove',
-                    handler: function () {
-                        return flexiDelete();
-                    }
-                }, {
-                    text: '修改',
-                    iconCls: 'icon-edit',
-                    handler: function () {
-                        return flexiModify();
-                    }
-                }, {
+               {
                     text: '导出',
                     iconCls: 'icon-excel',
                     handler: function () {
@@ -93,7 +75,7 @@
 
 
                 { field: 'PersonId', title: '@Html.DisplayNameFor(model => model.PersonId)', width: 97 }
-                , {
+                @*, {
                     field: 'Message', title: '@Html.DisplayNameFor(model => model.Message)', width: 97,
 					    formatter: function (value, rec) {
 					        if (value) {
@@ -101,11 +83,17 @@
 
 					        }
 					    }
+					}*@
+					, {
+					    field: 'Result', title: '@Html.DisplayNameFor(model => model.Result)', width: 500,
+					    formatter: function (value, row, index) {
+					        var html = "<a href='/SysLog/Details/" + row.Id + "'>" + value + "</a>";
+					        return html;
+					    }
 					}
-					,{ field: 'Result', title:  '@Html.DisplayNameFor(model => model.Result)', width: 97 }
                 ,{ field: 'MenuId', title:  '@Html.DisplayNameFor(model => model.MenuId)', width: 97 }
                 ,{ field: 'Ip', title:  '@Html.DisplayNameFor(model => model.Ip)', width: 97 }
-                ,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 97 }
+                @*,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 97 }*@
                 ,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 97 }
                 ,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 97
                 , formatter: function (value, rec) {

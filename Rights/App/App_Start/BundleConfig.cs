@@ -20,7 +20,8 @@ namespace App
                       "~/Res/easyui/locale/easyui-lang-zh_CN.js",
                          "~/Res/My97DatePicker/WdatePicker.js",
                         "~/Scripts/jquery.validate.min.js",
-                        "~/Scripts/jquery.validate.unobtrusive.min.js"));
+                        "~/Scripts/jquery.validate.unobtrusive.min.js",
+                        "~/Scripts/jquery.validate.unobtrusive-ajax.min.js"));
 
 
 

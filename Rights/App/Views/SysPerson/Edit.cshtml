@@ -11,7 +11,7 @@
 
     <fieldset>
         <legend>
-            <input class="a2 f2" type="submit" value="修改" />
+            <input class="a2 f2" type="button" onclick="SubmitForm()" value="修改" />
             <input class="a2 f2" type="button" onclick="BackList('SysPerson')" value="返回列表" />
         </legend>
         <div class="bigdiv">
@@ -20,8 +20,8 @@
                 <div style="float:left">
                     <div id="uploader-demo">
                         <!--用来存放item-->
-                        <div id="fileList" class="uploader-list"></div>
-                        <div id="filePicker">上传头像</div>
+                        <div id="fileList" style="display:none;" class="uploader-list"></div>
+                        <div id="filePicker">选择图片</div>
                     </div>
                 </div>
             </div>
@@ -153,127 +153,7 @@
             <div class="editor-field">
              @Html.RadioButtonListFor(model => model.State,Models.SysFieldModels.GetSysField("SysPerson","State"),false) 
             </div>@Html.HiddenFor(model => model.CreateTime ) @Html.HiddenFor(model => model.CreatePerson )      
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LogonNum) ：
             </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.LogonNum, new {  onkeyup = "isInt(this)", @class="text-box single-line" })
-                @Html.ValidationMessageFor(model => model.LogonNum) 
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LogonTime)：
-            </div>
-            <div class="editor-field">
-                @Html.TextBox("LogonTime", ((Model != null && Model.LogonTime != null) ? Model.LogonTime.ToString().AsDateTime().ToString("yyyy-MM-dd") : ""), new { style = "width: 244px;", @class="easyui-datebox" })
-                @Html.ValidationMessageFor(model => model.LogonTime)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LogonIP)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.LogonIP)
-                @Html.ValidationMessageFor(model => model.LogonIP)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LastLogonTime)：
-            </div>
-            <div class="editor-field">
-                @Html.TextBox("LastLogonTime", ((Model != null && Model.LastLogonTime != null) ? Model.LastLogonTime.ToString().AsDateTime().ToString("yyyy-MM-dd") : ""), new { style = "width: 244px;", @class="easyui-datebox" })
-                @Html.ValidationMessageFor(model => model.LastLogonTime)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LastLogonIP)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.LastLogonIP)
-                @Html.ValidationMessageFor(model => model.LastLogonIP)
-            </div>     
-            <div class="editor-label">
-                @Html.LabelFor(model => model.PageStyle)：
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.PageStyle)
-                @Html.ValidationMessageFor(model => model.PageStyle)
-            </div>@Html.HiddenFor(model => model.Version )   
-        <div class="editor-label">
-            <a class="anUnderLine" onclick="showModalMany('SysRoleId','../../SysRole');">
-                @Html.LabelFor(model => model.SysRoleId) 
-            </a>：
-        </div>
-        <div class="editor-field">
-            <div id="checkSysRoleId">
-                @{string ids29 = string.Empty;
-                if(Model!=null)
-                {
-                   foreach (var item29 in Model.SysRole)
-                   {
-                       string item291 = string.Empty;
-                       item291 += item29.Id + "&" + item29.Name;
-                       if (ids29.Length > 0)
-                       {
-                           ids29 += "^" + item291;
-                       }
-                       else
-                       {
-                           ids29 += item291;
-                       }
-               
-                <table id="@item291"
-                    class="deleteStyle">
-                    <tr>
-                        <td>
-                            <img  alt="删除" title="点击删除" onclick="deleteTable('@item291','SysRoleId');"  src="../../../Images/deleteimge.png" />
-                        </td>
-                        <td>
-                            @item29.Name
-                        </td>
-                    </tr>
-                </table>
-                }} }
-                <input type="hidden" value="@ids29" name="SysRoleIdOld" id="SysRoleIdOld" />
-                <input type="hidden" value="@ids29" name="SysRoleId" id="SysRoleId" />
-            </div>
-        </div>  
-        <div class="editor-label">
-            <a class="anUnderLine" onclick="showModalMany('SysDocumentId','../../SysDocument');">
-                @Html.LabelFor(model => model.SysDocumentId) 
-            </a>：
-        </div>
-        <div class="editor-field">
-            <div id="checkSysDocumentId">
-                @{string ids30 = string.Empty;
-                if(Model!=null)
-                {
-                   foreach (var item30 in Model.SysDocument)
-                   {
-                       string item301 = string.Empty;
-                       item301 += item30.Id + "&" + item30.Name;
-                       if (ids30.Length > 0)
-                       {
-                           ids30 += "^" + item301;
-                       }
-                       else
-                       {
-                           ids30 += item301;
-                       }
-               
-                <table id="@item301"
-                    class="deleteStyle">
-                    <tr>
-                        <td>
-                            <img  alt="删除" title="点击删除" onclick="deleteTable('@item301','SysDocumentId');"  src="../../../Images/deleteimge.png" />
-                        </td>
-                        <td>
-                            @item30.Name
-                        </td>
-                    </tr>
-                </table>
-                }} }
-                <input type="hidden" value="@ids30" name="SysDocumentIdOld" id="SysDocumentIdOld" />
-                <input type="hidden" value="@ids30" name="SysDocumentId" id="SysDocumentId" />
-            </div>
-        </div>
-        </div>
         @Html.HiddenFor(model => model.HDpic)
         <input type="hidden" id="OldPic" name="OldPic" value="@(ViewBag.OldPic)"/>
         <input type="hidden" id="fileUrl" value="HDpic" />
@@ -283,11 +163,18 @@
 
 @section HeadContent{
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Res/webuploader/css/webuploader.css")" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Res/webuploader/images/style.css")" />
     }
     <script type="text/javascript">
-
+        
         $(function () {
-            $("#showPic").attr("src", $("#HDpic").val());//显示头像图片
+            var pic= $("#HDpic").val();
+            if (pic=='') {
+                $("#showPic").attr("src","/Images/noPic.jpg")
+            }else
+            {
+                $("#showPic").attr("src", pic);//显示头像图片
+            }
             $("#Province").change(function () { getCity("#City"); });
 
             

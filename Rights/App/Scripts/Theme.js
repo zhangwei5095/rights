@@ -1,4 +1,4 @@
-﻿function onChangeTheme(themeName) {
+﻿function onChangeTheme(themeName) {
     var themePath;
     if (themeName.value) {
         themePath = themeName.value;
@@ -39,3 +39,7 @@
         expires: 60
     });
 };
+var th = $.cookie('easyuiThemeName');
+if (th != undefined && th != '') {
+    onChangeTheme($.cookie('easyuiThemeName'));
+}

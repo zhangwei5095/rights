@@ -79,6 +79,21 @@ namespace Langben.App.Controllers
             }
             return Json(toolbars, JsonRequestBehavior.AllowGet);
         }
+        /// <summary>
+        /// 根据父节点获取数据字典,绑定二级下拉框的时候使用
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult GetSysFieldByParent(string id, string parentid, string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
+            }
+            ISysFieldHander baseDDL = new SysFieldHander();
+            return Json(new SelectList(baseDDL.GetSysFieldByParent(id, parentid, value), "MyTexts", "MyTexts"), JsonRequestBehavior.AllowGet);
+
+        }
     }
 }
 
