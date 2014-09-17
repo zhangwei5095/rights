@@ -23,7 +23,7 @@ namespace Langben.BLL
             SysException sysException = new SysException();
             sysException.CreateTime = DateTime.Now;
             sysException.Remark = ex.StackTrace;
-            sysException.Result= ex.Message;
+            sysException.Message = ex.Message;
             sysException.LeiXing = "异常";
             sysException.Message = (ex.InnerException == null) ? string.Empty : ex.InnerException.Message;
             sysException.Id = Result.GetNewId();

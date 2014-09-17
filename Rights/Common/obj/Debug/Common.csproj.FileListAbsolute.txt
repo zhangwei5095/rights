@@ -23,11 +23,6 @@ F:\rights\Rights\Common\bin\Debug\Common.pdb
 F:\rights\Rights\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 F:\rights\Rights\Common\obj\Debug\Common.dll
 F:\rights\Rights\Common\obj\Debug\Common.pdb
-E:\github\rights\Rights\Common\bin\Debug\Common.dll
-E:\github\rights\Rights\Common\bin\Debug\Common.pdb
-E:\github\rights\Rights\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
-E:\github\rights\Rights\Common\obj\Debug\Common.dll
-E:\github\rights\Rights\Common\obj\Debug\Common.pdb
 F:\newCode\git2\rights\Rights\Common\bin\Debug\Common.dll
 F:\newCode\git2\rights\Rights\Common\bin\Debug\Common.pdb
 F:\newCode\git2\rights\Rights\Common\obj\Debug\Common.dll
@@ -43,3 +38,7 @@ E:\work\git\ben\rights\Rights\Common\bin\Debug\Common.pdb
 E:\work\git\ben\rights\Rights\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 E:\work\git\ben\rights\Rights\Common\obj\Debug\Common.dll
 E:\work\git\ben\rights\Rights\Common\obj\Debug\Common.pdb
+E:\github\rights\Rights\Common\bin\Debug\Common.dll
+E:\github\rights\Rights\Common\bin\Debug\Common.pdb
+E:\github\rights\Rights\Common\obj\Debug\Common.dll
+E:\github\rights\Rights\Common\obj\Debug\Common.pdb
