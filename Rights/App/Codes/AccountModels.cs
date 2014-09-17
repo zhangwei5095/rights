@@ -10,8 +10,44 @@ using Common;
 
 namespace Models
 {
+        /// <summary>
+    /// 当前登陆者
+    /// </summary>
+    public class AccountModel
+    {
 
-     
+        /// <summary>
+        /// 获取当前登陆人的用户名
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCurrentPerson()
+        {
+            Account account = GetCurrentAccount();
+            if (account != null && !string.IsNullOrWhiteSpace(account.Name))
+            {
+                return account.Name;
+            }
+            return string.Empty;
+        }
+        /// <summary>
+        /// 获取当前登陆人的账户信息
+        /// </summary>
+        /// <returns>账户信息</returns>
+        public static Account GetCurrentAccount()
+        {
+            var account = Utils.ReadCookieAsObj("account");
+            if (account == null)
+            {
+                return null;
+            }
+            else
+            {
+
+                return account;
+            }
+
+        }
+    }
     #region 模型
 
     public class ChangePasswordModel
