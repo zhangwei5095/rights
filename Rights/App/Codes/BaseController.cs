@@ -27,12 +27,9 @@ namespace Models
         /// <returns></returns>
         public string GetCurrentPerson()
         {
-            Account account = GetCurrentAccount();
-            if (account != null && !string.IsNullOrWhiteSpace(account.Name))
-            {
-                return account.Name;
-            }
-            return string.Empty;
+          return  AccountModel.GetCurrentPerson();
+
+           
         }
         /// <summary>
         /// 获取当前登陆人的账户信息
@@ -40,14 +37,13 @@ namespace Models
         /// <returns>账户信息</returns>
         public Account GetCurrentAccount()
         {
-            var account = Utils.ReadCookieAsObj("account");
+            var account = AccountModel.GetCurrentAccount();
             if (account == null)
             {
                 Redirect("/account");
             }
             else
             {
-
                 return account;
             }
             return null;
