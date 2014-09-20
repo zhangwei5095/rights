@@ -19,7 +19,6 @@
                 sortName: 'Id',
                 sortOrder: 'desc',
                 idField: 'Id',
-
                 toolbar: [
 
                    {
@@ -53,35 +52,14 @@
                         handler: function () {
                             return flexiModify();
                         }
-                    }, {
-                        text: '导出',
-                        iconCls: 'icon-excel',
-                        handler: function () {
-                            return flexiExport();
-                        }
                     } ],
                 columns: [[
-                   
-                    
 					{ field: 'Name', title: '@Html.DisplayNameFor(model => model.Name)', width: 155 }
 					,{ field: 'Description', title:  '@Html.DisplayNameFor(model => model.Description)', width: 155 }
 					,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 155
                     , formatter: function (value, rec) {
-                        if (value) {
-                            return dateConvert(value);
-                        } 
-                    } 
-}
+                        if (value) {   return dateConvert(value);    }     }       }
 					,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 155 }
-					,{ field: 'UpdateTime', title:  '@Html.DisplayNameFor(model => model.UpdateTime)', width: 155
-                    , formatter: function (value, rec) {
-                        if (value) {
-                            return dateConvert(value);
-                        } 
-                    } 
-}
-					,{ field: 'UpdatePerson', title:  '@Html.DisplayNameFor(model => model.UpdatePerson)', width: 155 }					//, { display: '@Html.DisplayNameFor(model => model.SysPersonId)', name: 'SysPersonId', width: 155, sortable: false, align: 'left' }
-
                 ]],
                 pagination: true,
                 rownumbers: true
