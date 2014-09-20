@@ -63,9 +63,6 @@ namespace Langben.App.Controllers
 					,Description = s.Description
 					,CreateTime = s.CreateTime
 					,CreatePerson = s.CreatePerson
-					,UpdateTime = s.UpdateTime
-					,UpdatePerson = s.UpdatePerson
-					
                 }
 
                     )
