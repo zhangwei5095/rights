@@ -174,8 +174,8 @@ namespace Langben.App.Controllers
             Bitmap Img = null;
             Graphics g = null;
             Random random = new Random();
-            int gheight = vnum.Length * 15;
-            Img = new Bitmap(gheight, 26);
+            int gheight = vnum.Length * 19;
+            Img = new Bitmap(gheight, 30);
             g = Graphics.FromImage(Img);
             Font f = new Font("微软雅黑", 16, FontStyle.Bold);
             //Font f = new Font("宋体", 9, FontStyle.Bold);
