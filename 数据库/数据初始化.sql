@@ -133,7 +133,7 @@ INSERT INTO [dbo].[SysAnnouncement]
            ,'	<br />  尊敬的各位朋友：<br />  &nbsp;&nbsp;&nbsp; 为了给广大客户更好的提供服务，新系统已开通，以全新的面貌为您服务。<br />  &nbsp;&nbsp;&nbsp; 如您遇到任何问题，请拨打我们的客户中心电话<span style="color:#B22222">4000-333-584</span>，我们将竭诚为您提供更优质的服务。<br />  &nbsp;&nbsp;&nbsp; 最后预祝新老客户工作顺利，事业兴旺！<br />  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 狼奔（北京）科技有限公司<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2014年9月6日'
           ,'开启'
             )
-            INSERT INTO dbo].[SysEmailTemp]
+            INSERT INTO [dbo].[SysEmailTemp]
            ([Id]
            ,[Mail_name]
            ,[Subject]
