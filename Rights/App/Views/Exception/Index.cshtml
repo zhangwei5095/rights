@@ -1,4 +1,8 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<Models.BaseException>" %>
+﻿@model Models.BaseException
+
+@{
+    Layout = null;
+}
 <html>
 <head runat="server">
     <title>异常处理页面</title>
@@ -55,35 +59,35 @@
                     <strong>出错页面：</strong>
                 </td>
                 <td  class="alignLeft">
-                    <%: Html.DisplayFor(model => model.ErrorPageUrl) %></td>
+                    @Html.DisplayFor(model => model.ErrorPageUrl)</td>
                 </tr>
                 <tr>
                     <td class="alignRight" nowrap>
                         <strong>异常名称：</strong>
                     </td>
                     <td class="alignLeft">
-                        <%: Html.DisplayFor(model => model.ExceptionName) %></td>
+                        @Html.DisplayFor(model => model.ExceptionName)</td>
                 </tr>
                 <tr>
                     <td class="alignRight" nowrap>
                         <strong>异常信息：</strong>
                     </td>
                     <td class="alignLeft">
-                        <%: Html.DisplayFor(model => model.ExceptionMessage) %></td>
+                        @Html.DisplayFor(model => model.ExceptionMessage)</td>
                 </tr>
                 <tr id="trInnerExceptionName" runat="server">
                     <td class="alignRight" nowrap>
                         <strong>内部异常名称：</strong>
                     </td>
                     <td class="alignLeft">
-                        <%: Html.DisplayFor(model => model.InnerExceptionName) %></td>
+                        @Html.DisplayFor(model => model.InnerExceptionName)</td>
                 </tr>
                 <tr id="trInnerExceptionMessage" runat="server">
                     <td class="alignRight" nowrap>
                         <strong>内部异常信息：</strong>
                     </td>
                     <td class="alignLeft">
-                        <%: Html.DisplayFor(model => model.InnerExceptionMessage) %>
+                        @Html.DisplayFor(model => model.InnerExceptionMessage)
                         </td>
                 </tr>
                 <tr id="trExceptionMethod" runat="server">
@@ -91,14 +95,14 @@
                         <strong>方法名称：</strong>
                     </td>
                     <td class="alignLeft" style="background-color: #ffffcc;">
-                        &nbsp;<%: Html.DisplayFor(model => model.TargetSite) %></td>
+                        &nbsp;@Html.DisplayFor(model => model.TargetSite)</td>
                 </tr>
                 <tr id="trExceptionSource" runat="server">
                     <td class="alignRight" nowrap>
                         <strong>源文件：</strong>
                     </td>
                     <td class="alignLeft" style="background-color: #ffffcc;">
-                        <%: Html.DisplayFor(model => model.SourceErrorFile) %>
+                        @Html.DisplayFor(model => model.SourceErrorFile)
                     </td>
                 </tr>
                 <tr id="trExceptionRowId" runat="server">
@@ -106,7 +110,7 @@
                         <strong>行号：</strong>
                     </td>
                     <td class="alignLeft" style="background-color: #ffffcc; color: Red">
-                        &nbsp;<%: Html.DisplayFor(model => model.SourceErrorRowID) %></td>
+                        &nbsp;@Html.DisplayFor(model => model.SourceErrorRowID)</td>
                 </tr>
                 <tr runat="server" id="trStack" visible="false">
                     <td class="alignRight">
@@ -114,7 +118,7 @@
                     </td>
                     <td class="alignLeft" style="background-color: #ffffcc;">
                         <code>
-                            <pre id="litStack"><%: Html.DisplayFor(model => model.StackInfo) %> </pre>
+                            <pre id="litStack">@Html.DisplayFor(model => model.StackInfo) </pre>
                         </code>
                     </td>
                 </tr>

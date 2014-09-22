@@ -62,7 +62,8 @@ namespace Langben.App.Controllers
 					,Name = s.Name
 					,Description = s.Description
 					,CreateTime = s.CreateTime
-					,CreatePerson = s.CreatePerson
+                    ,
+                    SysPersonId = s.SysPersonId
                 }
 
                     )

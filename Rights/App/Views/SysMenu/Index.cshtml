@@ -41,30 +41,30 @@
                     }],
                   
                     columns: [[ 
-                    	{ field: 'Name', title: '@Html.DisplayNameFor(model => model.Name)', width: 115 }
+                    	{ field: 'Name', title: '@Html.DisplayNameFor(model => model.Name)', width: 315 }
                         
-					,{ field: 'Url', title:  '@Html.DisplayNameFor(model => model.Url)', width: 70 }
-					,{ field: 'Iconic', title:  '@Html.DisplayNameFor(model => model.Iconic)', width: 70 }
-					,{ field: 'Sort', title:  '@Html.DisplayNameFor(model => model.Sort)', width: 70 }
-					,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 70 }
-					,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 70 }
-					,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 70 }
-					,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 70
-                    , formatter: function (value, rec) {
-                        if (value) {
-                            return dateConvert(value);
-                        } 
-                    } 
-}
-					,{ field: 'UpdateTime', title:  '@Html.DisplayNameFor(model => model.UpdateTime)', width: 70
-                    , formatter: function (value, rec) {
-                        if (value) {
-                            return dateConvert(value);
-                        } 
-                    } 
-}
-					,{ field: 'UpdatePerson', title:  '@Html.DisplayNameFor(model => model.UpdatePerson)', width: 70 }
-					,{ field: 'IsLeaf', title:  '@Html.DisplayNameFor(model => model.IsLeaf)', width: 70 }
+					,{ field: 'Url', title:  '@Html.DisplayNameFor(model => model.Url)', width: 170 }
+					//,{ field: 'Iconic', title:  '@Html.DisplayNameFor(model => model.Iconic)', width: 170 }
+					,{ field: 'Sort', title:  '@Html.DisplayNameFor(model => model.Sort)', width: 170 }
+					 
+					//,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 70 }
+					//,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 70 }
+					//,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 70
+					    //   , formatter: function (value, rec) {
+                        //  if (value) {
+                            //   return dateConvert(value);
+                            //   } 
+                        // } 
+					    //}
+					//,{ field: 'UpdateTime', title:  '@Html.DisplayNameFor(model => model.UpdateTime)', width: 70
+					    // , formatter: function (value, rec) {
+                        //    if (value) {
+                            //        return dateConvert(value);
+                            //   } 
+                    //} 
+//}
+					//,{ field: 'UpdatePerson', title:  '@Html.DisplayNameFor(model => model.UpdatePerson)', width: 70 }
+					//,{ field: 'IsLeaf', title:  '@Html.DisplayNameFor(model => model.IsLeaf)', width: 70 }
 				    ]]
                      ,
                     onBeforeLoad: function (row, param) {

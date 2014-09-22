@@ -10,18 +10,21 @@ namespace App
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery.min.js",
-                        "~/Scripts/JScriptCommon.js",
+                
                         "~/Res/ckeditor/ckeditor.js" ,
-                         "~/Scripts/jquery.cookie.js",
-                        "~/Scripts/Theme.js"
+                         "~/Scripts/jquery.cookie.js"
+                     
                         ));
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
-                       "~/Res/easyui/jquery.easyui.min.js",
+                       "~/Res/easyui/jquery.easyui.min.js",        "~/Scripts/JScriptCommon.js",
                       "~/Res/easyui/locale/easyui-lang-zh_CN.js",
                          "~/Res/My97DatePicker/WdatePicker.js",
                         "~/Scripts/jquery.validate.min.js",
                         "~/Scripts/jquery.validate.unobtrusive.min.js",
-                        "~/Scripts/jquery.validate.unobtrusive-ajax.min.js"));
+                        "~/Scripts/jquery.validate.unobtrusive-ajax.min.js"
+                        //,
+                        //   "~/Scripts/Theme.js"
+                           ));
 
 
 

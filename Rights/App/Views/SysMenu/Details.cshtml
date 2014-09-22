@@ -46,65 +46,30 @@
                 </div>
                 <div class="display-field">
                     @Html.DisplayFor(model => model.Sort) 
-                </div>
-                <br style="clear: both;" />
-                <div class="display-label">
-                    @Html.LabelFor(model => model.Remark) :
-                </div>
-                <div class="textarea-box">
-                    @Html.TextAreaFor(model => model.Remark, new {  @readonly=true})                   
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.State) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.State) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.CreatePerson) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.CreatePerson) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.CreateTime) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.CreateTime) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.UpdateTime) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.UpdateTime) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.UpdatePerson) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.UpdatePerson) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.IsLeaf) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.IsLeaf) 
-                </div>    
-                <div class="display-label">
-                      @Html.LabelFor(model => model.SysOperationId) :
-                </div>
-                <div class="display-field">            
-                    @{string ids14 = string.Empty;
-                       foreach (var item14 in Model.SysOperation)
-                       {
-                           ids14 += item14.Name;
-                           ids14 += " , ";
-                                 
-                     } 
-                    
-                @ids14   
-                  }
-                </div>
+                </div><div class="display-label">
+    @Html.LabelFor(model => model.State) :
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.State)
+</div>
+
+<div class="display-label">
+    @Html.LabelFor(model => model.SysOperationId) :
+</div>
+<div class="display-field">
+    @{string ids14 = string.Empty;
+    foreach (var item14 in Model.SysOperation)
+    {
+        ids14 += item14.Name;
+        ids14 += " , ";
+
+    }
+
+    @ids14
+    }
+</div>
+
+                
         </div>
     </fieldset>
 

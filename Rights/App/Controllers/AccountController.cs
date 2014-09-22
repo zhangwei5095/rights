@@ -25,7 +25,7 @@ namespace Langben.App.Controllers
         public ActionResult Index()
         {
          
-           // return View(); //开发的时候，只需要注释此行代码
+            return View(); //开发的时候，只需要注释此行代码
 #if DEBUG
             //Debug 测试时使用
             AccountBLL accountBLL = new BLL.AccountBLL();

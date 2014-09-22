@@ -6,7 +6,7 @@
         $(function () {
 
                 $('#flexigridData').treegrid({
-                    title: '数据字典',
+                    title: '注意：请先删除子节点，然后删除父节点',
                      iconCls: 'icon-site',
 //                    url: '../SysField/GetAllMetadata',
                     idField: 'Id',
@@ -41,12 +41,12 @@
                     }],
                   
                     columns: [[ 
-                    	{ field: 'MyTexts', title: '@Html.DisplayNameFor(model => model.MyTexts)', width: 215 }
+                    	{ field: 'MyTexts', title: '@Html.DisplayNameFor(model => model.MyTexts)', width: 315 }
                         
-					,{ field: 'MyTables', title:  '@Html.DisplayNameFor(model => model.MyTables)', width: 106 }
-					,{ field: 'MyColums', title:  '@Html.DisplayNameFor(model => model.MyColums)', width: 106 }
+					,{ field: 'MyTables', title:  '@Html.DisplayNameFor(model => model.MyTables)', width: 206 }
+					,{ field: 'MyColums', title:  '@Html.DisplayNameFor(model => model.MyColums)', width: 206 }
 					,{ field: 'Sort', title:  '@Html.DisplayNameFor(model => model.Sort)', width: 106 }
-					,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 186 }
+					//,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 186 }
 					 
 				    ]]
                      ,

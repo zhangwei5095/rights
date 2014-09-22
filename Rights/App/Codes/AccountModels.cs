@@ -36,16 +36,9 @@ namespace Models
         public static Account GetCurrentAccount()
         {
             var account = Utils.ReadCookieAsObj("account");
-            if (account == null)
-            {
-                return null;
-            }
-            else
-            {
-
+             
                 return account;
-            }
-
+            
         }
     }
     #region 模型

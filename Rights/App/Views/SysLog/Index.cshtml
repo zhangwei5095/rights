@@ -13,22 +13,7 @@
                     <input type='text' id='Message'/>
                </div>
             </div> 
-            <div class="input_search">
-            <div class="input_search-label">
-                    @Html.LabelFor(model => model.Ip):
-             </div>
-                <div class="input_search-field">
-                    <input type='text' id='Ip'/>
-               </div>
-            </div>
-            <div class="input_search">
-             <div class="input_search-label">
-                    @Html.LabelFor(model => model.State):
-                </div>
-                <div class="input_search-field">
-                    @Html.DropDownList("StateDDL_String", Models.SysFieldModels.GetSysField("SysLog","State"),"请选择",new { id = "StateDDL_String" })
-                </div>
-            </div> 
+             
             <div class='input_search'>
               <div class='input_search-label'>
                     @Html.LabelFor(model => model.CreateTime):
@@ -74,35 +59,32 @@
             columns: [[
 
 
-                { field: 'PersonId', title: '@Html.DisplayNameFor(model => model.PersonId)', width: 97 }
-                @*, {
-                    field: 'Message', title: '@Html.DisplayNameFor(model => model.Message)', width: 97,
-					    formatter: function (value, rec) {
-					        if (value) {
-					            return "<a onclick=\"Detail('" + rec.Id + "')\">" + value + "</a>";
-
-					        }
-					    }
-					}*@
-					, {
-					    field: 'Result', title: '@Html.DisplayNameFor(model => model.Result)', width: 500,
+             {
+                 field: 'Message', title: '@Html.DisplayNameFor(model => model.Message)', width: 500,
 					    formatter: function (value, row, index) {
 					        var html = "<a href='/SysLog/Details/" + row.Id + "'>" + value + "</a>";
 					        return html;
 					    }
 					}
-                ,{ field: 'MenuId', title:  '@Html.DisplayNameFor(model => model.MenuId)', width: 97 }
-                ,{ field: 'Ip', title:  '@Html.DisplayNameFor(model => model.Ip)', width: 97 }
+               
+              
                 @*,{ field: 'Remark', title:  '@Html.DisplayNameFor(model => model.Remark)', width: 97 }*@
-                ,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 97 }
-                ,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 97
+                //,{ field: 'State', title:  '@Html.DisplayNameFor(model => model.State)', width: 97 }
+           
+                , { field: 'CreatePerson', title: '@Html.DisplayNameFor(model => model.CreatePerson)', width: 97 }
+
+     , {
+         field: 'CreateTime', title: '@Html.DisplayNameFor(model => model.CreateTime)', width: 97
                 , formatter: function (value, rec) {
                     if (value) {
                         return dateConvert(value);
                     }
                 }
-                }
-                ,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 97 }
+     }
+  , { field: 'Ip', title: '@Html.DisplayNameFor(model => model.Ip)', width: 97 }
+
+ , { field: 'MenuId', title: '@Html.DisplayNameFor(model => model.MenuId)', width: 97 }
+
             ]],
             pagination: true,
             rownumbers: true

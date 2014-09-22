@@ -56,10 +56,8 @@
                 columns: [[
 					{ field: 'Name', title: '@Html.DisplayNameFor(model => model.Name)', width: 155 }
 					,{ field: 'Description', title:  '@Html.DisplayNameFor(model => model.Description)', width: 155 }
-					,{ field: 'CreateTime', title:  '@Html.DisplayNameFor(model => model.CreateTime)', width: 155
-                    , formatter: function (value, rec) {
-                        if (value) {   return dateConvert(value);    }     }       }
-					,{ field: 'CreatePerson', title:  '@Html.DisplayNameFor(model => model.CreatePerson)', width: 155 }
+				 
+					, { field: 'SysPersonId', title: '@Html.DisplayNameFor(model => model.SysPersonId)', width: 395 }
                 ]],
                 pagination: true,
                 rownumbers: true
@@ -190,7 +188,7 @@
                 arr.push(rows[i].Id);
             }
 
-            $.messager.confirm('操作提示', "确认删除这 " + arr.length + " 项吗？", function (r) {
+            $.messager.confirm('注意：删除角色前，请先通过修改功能移除其人员', "确认删除这 " + arr.length + " 项吗？", function (r) {
                 if (r) {
                     $.post("../SysRole/Delete", { query: arr.join(",") }, function (res) {
                         if (res == "OK") {

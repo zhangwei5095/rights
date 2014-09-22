@@ -290,7 +290,7 @@ namespace Langben.App.Controllers
 					,IsLeaf = s.IsLeaf
 					
                         }
-                        ).OrderBy(o => o.Id)
+                        ).OrderBy(o => o.Sort)
                 });
             }
             return Content("[]");

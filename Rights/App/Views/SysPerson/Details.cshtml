@@ -13,7 +13,16 @@
             <input class="a2 f2" type="button" onclick="window.location.href = 'javascript:history.go(-1)';" value="返回" />
         </legend>
         <div class="bigdiv">
-                  
+            <div style="float:right; width:379px;height:184px;">
+                <img id="showPic" src="~/Images/noPic.jpg" width="149" height="175" />
+                <div style="float:left">
+                    <div id="uploader-demo">
+                        <!--用来存放item-->
+                        <div id="fileList" style="display:none;" class="uploader-list"></div>
+                        <div id="filePicker">上传头像</div>
+                    </div>
+                </div>
+            </div>
                 <div class="display-label">
                       @Html.LabelFor(model => model.Name) :
                 </div>
@@ -26,18 +35,7 @@
                 <div class="display-field">
                     @Html.DisplayFor(model => model.MyName) 
                 </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.Password) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Password) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.SurePassword) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.SurePassword) 
-                </div>      
+                
                 <div class="display-label">
                       @Html.LabelFor(model => model.Sex) :
                 </div>
@@ -100,7 +98,19 @@
                 </div>
                 <div class="display-field">
                     @Html.DisplayFor(model => model.EmailAddress) 
-                </div>
+                </div><div class="display-label">
+    @Html.LabelFor(model => model.State) :
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.State)
+</div>
+<div class="display-label">
+    @Html.LabelFor(model => model.CreateTime) :
+</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.CreateTime)
+</div>
+
                 <br style="clear: both;" />
                 <div class="display-label">
                     @Html.LabelFor(model => model.Remark) :
@@ -108,103 +118,7 @@
                 <div class="textarea-box">
                     @Html.TextAreaFor(model => model.Remark, new {  @readonly=true})                   
                 </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.State) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.State) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.CreateTime) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.CreateTime) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.CreatePerson) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.CreatePerson) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.UpdateTime) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.UpdateTime) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.LogonNum) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.LogonNum) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.LogonTime) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.LogonTime) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.LogonIP) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.LogonIP) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.LastLogonTime) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.LastLogonTime) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.LastLogonIP) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.LastLogonIP) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.PageStyle) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.PageStyle) 
-                </div>      
-                <div class="display-label">
-                      @Html.LabelFor(model => model.UpdatePerson) :
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.UpdatePerson) 
-                </div>    
-                <div class="display-label">
-                      @Html.LabelFor(model => model.SysRoleId) :
-                </div>
-                <div class="display-field">            
-                    @{string ids29 = string.Empty;
-                       foreach (var item29 in Model.SysRole)
-                       {
-                           ids29 += item29.Name;
-                           ids29 += " , ";
-                                 
-                     } 
-                    
-                @ids29   
-                  }
-                </div>    
-                <div class="display-label">
-                      @Html.LabelFor(model => model.SysDocumentId) :
-                </div>
-                <div class="display-field">            
-                    @{string ids30 = string.Empty;
-                       foreach (var item30 in Model.SysDocument)
-                       {
-                           ids30 += item30.Name;
-                           ids30 += " , ";
-                                 
-                     } 
-                    
-                @ids30   
-                  }
-                </div>
-        </div>
+               
     </fieldset>
 
 

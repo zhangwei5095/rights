@@ -27,9 +27,9 @@ namespace Models
         /// <returns></returns>
         public string GetCurrentPerson()
         {
-          return  AccountModel.GetCurrentPerson();
+            return AccountModel.GetCurrentPerson();
 
-           
+
         }
         /// <summary>
         /// 获取当前登陆人的账户信息
@@ -38,15 +38,10 @@ namespace Models
         public Account GetCurrentAccount()
         {
             var account = AccountModel.GetCurrentAccount();
-            if (account == null)
-            {
-                Redirect("/account");
-            }
-            else
-            {
-                return account;
-            }
-            return null;
+
+            return account;
+
+
         }
         /// <summary>
         /// 导出数据集到excle

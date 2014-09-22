@@ -34,7 +34,7 @@
             $(ifr).contents().find('#easyuiTheme').attr('href', href);
         }
     }
-   
+    $.parser.parse();
     $.cookie('easyuiThemeName', themePath, {
         expires: 60
     });

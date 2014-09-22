@@ -52,12 +52,8 @@
                 @Html.TextAreaFor(model => model.Remark) 
                 @Html.ValidationMessageFor(model => model.Remark) 
             </div>        
-            <div class="editor-label">
-                @Html.LabelFor(model => model.State)：
-            </div>
-            <div class="editor-field">
-                @Html.DropDownListFor(model => model.State,Models.SysFieldModels.GetSysField("SysOperation","State"),"请选择")
-            </div>@Html.HiddenFor(model => model.CreateTime ) @Html.HiddenFor(model => model.CreatePerson ) 
+          
+            @Html.HiddenFor(model => model.State) @Html.HiddenFor(model => model.CreateTime) @Html.HiddenFor(model => model.CreatePerson ) 
         </div>
     </fieldset>
 

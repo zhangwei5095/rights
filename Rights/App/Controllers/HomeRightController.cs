@@ -18,8 +18,13 @@ namespace Langben.App.Controllers
 
         public ActionResult Index()
         {
-            Account account = GetCurrentAccount();
 
+            Account account = GetCurrentAccount();
+            if (account == null)
+            {
+                return Content(" <script type='text/javascript'> window.top.location='Account'; </script>");
+
+            }
             ViewBag.LogonNum = account.LogonNum;
             ViewBag.IP = Common.IP.GetIP();            
             ViewBag.LastLogonIP = account.LastLogonIP;

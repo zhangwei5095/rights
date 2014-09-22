@@ -459,9 +459,13 @@ namespace Langben.BLL
                 List<string> ls = new List<string>();
                 foreach (var item in codes)
                 {
+                    if (item==null)
+                    {
+                        continue;
+                    }
                     for (int i = 0; i < item.Length / 4; i++)
                     {
-                        //需要在项目中引用  System.Numerics.dll  
+                        
                         //在1.2版本中修改
                         string num = System.Numerics.BigInteger.Divide(System.Numerics.BigInteger.Parse(item), System.Numerics.BigInteger.Pow(10000, i)).ToString();
 

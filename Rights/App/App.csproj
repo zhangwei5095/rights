@@ -841,6 +841,7 @@
     <Content Include="Res\jquery.uploadify-v2.1.4\uploadify.fla" />
     <Content Include="Res\jquery.uploadify-v2.1.4\uploadify.php" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Res\ckeditor\CHANGES.md" />
@@ -855,9 +856,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\JScriptCommon.js" />
     <Content Include="Scripts\JScriptIndex.js" />
@@ -871,7 +870,7 @@
     <None Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Views\Account\Index.cshtml" />
     <None Include="Views\Account\NotFound.cshtml" />
-    <Content Include="Views\Exception\Index.aspx" />
+    <None Include="Views\Exception\Index.cshtml" />
     <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Shared\Details.cshtml" />
     <Content Include="Views\Shared\Edit.cshtml" />
@@ -943,8 +942,8 @@
     <Content Include="Views\SysOperation\Create.cshtml" />
     <Content Include="Views\SysOperation\Details.cshtml" />
     <Content Include="Views\SysOperation\Edit.cshtml" />
+    <Content Include="Views\SysOperation\Index2.cshtml" />
     <Content Include="Views\SysOperation\Index.cshtml" />
-    <Content Include="Views\SysOperation\IndexSef.cshtml" />
     <Content Include="Views\SysOperation\SetSysMenu.cshtml" />
     <Content Include="Views\SysPerson\Create.cshtml" />
     <Content Include="Views\SysPerson\Details.cshtml" />
