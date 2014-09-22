@@ -5,21 +5,28 @@
 */
  
 BEGIN TRANSACTION
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson],[IsLeaf]) VALUES (N'1307311605187265267d33f281da5', N'个人设置', NULL, NULL, N'tu0625', 222, N'1001', NULL, NULL, NULL, NULL, NULL, N'父节点')
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson],[IsLeaf]) VALUES (N'1307311605187265267d33f281da4', N'系统设置', NULL, NULL, N'tu2011', 111, N'1000', NULL, NULL, NULL, '131101 17:31:33.850', N'Admin', N'父节点')
+ 
 
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson],[IsLeaf]) VALUES (N'1307311605187265267d33f281da3', N'基础设置', N'1307311605187265267d33f281da4', NULL, N'tu0504', 111, N'10001000', N'关闭', NULL, NULL, '131101 16:18:08.147', N'Admin', N'父节点')
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281d11', N'异常捕获', N'1307311605187265267d33f281da3', N'SysException', N'tu1101', 666, N'100010001001', N'展开', NULL, NULL, CAST(0x0000A26901279E11 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281d12', N'菜单管理', N'1307311605187265267d33f281da4', N'SysMenu', N'tu0701', 444, N'10001003', N'展开', NULL, NULL, CAST(0x0000A3AE00FD3931 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281da0', N'角色管理', N'1307311605187265267d33f281da4', N'SysRole', N'tu0525', 666, N'10001005', N'展开', NULL, NULL, CAST(0x0000A3AE00FD668E AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281da1', N'日志管理', N'1307311605187265267d33f281da3', N'SysLog', N'tu1001', 555, N'100010001000', N'展开', NULL, NULL, CAST(0x0000A3AE00F3A761 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281da3', N'基础设置', N'1307311605187265267d33f281da4', NULL, N'tu0504', 111, N'10001000', N'展开', NULL, NULL, CAST(0x0000A269010CA72C AS DateTime), N'Admin', N'叶子')
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281da4', N'系统设置', NULL, NULL, N'tu2011', 111, N'1000', N'展开', NULL, NULL, CAST(0x0000A2690120D21B AS DateTime), N'Admin', N'叶子')
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281da5', N'个人设置', NULL, NULL, N'tu0625', 222, N'1001', N'展开', NULL, NULL, CAST(0x0000A3AE000E0FEE AS DateTime), N'Admin', N'叶子')
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281da8', N'人员管理', N'1307311605187265267d33f281da4', N'SysPerson', N'tu0625', 333, N'10001002', N'展开', NULL, NULL, CAST(0x0000A269011F70B9 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281da9', N'数据字典', N'1307311605187265267d33f281da3', N'SysField', N'tu0704', 777, N'100010001002', N'展开', NULL, NULL, CAST(0x0000A26900E7B755 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1307311605187265267d33f281df2', N'狼奔网站', N'1307311605187265267d33f281da5', N'http://www.langben.com', N'langben', 222, N'10011000', N'展开', NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1310181133541969540a9ad916764', N'操作管理', N'1307311605187265267d33f281da4', N'SysOperation', N'tu0901', 555, N'10001004', N'展开', N'Admin', CAST(0x0000A25B00BE95D8 AS DateTime), CAST(0x0000A3AE00FD7AFD AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1311011720196053073ccff5a1c7c', N'部门管理', N'1307311605187265267d33f281da4', N'SysDepartment', N'tu1201', 222, N'10001001', N'展开', N'Admin', CAST(0x0000A269011DBB44 AS DateTime), CAST(0x0000A3AE00FD20D3 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1409221354139895985a030594898', N'通知中心', N'1307311605187265267d33f281da4', N'SysNotice', N'tu1209', 1111, N'10001007', N'展开', N'Admin', CAST(0x0000A3AE00E51FDC AS DateTime), CAST(0x0000A3AE00F30E8B AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'140922135507916683068629c5d43', N'邮件模板', N'1307311605187265267d33f281da4', N'SysEmailTemp', N'tu0620', 2222, N'10001008', N'展开', N'Admin', CAST(0x0000A3AE00E56037 AS DateTime), NULL, NULL, NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'1409221355486530130826b670994', N'短信模板', N'1307311605187265267d33f281da4', N'SysMessageTemp', N'tu1010', 4444, N'10001010', N'展开', N'Admin', CAST(0x0000A3AE00E58F30 AS DateTime), CAST(0x0000A3AE00EB0927 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'14092213562939634331abbbe7395', N'邮件发送记录', N'1307311605187265267d33f281da4', N'SysEmail', N'tu0520', 3333, N'10001009', N'展开', N'Admin', CAST(0x0000A3AE00E5BF3C AS DateTime), CAST(0x0000A3AE00EAF659 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'14092214142483385492f3a6614c2', N'短信发送记录', N'1307311605187265267d33f281da4', N'SysMessage', N'tu0810', 5555, N'10001011', N'展开', N'Admin', CAST(0x0000A3AE00EAAB00 AS DateTime), CAST(0x0000A3AE00F2E2C8 AS DateTime), N'Admin', NULL)
+INSERT [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson], [IsLeaf]) VALUES (N'140922145246539504969e3105325', N'公告管理', N'1307311605187265267d33f281da4', N'SysAnnouncement', N'tu0605', 1000, N'10001006', N'展开', N'Admin', CAST(0x0000A3AE00F5354A AS DateTime), NULL, NULL, NULL)
 
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281d11', N'异常捕获', N'1307311605187265267d33f281da3', N'SysException', N'tu1101', 666, N'100010001001', NULL, NULL, NULL, '131101 17:56:18.617', N'Admin')
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281d12', N'菜单管理', N'1307311605187265267d33f281da4', N'SysMenu', N'tu0701', 444, N'10001003', NULL, NULL, NULL, '131101 17:16:58.533', N'Admin')
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281da0', N'角色管理', N'1307311605187265267d33f281da4', N'SysRole', N'tu0525', 666, N'10001005', NULL, NULL, NULL, '131101 17:31:19.727', N'Admin')
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281da1', N'日志管理', N'1307311605187265267d33f281da3', N'SysLog', N'tu1001', 555, N'100010001000', NULL, NULL, NULL, '131101 17:56:10.177', N'Admin')
 
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281da8', N'人员管理', N'1307311605187265267d33f281da4', N'SysPerson', N'tu0625', 333, N'10001002', NULL, NULL, NULL, '131101 17:26:32.297', N'Admin')
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281da9', N'数据字典', N'1307311605187265267d33f281da3', N'SysField', N'tu0704', 777, N'100010001002', NULL, NULL, NULL, '131101 14:03:39.163', N'Admin')
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281df2', N'狼奔网站', N'1307311605187265267d33f281da5', N'http://www.langben.com', N'langben', 222, N'10011001', NULL, NULL, NULL, NULL, NULL)
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1310181133541969540a9ad916764', N'操作管理', N'1307311605187265267d33f281da4', N'SysOperation', N'tu0901', 555, N'10001004', NULL, N'Admin', '131018 11:33:54.000', '131101 17:30:59.053', N'Admin')
-INSERT INTO [dbo].[SysMenu] ([Id], [Name], [ParentId], [Url], [Iconic], [Sort], [Remark], [State], [CreatePerson], [CreateTime], [UpdateTime], [UpdatePerson]) VALUES (N'1311011720196053073ccff5a1c7c', N'部门管理', N'1307311605187265267d33f281da4', N'SysDepartment', N'tu1201', 222, N'10001001', NULL, N'Admin', '131101 17:20:19.000', '131106 15:14:48.783', N'Admin')
 
 INSERT INTO [dbo].[SysPerson] ([Id], [Name], [MyName], [Password], [SurePassword], [State], [CreateTime], [CreatePerson], [EmailAddress], [LogonNum],[PageStyle]) VALUES (N'1311061516356389621569df3e24e', N'Admin', N'狼奔', N'8nMmN/pfIBY=', N'8nMmN/pfIBY=',  N'开启', '131106 15:16:35.640', N'Admin', '350020527@qq.com', 2,'default')
 INSERT INTO [dbo].[SysPerson] ([Id], [Name], [MyName], [Password], [SurePassword], [State], [CreateTime], [CreatePerson], [LogonIP], [LogonNum],[PageStyle]) VALUES (N'1311061516356389621569df3e222', N'WangXiaoxia', N'王晓霞', N'8nMmN/pfIBY=', N'8nMmN/pfIBY=',  N'开启', '131106 15:16:35.640', N'Admin', '127.0.0.1', 2,'default')
@@ -36,72 +43,41 @@ INSERT INTO [dbo].[SysOperation] ([Id], [Name], [Function], [Iconic], [Sort], [R
 INSERT INTO [dbo].[SysOperation] ([Id], [Name], [Function], [Iconic], [Sort], [Remark], [State], [CreateTime], [CreatePerson]) VALUES (N'1310181554235506134d5697ad13c', N'删除', N'flexiDelete', N'icon-remove', 333, NULL, NULL, '131018 15:54:23.000', N'Admin')
 INSERT INTO [dbo].[SysOperation] ([Id], [Name], [Function], [Iconic], [Sort], [Remark], [State], [CreateTime], [CreatePerson]) VALUES (N'13101815543634748843f1d3c904c', N'详细', N'getView', N'icon-details', 111, NULL, NULL, '131018 15:54:36.000', N'Admin')
  
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281d12', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281d12', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281d12', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281d12', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da0', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da0', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da0', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da0', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da9', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da9', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da9', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da9', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1310181133541969540a9ad916764', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1310181133541969540a9ad916764', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1310181133541969540a9ad916764', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1310181133541969540a9ad916764', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1311011720196053073ccff5a1c7c', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1311011720196053073ccff5a1c7c', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1311011720196053073ccff5a1c7c', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1311011720196053073ccff5a1c7c', N'13101815543634748843f1d3c904c')
-				  
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'13110615150465633401262dc14e3', N'1311011720196053073ccff5a1c7c', N'1307311605187265267d33f281da6', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'131106151504656334013675b2a93', N'1307311605187265267d33f281da8', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340171513c641', N'1307311605187265267d33f281da9', N'1307311605187265267d33f281da6', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'13110615150465633401a5ebca73a', N'1310181133541969540a9ad916764', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'13110615150465633401e535daba2', N'1311011720196053073ccff5a1c7c', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'131106151504656334028b56f0d04', N'1307311605187265267d33f281d12', N'1307311605187265267d33f281da6', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'13110615150465633402a7ed21318', N'1307311605187265267d33f281da3', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'131106151504656334038557d2978', N'1307311605187265267d33f281da0', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'13110615150465633403f042a0814', N'1307311605187265267d33f281da1', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'131106151504656334045a488eb0f', N'1310181133541969540a9ad916764', N'1307311605187265267d33f281da6', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'131106151504656334045d37ed47e', N'1307311605187265267d33f281da8', N'1307311605187265267d33f281da6', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'131106151504656334060c2cd261e', N'1310181133541969540a9ad916764', N'1307311605187265267d33f281da6', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340679f67d063', N'1307311605187265267d33f281da9', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340708020f6f3', N'1307311605187265267d33f281d12', N'1307311605187265267d33f281da6', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'131106151504656334098c2f900a5', N'1307311605187265267d33f281df2', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'13110615150465633409ac13d561a', N'1307311605187265267d33f281da9', N'1307311605187265267d33f281da6', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340a309fd8a3f', N'1307311605187265267d33f281da8', N'1307311605187265267d33f281da6', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340a71520ecfd', N'1307311605187265267d33f281da9', N'1307311605187265267d33f281da6', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340a9b7537a33', N'1307311605187265267d33f281da8', N'1307311605187265267d33f281da6', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340a9db99e565', N'1311011720196053073ccff5a1c7c', N'1307311605187265267d33f281da6', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340b2ac40c4e9', N'1307311605187265267d33f281da0', N'1307311605187265267d33f281da6', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340b2ecb513c2', N'1307311605187265267d33f281da0', N'1307311605187265267d33f281da6', N'13101815543634748843f1d3c904c')
+INSERT [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'1310181134390713796477e27c097')
+INSERT [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'131018155411503738459acd560d4')
+INSERT [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'1310181554235506134d5697ad13c')
+INSERT [dbo].[SysMenuSysOperation] ([SysMenuId], [SysOperationId]) VALUES (N'1307311605187265267d33f281da8', N'13101815543634748843f1d3c904c')				  
+ 
+ 
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'140922152306417596000a505a5c7', N'1310181133541969540a9ad916764', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'14092215230641759600146c34f1a', N'1307311605187265267d33f281df2', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960068077cc91', N'14092214142483385492f3a6614c2', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'140922152306417596016aea95c9d', N'14092213562939634331abbbe7395', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'14092215230641759601caf26aa48', N'1307311605187265267d33f281da8', N'1310181554235506134d5697ad13c', N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'140922152306417596020a5e90e89', N'1307311605187265267d33f281da0', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'14092215230641759602c559b60c6', N'1409221355486530130826b670994', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'14092215230641759603430b2279a', N'1307311605187265267d33f281da1', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'14092215230641759603501480082', N'140922135507916683068629c5d43', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960400e2b8556', N'1307311605187265267d33f281da4', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'140922152306417596043884e8754', N'1307311605187265267d33f281da8', N'1310181134390713796477e27c097', N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'140922152306417596044cc730e75', N'140922145246539504969e3105325', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960662e399999', N'1307311605187265267d33f281d12', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'140922152306417596066c2b79244', N'1409221354139895985a030594898', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'140922152306417596075a8ca408e', N'1307311605187265267d33f281da8', N'131018155411503738459acd560d4', N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'14092215230641759607bf34aa086', N'1311011720196053073ccff5a1c7c', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'14092215230641759608ca9cdafe7', N'1307311605187265267d33f281da3', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960be97658d59', N'1307311605187265267d33f281da5', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960cd69b4c1ab', N'1307311605187265267d33f281da9', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960d3a4228cc0', N'1307311605187265267d33f281d11', NULL, N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960db2e18c1a0', N'1307311605187265267d33f281da8', N'13101815543634748843f1d3c904c', N'1307311605187265267d33f281da6')
+INSERT [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysOperationId], [SysRoleId]) VALUES (N'1409221523064175960eb253eae45', N'1307311605187265267d33f281da8', NULL, N'1307311605187265267d33f281da6')
 
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340b66180cc5c', N'1307311605187265267d33f281da5', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340b6d60b129f', N'1307311605187265267d33f281d12', N'1307311605187265267d33f281da6', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340ba2c20f446', N'1307311605187265267d33f281d12', N'1307311605187265267d33f281da6', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340ca4225cfe7', N'1307311605187265267d33f281da8', N'1307311605187265267d33f281da6', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340d3c096875c', N'1307311605187265267d33f281da0', N'1307311605187265267d33f281da6', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340ddcca58dee', N'1307311605187265267d33f281da0', N'1307311605187265267d33f281da6', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340e2e79d53aa', N'1307311605187265267d33f281d12', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340e58fbe9cd6', N'1311011720196053073ccff5a1c7c', N'1307311605187265267d33f281da6', N'131018155411503738459acd560d4')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340eb37469ada', N'1310181133541969540a9ad916764', N'1307311605187265267d33f281da6', N'1310181554235506134d5697ad13c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340edb0edff69', N'1307311605187265267d33f281da4', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340f161fa0ed6', N'1307311605187265267d33f281da9', N'1307311605187265267d33f281da6', N'1310181134390713796477e27c097')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340f2e8a15c0a', N'1307311605187265267d33f281d11', N'1307311605187265267d33f281da6', NULL)
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340fa4206c604', N'1311011720196053073ccff5a1c7c', N'1307311605187265267d33f281da6', N'13101815543634748843f1d3c904c')
-INSERT INTO [dbo].[SysMenuSysRoleSysOperation] ([Id], [SysMenuId], [SysRoleId], [SysOperationId]) VALUES (N'1311061515046563340fd4f755ce2', N'1310181133541969540a9ad916764', N'1307311605187265267d33f281da6', N'131018155411503738459acd560d4')
+
 
 INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'1307311105187265267d33f281df3', N'是', NULL, N'SysEmailTemp', N'IsDefault', 111, NULL, NULL, NULL, NULL, NULL)
 INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'1307311105187265267d33f281df4', N'否', NULL, N'SysEmailTemp', N'IsDefault', 222, NULL, NULL, NULL, NULL, NULL)
-INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281d99', N'关闭', NULL, N'SysMenu', N'State', 222, NULL, NULL, NULL, NULL, NULL)
+INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281d99', N'展开', NULL, N'SysMenu', N'State', 111, NULL, NULL, NULL, NULL, NULL)
+INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281999', N'折叠', NULL, N'SysMenu', N'State', 222, NULL, NULL, NULL, NULL, NULL)
 INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281df3', N'开启', NULL, N'SysPerson', N'State', 111, NULL, NULL, NULL, NULL, NULL)
 INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'1307311605187265267d33f281df4', N'关闭', NULL, N'SysPerson', N'State', 222, NULL, NULL, NULL, NULL, NULL)
 INSERT INTO [dbo].[SysField] ([Id], [MyTexts], [ParentId], [MyTables], [MyColums], [Sort], [Remark], [CreateTime], [CreatePerson], [UpdateTime], [UpdatePerson]) VALUES (N'13112209551672144939a6262d8e5', N'男', NULL, N'SysPerson', N'Sex', 111, N'SysPerson男', NULL, N'Admin', NULL, NULL)
@@ -121,19 +97,15 @@ INSERT INTO[dbo].[SysDepartment]([Id],[Name],[ParentId],[Address],[Sort])
 VALUES('1307311605187265267d33f281237','规划','1307311605187265267d33f281236','北京市朝阳区',111)
 INSERT INTO[dbo].[SysDepartment]([Id],[Name],[ParentId],[Address],[Sort])
 VALUES('1307311605187265267d33f281238','招聘','1307311605187265267d33f281236','北京市朝阳区',222)
-INSERT INTO [dbo].[SysAnnouncement]
-           ([Id]
-           ,[Title]
-           ,[Message]
-           ,[State]
-           )
-     VALUES
-           ('1408231959411063352ca07edc847'
-           ,'新系统开通公告'
-           ,'	<br />  尊敬的各位朋友：<br />  &nbsp;&nbsp;&nbsp; 为了给广大客户更好的提供服务，新系统已开通，以全新的面貌为您服务。<br />  &nbsp;&nbsp;&nbsp; 如您遇到任何问题，请拨打我们的客户中心电话<span style="color:#B22222">4000-333-584</span>，我们将竭诚为您提供更优质的服务。<br />  &nbsp;&nbsp;&nbsp; 最后预祝新老客户工作顺利，事业兴旺！<br />  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 狼奔（北京）科技有限公司<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2014年9月6日'
-          ,'开启'
-            )
-            INSERT INTO [dbo].[SysEmailTemp]
+INSERT [dbo].[SysAnnouncement] ([Id], [Title], [Message], [State], [CreateTime], [CreatePerson]) VALUES (N'1408231959411063352ca07edc847', N'新系统开通公告', N'<p><br />
+尊敬的各位朋友：<br />
+&nbsp;&nbsp;&nbsp; 为了给广大客户更好的提供服务，新系统已开通，以全新的面貌为您服务。<br />
+&nbsp;&nbsp;&nbsp; 如您遇到任何问题，请拨打我们的QQ<span style="color:#B22222">350020527</span>，我们将竭诚为您提供更优质的服务。</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 狼奔（北京）科技有限公司<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2014年9月6日</p>
+', N'开启', NULL, NULL)
+INSERT INTO [dbo].[SysEmailTemp]
            ([Id]
            ,[Mail_name]
            ,[Subject]

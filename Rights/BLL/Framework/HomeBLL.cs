@@ -9,7 +9,7 @@ namespace Langben.BLL
     public class HomeBLL : IHomeBLL, IDisposable
     {
         /// <summary>
-        /// 根据PersonId获取已经启用的菜单
+        /// 根据PersonId 获取已经启用的菜单
         /// </summary>
         /// <param name="personId">人员的Id</param>
         /// <returns>菜单拼接的字符串</returns>
