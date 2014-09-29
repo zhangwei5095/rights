@@ -27,8 +27,8 @@ var uploader = WebUploader.create({
         mimeTypes: 'image/*'
     },
     fileNumLimit: 1,
-    fileSizeLimit: 2 * 1024 * 1024,
-    fileSingleSizeLimit: 2 * 1024 * 1024
+    fileSizeLimit:5 * 1024 * 1024,
+    fileSingleSizeLimit: 5 * 1024 * 1024
 });
 uploader.on('fileQueued', function (file) {
     var $li = $(
