@@ -46,3 +46,8 @@ E:\git921\Rights\Common\bin\Debug\Common.dll
 E:\git921\Rights\Common\bin\Debug\Common.pdb
 E:\git921\Rights\Common\obj\Debug\Common.dll
 E:\git921\Rights\Common\obj\Debug\Common.pdb
+E:\work\mvc\git\rights\Rights\Common\bin\Debug\Common.dll
+E:\work\mvc\git\rights\Rights\Common\bin\Debug\Common.pdb
+E:\work\mvc\git\rights\Rights\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\work\mvc\git\rights\Rights\Common\obj\Debug\Common.dll
+E:\work\mvc\git\rights\Rights\Common\obj\Debug\Common.pdb

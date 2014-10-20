@@ -30,6 +30,17 @@ var uploader = WebUploader.create({
     fileSizeLimit:6 * 1024 * 1024,
     fileSingleSizeLimit: 5 * 1024 * 1024
 });
+uploader.on('beforeFileQueued', function (file) {
+    switch (file.ext) {
+        case "gif": return true; break;
+        case "jpg": return true; break;
+        case "jpeg": return true; break;
+        case "bmp": return true; break;
+        case "png": return true; break;
+    }
+    alert("请选择图片文件");
+    return false;
+});
 uploader.on('fileQueued', function (file) {
     var $li = $(
             '<div id="' + file.id + '" class="file-item thumbnail">' +

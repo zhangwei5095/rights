@@ -347,6 +347,47 @@
                 onChangeTheme($.cookie('easyuiThemeName'));
             }
         });
+        function onChangeTheme(themeName) {
+            var themePath;
+            if (themeName.value) {
+                themePath = themeName.value;
+                $.ajax({
+                    type: "get",
+                    url: '/Home/SaveTheme/?theme=' + themePath,
+                    cache: false,
+                    beforeSend: function (XMLHttpRequest) {
+
+                    },
+                    success: function (data, textStatus) {
+                        console.log("皮肤保存成功");
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+
+                    },
+                    error: function () {
+
+                    }
+                });
+            } else {
+                themePath = themeName;
+            }
+            var $easyuiTheme = $('#easyuiTheme');
+            var url = $easyuiTheme.attr('href');
+            var href = url.substring(0, url.indexOf('themes')) + 'themes/' + themePath + '/easyui.css';
+            $easyuiTheme.attr('href', href);
+            //$('#mainCss').attr('href', 'Content/default.css');
+            var $iframe = $('iframe');
+            if ($iframe.length > 0) {
+                for (var i = 0; i < $iframe.length; i++) {
+                    var ifr = $iframe[i];
+                    $(ifr).contents().find('#easyuiTheme').attr('href', href);
+                }
+            }
+            $.parser.parse();
+            $.cookie('easyuiThemeName', themePath, {
+                expires: 60
+            });
+        };
     </script>
 
     <style type="text/css">
@@ -435,10 +476,10 @@
         </div>
 
         <div class="user">
-            @*<div class="uset">
+            <div class="uset">
                 <font>皮肤:</font>
                 <select id="cb-theme" style="width: 150px"></select>
-            </div>*@
+            </div>
             <div class="uset">
                 <a href="http://www.langben.com" target="_blank">帮助中心</a>
             </div>
@@ -456,7 +497,12 @@
 
     <div region="west" hide="true" split="true" title="导航菜单" style="width: 180px;" id="west">
         <div id="leftAccordion" class="easyui-accordion" fit="true" border="false">
-            @Html.Raw(ViewData["Menu"].ToString())
+            @{
+                if (ViewData["Menu"]!=null)
+                {
+                    @Html.Raw(ViewData["Menu"].ToString())
+                }
+             }
         </div>
     </div>
     <div id="mainPanle" region="center" style="background: #eee; overflow-y: hidden;">
