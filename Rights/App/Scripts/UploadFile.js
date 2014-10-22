@@ -31,7 +31,7 @@ var uploader = WebUploader.create({
     fileSingleSizeLimit: 5 * 1024 * 1024
 });
 uploader.on('beforeFileQueued', function (file) {
-    switch (file.ext) {
+    switch (file.ext.toLowerCase()) {
         case "gif": return true; break;
         case "jpg": return true; break;
         case "jpeg": return true; break;
