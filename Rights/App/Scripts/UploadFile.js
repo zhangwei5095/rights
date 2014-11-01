@@ -32,11 +32,11 @@ var uploader = WebUploader.create({
 });
 uploader.on('beforeFileQueued', function (file) {
     switch (file.ext.toLowerCase()) {
-        case "gif": return true; break;
-        case "jpg": return true; break;
-        case "jpeg": return true; break;
-        case "bmp": return true; break;
-        case "png": return true; break;
+        case "gif": return true;  
+        case "jpg": return true; 
+        case "jpeg": return true; 
+        case "bmp": return true; 
+        case "png": return true;  
     }
     alert("请选择图片文件");
     return false;
@@ -98,7 +98,4 @@ uploader.on('uploadError', function (file) {
     $error.text('上传失败');
 });
 
-// 完成上传完了，成功或者失败，先删除进度条。
-uploader.on('uploadComplete', function (file) {
-    //$('#' + file.id).find('.progress').remove();
-});
+ 

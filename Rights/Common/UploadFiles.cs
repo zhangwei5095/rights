@@ -65,49 +65,7 @@ namespace Common
           }
           return "{\"jsonrpc\" : \"" + ramName + "\", \"result\" : \"" + serverFileName + "\"}";
       }
-      /// <summary>
-      /// 上传文件
-      /// </summary>
-      /// <param name="fileByte"></param>
-      /// <param name="fileName"></param>
-      /// <returns></returns>
-        public string UploadFile(byte[] fileByte, string fileName)
-        {
-            string ramName = fileName.Substring(0, fileName.LastIndexOf('.'));
-            string fileExt = GetPostfixStr(fileName); //文件扩展名，不含“.”
-            string ramFileName = GetFileNameByTime() + "." + fileExt; //随机文件名
-            string dirPath = GetUpLoadPath(); //上传目录相对路径
-            string serverFileName = dirPath + ramFileName;
-            //物理完整路径                    
-            string toFileFullPath = GetMapPath(dirPath);
-            //检查有该路径是否就创建
-            if (!Directory.Exists(toFileFullPath))
-            {
-                Directory.CreateDirectory(toFileFullPath);
-            }
-            try
-            {
-                if (fileByte.Length > 0)
-                {
-                    string totalPath = toFileFullPath + ramFileName;
-                    FileStream fs = new FileStream(totalPath, FileMode.Create, FileAccess.Write);
-                    BinaryWriter bw = new BinaryWriter(fs);
-                    bw.Write(fileByte);
-                    bw.Flush();
-                    bw.Close();
-                    fs.Close();
-                }
-                else
-                {
-                    return "{\"jsonrpc\" : \"2.0\", \"result\" : \"无数据\"}";
-                }
-            }
-            catch
-            {
-                return "{\"jsonrpc\" : \"2.0\", \"result\" : \"上传错误\"}";
-            }
-            return "{\"jsonrpc\" : \"" + ramName + "\", \"result\" : \"" + serverFileName + "\"}";
-        }
+  
         /// <summary>
         /// 返回上传目录相对路径
         /// </summary>
