@@ -1,0 +1,16 @@
+F:\gits\rights\Rights\App\obj\Debug\App.csprojResolveAssemblyReference.cache
+F:\gits\rights\Rights\App\bin\App.dll.config
+F:\gits\rights\Rights\App\bin\App.dll
+F:\gits\rights\Rights\App\bin\App.pdb
+F:\gits\rights\Rights\App\bin\BLL.dll
+F:\gits\rights\Rights\App\bin\Common.dll
+F:\gits\rights\Rights\App\bin\DAL.dll
+F:\gits\rights\Rights\App\bin\IBLL.dll
+F:\gits\rights\Rights\App\bin\Microsoft.Web.Infrastructure.dll
+F:\gits\rights\Rights\App\bin\Newtonsoft.Json.dll
+F:\gits\rights\Rights\App\bin\BLL.pdb
+F:\gits\rights\Rights\App\bin\Common.pdb
+F:\gits\rights\Rights\App\bin\DAL.pdb
+F:\gits\rights\Rights\App\bin\IBLL.pdb
+F:\gits\rights\Rights\App\obj\Debug\App.dll
+F:\gits\rights\Rights\App\obj\Debug\App.pdb

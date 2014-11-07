@@ -144,3 +144,13 @@ E:\git20141022\rights\Rights\IBLL\bin\Debug\DAL.pdb
 E:\git20141022\rights\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
 E:\git20141022\rights\Rights\IBLL\obj\Debug\IBLL.dll
 E:\git20141022\rights\Rights\IBLL\obj\Debug\IBLL.pdb
+F:\gits\rights\Rights\IBLL\bin\Debug\IBLL.dll
+F:\gits\rights\Rights\IBLL\bin\Debug\IBLL.pdb
+F:\gits\rights\Rights\IBLL\bin\Debug\Common.dll
+F:\gits\rights\Rights\IBLL\bin\Debug\DAL.dll
+F:\gits\rights\Rights\IBLL\bin\Debug\EntityFramework.dll
+F:\gits\rights\Rights\IBLL\bin\Debug\Common.pdb
+F:\gits\rights\Rights\IBLL\bin\Debug\DAL.pdb
+F:\gits\rights\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
+F:\gits\rights\Rights\IBLL\obj\Debug\IBLL.dll
+F:\gits\rights\Rights\IBLL\obj\Debug\IBLL.pdb

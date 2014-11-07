@@ -131,3 +131,11 @@ E:\git20141022\rights\Rights\DAL\bin\Debug\Common.pdb
 E:\git20141022\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\git20141022\rights\Rights\DAL\obj\Debug\DAL.dll
 E:\git20141022\rights\Rights\DAL\obj\Debug\DAL.pdb
+F:\gits\rights\Rights\DAL\bin\Debug\DAL.dll.config
+F:\gits\rights\Rights\DAL\bin\Debug\DAL.dll
+F:\gits\rights\Rights\DAL\bin\Debug\DAL.pdb
+F:\gits\rights\Rights\DAL\bin\Debug\Common.dll
+F:\gits\rights\Rights\DAL\bin\Debug\Common.pdb
+F:\gits\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\gits\rights\Rights\DAL\obj\Debug\DAL.dll
+F:\gits\rights\Rights\DAL\obj\Debug\DAL.pdb

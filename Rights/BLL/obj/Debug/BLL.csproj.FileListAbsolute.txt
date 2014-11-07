@@ -151,3 +151,14 @@ E:\git20141022\rights\Rights\BLL\bin\Debug\IBLL.pdb
 E:\git20141022\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 E:\git20141022\rights\Rights\BLL\obj\Debug\BLL.dll
 E:\git20141022\rights\Rights\BLL\obj\Debug\BLL.pdb
+F:\gits\rights\Rights\BLL\bin\Debug\BLL.dll
+F:\gits\rights\Rights\BLL\bin\Debug\BLL.pdb
+F:\gits\rights\Rights\BLL\bin\Debug\Common.dll
+F:\gits\rights\Rights\BLL\bin\Debug\DAL.dll
+F:\gits\rights\Rights\BLL\bin\Debug\IBLL.dll
+F:\gits\rights\Rights\BLL\bin\Debug\Common.pdb
+F:\gits\rights\Rights\BLL\bin\Debug\DAL.pdb
+F:\gits\rights\Rights\BLL\bin\Debug\IBLL.pdb
+F:\gits\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\gits\rights\Rights\BLL\obj\Debug\BLL.dll
+F:\gits\rights\Rights\BLL\obj\Debug\BLL.pdb
