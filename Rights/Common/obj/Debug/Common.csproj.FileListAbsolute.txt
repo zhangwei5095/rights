@@ -69,3 +69,7 @@ D:\Documents\GitHub\rights\Rights\Common\bin\Debug\Common.dll
 D:\Documents\GitHub\rights\Rights\Common\bin\Debug\Common.pdb
 D:\Documents\GitHub\rights\Rights\Common\obj\Debug\Common.dll
 D:\Documents\GitHub\rights\Rights\Common\obj\Debug\Common.pdb
+F:\codes\rights\Rights\Common\bin\Debug\Common.dll
+F:\codes\rights\Rights\Common\bin\Debug\Common.pdb
+F:\codes\rights\Rights\Common\obj\Debug\Common.dll
+F:\codes\rights\Rights\Common\obj\Debug\Common.pdb

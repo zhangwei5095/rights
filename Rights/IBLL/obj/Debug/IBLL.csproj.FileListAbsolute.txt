@@ -174,3 +174,13 @@ D:\Documents\GitHub\rights\Rights\IBLL\bin\Debug\DAL.pdb
 D:\Documents\GitHub\rights\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\rights\Rights\IBLL\obj\Debug\IBLL.dll
 D:\Documents\GitHub\rights\Rights\IBLL\obj\Debug\IBLL.pdb
+F:\codes\rights\Rights\IBLL\bin\Debug\IBLL.dll
+F:\codes\rights\Rights\IBLL\bin\Debug\IBLL.pdb
+F:\codes\rights\Rights\IBLL\bin\Debug\Common.dll
+F:\codes\rights\Rights\IBLL\bin\Debug\DAL.dll
+F:\codes\rights\Rights\IBLL\bin\Debug\EntityFramework.dll
+F:\codes\rights\Rights\IBLL\bin\Debug\Common.pdb
+F:\codes\rights\Rights\IBLL\bin\Debug\DAL.pdb
+F:\codes\rights\Rights\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
+F:\codes\rights\Rights\IBLL\obj\Debug\IBLL.dll
+F:\codes\rights\Rights\IBLL\obj\Debug\IBLL.pdb

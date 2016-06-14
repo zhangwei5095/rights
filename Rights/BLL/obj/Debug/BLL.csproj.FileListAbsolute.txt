@@ -184,3 +184,14 @@ D:\Documents\GitHub\rights\Rights\BLL\bin\Debug\IBLL.pdb
 D:\Documents\GitHub\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\rights\Rights\BLL\obj\Debug\BLL.dll
 D:\Documents\GitHub\rights\Rights\BLL\obj\Debug\BLL.pdb
+F:\codes\rights\Rights\BLL\bin\Debug\BLL.dll
+F:\codes\rights\Rights\BLL\bin\Debug\BLL.pdb
+F:\codes\rights\Rights\BLL\bin\Debug\Common.dll
+F:\codes\rights\Rights\BLL\bin\Debug\DAL.dll
+F:\codes\rights\Rights\BLL\bin\Debug\IBLL.dll
+F:\codes\rights\Rights\BLL\bin\Debug\Common.pdb
+F:\codes\rights\Rights\BLL\bin\Debug\DAL.pdb
+F:\codes\rights\Rights\BLL\bin\Debug\IBLL.pdb
+F:\codes\rights\Rights\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\codes\rights\Rights\BLL\obj\Debug\BLL.dll
+F:\codes\rights\Rights\BLL\obj\Debug\BLL.pdb
