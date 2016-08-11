@@ -22,3 +22,11 @@
 *.x86_64
 *.hex
 
+/Rights/IBLL/obj/Debug
+/Rights/IBLL/bin/Debug
+/Rights/Common/obj/Debug
+/Rights/Common/bin/Debug
+/Rights/BLL/obj/Debug
+/Rights/App/obj/Debug
+/Rights/BLL/bin/Debug
+/Rights/App/bin
