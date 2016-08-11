@@ -73,11 +73,11 @@ namespace Models
                 {
                     newHtmlAttributes.Add("checked", "checked");
                 }
-                TagBuilder tagBuilder = new TagBuilder("input");
-                tagBuilder.MergeAttributes<string, object>(newHtmlAttributes);
-                string inputAllHtml = tagBuilder.ToString(TagRenderMode.SelfClosing);
+                //TagBuilder tagBuilder = new TagBuilder("input");
+                //tagBuilder.MergeAttributes<string, object>(newHtmlAttributes);
+                //string inputAllHtml = tagBuilder.ToString(TagRenderMode.SelfClosing);
                 stringBuilder.AppendFormat(@"<label style=""margin:0 0 0 10px;""> {0}  {1}</label>",
-                   inputAllHtml, selectItem.Text);
+                   "", selectItem.Text);
             }
             return MvcHtmlString.Create(stringBuilder.ToString());
         }
