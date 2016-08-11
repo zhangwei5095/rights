@@ -163,3 +163,15 @@ F:\codes\rights\Rights\DAL\bin\Debug\Common.pdb
 F:\codes\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 F:\codes\rights\Rights\DAL\obj\Debug\DAL.dll
 F:\codes\rights\Rights\DAL\obj\Debug\DAL.pdb
+D:\codes\rights\Rights\DAL\bin\Debug\DAL.dll.config
+D:\codes\rights\Rights\DAL\bin\Debug\DAL.dll
+D:\codes\rights\Rights\DAL\bin\Debug\DAL.pdb
+D:\codes\rights\Rights\DAL\bin\Debug\Common.dll
+D:\codes\rights\Rights\DAL\bin\Debug\EntityFramework.dll
+D:\codes\rights\Rights\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\codes\rights\Rights\DAL\bin\Debug\Common.pdb
+D:\codes\rights\Rights\DAL\bin\Debug\EntityFramework.xml
+D:\codes\rights\Rights\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\codes\rights\Rights\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\codes\rights\Rights\DAL\obj\Debug\DAL.dll
+D:\codes\rights\Rights\DAL\obj\Debug\DAL.pdb
