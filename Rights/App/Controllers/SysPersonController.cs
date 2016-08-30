@@ -239,7 +239,7 @@ namespace Langben.App.Controllers
 
                 //如果修改了密码，就将密码加密 2016830
                 IBLL.IAccountBLL accountBLL = new AccountBLL();
-                if (null == (accountBLL.ValidateUser(currentPerson, entity.Password)))
+                if (null == (accountBLL.ValidateUser(entity.Name, entity.Password)))
                 {
                     entity.Password = EncryptAndDecrypte.EncryptString(entity.Password);
                     entity.SurePassword = EncryptAndDecrypte.EncryptString(entity.SurePassword);
