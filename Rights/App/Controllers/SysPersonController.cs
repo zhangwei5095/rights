@@ -145,7 +145,11 @@ namespace Langben.App.Controllers
                 entity.CreateTime = DateTime.Now;
                 entity.CreatePerson = currentPerson;
               
-                entity.Id = Result.GetNewId();   
+                entity.Id = Result.GetNewId();
+
+                entity.Password = EncryptAndDecrypte.EncryptString(entity.Password);
+                entity.SurePassword = EncryptAndDecrypte.EncryptString(entity.SurePassword);
+
                 string returnValue = string.Empty;
                 if (m_BLL.Create(ref validationErrors, entity))
                 {
@@ -204,7 +208,10 @@ namespace Langben.App.Controllers
                 string currentPerson = GetCurrentPerson();                 
                 entity.UpdateTime = DateTime.Now;
                 entity.UpdatePerson = currentPerson;
-                           
+
+                entity.Password = EncryptAndDecrypte.EncryptString(entity.Password);
+                entity.SurePassword = EncryptAndDecrypte.EncryptString(entity.SurePassword);
+
                 string returnValue = string.Empty;   
                 if (m_BLL.Edit(ref validationErrors, entity))
                 {
