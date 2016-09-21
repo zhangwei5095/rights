@@ -26,10 +26,10 @@ namespace Langben.App.Controllers
         [SupportFilter]
         public ActionResult Index()
         {
-        
+
             return View();
         }
-         /// <summary>
+        /// <summary>
         /// 列表
         /// </summary>
         /// <returns></returns>
@@ -59,34 +59,61 @@ namespace Langben.App.Controllers
                 rows = queryData.Select(s => new
                 {
                     Id = s.Id
-					,Name = s.Name
-					,MyName = s.MyName
-					,Password = s.Password
-					,SurePassword = s.SurePassword
-					,Sex = s.Sex
-					,SysDepartmentId =   s.SysDepartmentIdOld
-					,Position = s.Position
-					,MobilePhoneNumber = s.MobilePhoneNumber
-					,PhoneNumber = s.PhoneNumber
-					,Province = s.Province
-					,City = s.City
-					,Village = s.Village
-					,Address = s.Address
-					,EmailAddress = s.EmailAddress
-					,Remark = s.Remark
-					,State = s.State
-					,CreateTime = s.CreateTime
-					,CreatePerson = s.CreatePerson
-					,UpdateTime = s.UpdateTime
-					,LogonNum = s.LogonNum
-					,LogonTime = s.LogonTime
-					,LogonIP = s.LogonIP
-					,LastLogonTime = s.LastLogonTime
-					,LastLogonIP = s.LastLogonIP
-					,PageStyle = s.PageStyle
-					,UpdatePerson = s.UpdatePerson
-					,Version = s.Version
-					
+                    ,
+                    Name = s.Name
+                    ,
+                    MyName = s.MyName
+                    ,
+                    Password = s.Password
+                    ,
+                    SurePassword = s.SurePassword
+                    ,
+                    Sex = s.Sex
+                    ,
+                    SysDepartmentId = s.SysDepartmentIdOld
+                    ,
+                    Position = s.Position
+                    ,
+                    MobilePhoneNumber = s.MobilePhoneNumber
+                    ,
+                    PhoneNumber = s.PhoneNumber
+                    ,
+                    Province = s.Province
+                    ,
+                    City = s.City
+                    ,
+                    Village = s.Village
+                    ,
+                    Address = s.Address
+                    ,
+                    EmailAddress = s.EmailAddress
+                    ,
+                    Remark = s.Remark
+                    ,
+                    State = s.State
+                    ,
+                    CreateTime = s.CreateTime
+                    ,
+                    CreatePerson = s.CreatePerson
+                    ,
+                    UpdateTime = s.UpdateTime
+                    ,
+                    LogonNum = s.LogonNum
+                    ,
+                    LogonTime = s.LogonTime
+                    ,
+                    LogonIP = s.LogonIP
+                    ,
+                    LastLogonTime = s.LastLogonTime
+                    ,
+                    LastLogonIP = s.LastLogonIP
+                    ,
+                    PageStyle = s.PageStyle
+                    ,
+                    UpdatePerson = s.UpdatePerson
+                    ,
+                    Version = s.Version
+
                 }
 
                     )
@@ -103,22 +130,22 @@ namespace Langben.App.Controllers
             string[] titles = title.Split(',');//如果确定显示的名称，可以直接定义
             string[] fields = field.Split(',');
             List<SysPerson> queryData = m_BLL.GetByParam(id, sortOrder, sortName, search);
-             
-            return Content(WriteExcle(titles, fields, queryData.ToArray()));  
+
+            return Content(WriteExcle(titles, fields, queryData.ToArray()));
         }
         /// <summary>
         /// 查看详细
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [SupportFilter]  
+        [SupportFilter]
         public ActionResult Details(string id)
         {
             SysPerson item = m_BLL.GetById(id);
             return View(item);
 
         }
- 
+
         /// <summary>
         /// 首次创建
         /// </summary>
@@ -138,23 +165,28 @@ namespace Langben.App.Controllers
         [HttpPost]
         [SupportFilter]
         public ActionResult Create(SysPerson entity)
-        {           
+        {
             if (entity != null && ModelState.IsValid)
             {
                 string currentPerson = GetCurrentPerson();
                 entity.CreateTime = DateTime.Now;
                 entity.CreatePerson = currentPerson;
-              
-                entity.Id = Result.GetNewId();   
+
+                entity.Id = Result.GetNewId();
+
+                //将密码加密 2016830
+                entity.Password = EncryptAndDecrypte.EncryptString(entity.Password);
+                entity.SurePassword = EncryptAndDecrypte.EncryptString(entity.SurePassword);
+
                 string returnValue = string.Empty;
                 if (m_BLL.Create(ref validationErrors, entity))
                 {
-                    LogClassModels.WriteServiceLog(Suggestion.InsertSucceed  + "，人员的信息的Id为" + entity.Id,"人员"
+                    LogClassModels.WriteServiceLog(Suggestion.InsertSucceed + "，人员的信息的Id为" + entity.Id, "人员"
                         );//写入日志 
                     return Json(Suggestion.InsertSucceed);
                 }
                 else
-                { 
+                {
                     if (validationErrors != null && validationErrors.Count > 0)
                     {
                         validationErrors.All(a =>
@@ -163,9 +195,9 @@ namespace Langben.App.Controllers
                             return true;
                         });
                     }
-                    LogClassModels.WriteServiceLog(Suggestion.InsertFail + "，人员的信息，" + returnValue,"人员"
+                    LogClassModels.WriteServiceLog(Suggestion.InsertFail + "，人员的信息，" + returnValue, "人员"
                         );//写入日志                      
-                    return Json(Suggestion.InsertFail  + returnValue); //提示插入失败
+                    return Json(Suggestion.InsertFail + returnValue); //提示插入失败
                 }
             }
 
@@ -176,7 +208,7 @@ namespace Langben.App.Controllers
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns></returns> 
-        [SupportFilter] 
+        [SupportFilter]
         public ActionResult Edit(string id)
         {
             SysPerson item = m_BLL.GetById(id);
@@ -197,24 +229,31 @@ namespace Langben.App.Controllers
             {   //数据校验
 
                 string oldPic = Request.Form["OldPic"];
-                if (entity.HDpic!=oldPic)//修改头像删除老的头像文件
+                if (entity.HDpic != oldPic)//修改头像删除老的头像文件
                 {
                     DirFile.DeleteFile(oldPic);
                 }
-                string currentPerson = GetCurrentPerson();                 
+                string currentPerson = GetCurrentPerson();
                 entity.UpdateTime = DateTime.Now;
                 entity.UpdatePerson = currentPerson;
-                           
-                string returnValue = string.Empty;   
+
+                //如果修改了密码，就将密码加密 2016830
+                IBLL.IAccountBLL accountBLL = new AccountBLL();
+                if (null == (accountBLL.ValidateUser(entity.Name, entity.Password)))
+                {
+                    entity.Password = EncryptAndDecrypte.EncryptString(entity.Password);
+                    entity.SurePassword = EncryptAndDecrypte.EncryptString(entity.SurePassword);
+                }
+                string returnValue = string.Empty;
                 if (m_BLL.Edit(ref validationErrors, entity))
                 {
-                    LogClassModels.WriteServiceLog(Suggestion.UpdateSucceed + "，人员信息的Id为" + id,"人员"
+                    LogClassModels.WriteServiceLog(Suggestion.UpdateSucceed + "，人员信息的Id为" + id, "人员"
                         );//写入日志    
-                    App.Codes.MenuCaching.ClearCache(id);   
+                    App.Codes.MenuCaching.ClearCache(id);   //清除缓存
                     return Json(Suggestion.UpdateSucceed); //提示更新成功 
                 }
                 else
-                { 
+                {
                     if (validationErrors != null && validationErrors.Count > 0)
                     {
                         validationErrors.All(a =>
@@ -225,11 +264,11 @@ namespace Langben.App.Controllers
                     }
                     LogClassModels.WriteServiceLog(Suggestion.UpdateFail + "，人员信息的Id为" + id + "," + returnValue, "人员"
                         );//写入日志                           
-                    return Json(Suggestion.UpdateFail  + returnValue); //提示更新失败
+                    return Json(Suggestion.UpdateFail + returnValue); //提示更新失败
                 }
             }
             return Json(Suggestion.UpdateFail + "请核对输入的数据的格式"); //提示输入的数据的格式不对               
-          
+
         }
         /// <summary>
         /// 删除
@@ -242,7 +281,7 @@ namespace Langben.App.Controllers
             string returnValue = string.Empty;
             string[] deleteId = collection["query"].GetString().Split(',');
             if (deleteId != null && deleteId.Length > 0)
-            { 
+            {
                 if (m_BLL.DeleteCollection(ref validationErrors, deleteId))
                 {
                     LogClassModels.WriteServiceLog(Suggestion.DeleteSucceed + "，信息的Id为" + string.Join(",", deleteId), "消息"
@@ -260,13 +299,13 @@ namespace Langben.App.Controllers
                             return true;
                         });
                     }
-                    LogClassModels.WriteServiceLog(Suggestion.DeleteFail + "，信息的Id为" + string.Join(",", deleteId)+ "," + returnValue, "消息"
+                    LogClassModels.WriteServiceLog(Suggestion.DeleteFail + "，信息的Id为" + string.Join(",", deleteId) + "," + returnValue, "消息"
                         );//删除失败，写入日志
                 }
             }
             return Json(returnValue);
         }
-     
+
         IBLL.ISysPersonBLL m_BLL;
 
         ValidationErrors validationErrors = new ValidationErrors();
@@ -278,7 +317,7 @@ namespace Langben.App.Controllers
         {
             m_BLL = bll;
         }
-        
+
     }
 }
 

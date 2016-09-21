@@ -41,7 +41,8 @@ namespace Langben.BLL
                     return person;
                 }
 
-            } return null;
+            }
+            return null;
         }
         /// <summary>
         /// 修改密码
@@ -56,8 +57,8 @@ namespace Langben.BLL
             {
                 try
                 {
-                 string   oldPasswordEncryptString = EncryptAndDecrypte.EncryptString(oldPassword);
-                string    newPasswordEncryptString = EncryptAndDecrypte.EncryptString(newPassword);
+                    string oldPasswordEncryptString = EncryptAndDecrypte.EncryptString(oldPassword);
+                    string newPasswordEncryptString = EncryptAndDecrypte.EncryptString(newPassword);
 
                     using (SysEntities db = new SysEntities())
                     {
@@ -65,7 +66,7 @@ namespace Langben.BLL
                         person.Password = newPasswordEncryptString;
                         person.SurePassword = newPasswordEncryptString;
                         if (!string.IsNullOrWhiteSpace(person.EmailAddress))
-                        { 
+                        {
                             NetSendMail.MailSendChangePassword(db, person.EmailAddress, personName, newPassword);
                             //发送通知的邮件
 
